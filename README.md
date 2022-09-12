@@ -11,6 +11,6 @@ You can learn more [here](https://aicamp.notion.site/IncSkill-Website-Product-Sp
 ## Tech Stack
 We will be using Amazon web services to deploy and host our project. We’re using Django for Python as our backend framework. We chose this instead of JS because our engineers are more familiar with Python than JS. For the frontend, we’re using Bootstrap.
 ## Project Status
-The project is currently in early stages of development. We plan on have a Minimum Viable Product by mid-October. 
+The project is currently in early stages of development. We plan to have a Minimum Viable Product by mid-October. 
 ## Launch
 There will be a link here when the Minimum Viable Product is complete.
