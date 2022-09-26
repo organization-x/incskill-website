@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+   <div class="container" id="loginInput">
+    <h2 style="border:solid; border-width:3px">Login</h2>
+    <form method='post'>
+      {% csrf_token %}
+      {{ form.as_p}}
+      <div class="form-check mb-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
+          <!--submit button--> 
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+  <div class="Mission"><h3>Incskill's Mission</h3>
+  <h4>IncSkill works with the Washington State Dept. of Services for the Blind (henceforth DSB) and offers courses in web development and software engineering for their clients. Students need a place where they can navigate through their courses easily and efficiently, keeping in mind accessibility. The main focus will be on those with visual impairment including individuals with color blindness, full blindness, and blurred vision. These individuals often are not able to as easily access learning materials, especially in fields so reliant on text, such as Computer Science. The goal will be to allow these individuals to better access learning materials in these fields. Monitoring each student’s progress is also important for the DSB as well so having a place that both students and agencies that work with these students can use is very important.</h4>
+  
+  </div>
+{% endblock %}
