@@ -1,11 +1,24 @@
 .topnav {
-  background-color: #333;
-  overflow: hidden;
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+ 
+  border-radius: 25px;
+  width: auto;
+}
+
+body{
+
+position: cover;
+width: 1924px;
+height: 2000px;
+left: -4px;
+top: 0px;
+overflow: hidden;
+background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  flex-shrink: 2;
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -13,7 +26,7 @@
   text-decoration: none;
   font-size: 17px;
    font-family: Arial, Helvetica, sans-serif;
-  border-radius: 25px;
+   border-radius: 25px;
 }
 
 /* Change the color of links on hover */
@@ -21,77 +34,69 @@
   background-color: #ddd;
   color: black;
 }
+h4{
+
+position: flex;
+left: 0px;
+top: 80000px;
+float: left;
+
+color: white;
+
+}
+h6{
+position: flex;
+text-align: center;
+left: 235px;
+top: 545px;
+align-content: center;
+color: white;
+
+
+}
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-image: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png");
+  background-color: #1a2240;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 form {
-  border: 3px solid #000000;
+  position: absolute;
+  right: 350px;
+  top: 300px;
+  color: #f2f2f2;
+  width: 400px;
+  box-sizing: border-box;
 }
-
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
   font-family: Arial, Helvetica, sans-serif;
-  width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  width: 400px;
+  color: white;
   display: inline-block;
-  border: 1px solid rgb(0, 0, 0);
+  height: auto;
   box-sizing: border-box;
-  border-radius: 15px;
+  
 }
 
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  
-  
-  
-}
-h2 {font-family: Arial, Helvetica, sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
- border-radius: 15px;
- color: black;
-  background-color: white;
-}
-h3 {font-family: Arial, Helvetica, sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
- 
- color: white;
-  background-color: black;
-  border-radius: 25px;
-}
-p{
-font-family: Arial, Helvetica, sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-}
 /* Set a style for all buttons */
 button {
-  background-color: #000000;
-  color: white;
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  border-radius: 25px;
+  color: #ffffff;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  border-radius: 25px;
 }
 
 /* Add a hover effect for buttons */
 button:hover {
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
 /* Extra style for the cancel button (red) */
@@ -101,12 +106,12 @@ button:hover {
   background-color: #f44336;
 }
 
+
 /* Center the avatar image inside this container */
 .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 /* Avatar image */
@@ -114,28 +119,12 @@ button:hover {
 
 /* Add padding to containers */
 .container {
-  
-  padding: 50px;
-  
-  background-image: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-031.jpg");
-  
+  padding: 0px;
+  width: 1000px;
+  height: auto;
+  color: white;
+}
 
-  
-}
-.Mission{
- 
- background-color: black;
- margin: 300px  450px;
-  text-align: center;
-  align-items: center;
-  
-   background-image: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png");
-   width: 50%;
-  height: 400px;
-  border-radius: 25px;
-  
-  
-}
 /* The "Forgot password" text */
 span.psw {
   float: right;
@@ -153,7 +142,9 @@ span.psw {
     width: 100%;
   }
 }
-img.profile{
-position:relative; left: 1500px; top:2px;
-border-radius: 25px;
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+img.bg {
+  left: 50%;
+  margin-left: -512px;   /* 50% */
+}
 }
