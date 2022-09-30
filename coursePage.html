@@ -1,0 +1,74 @@
+<head>
+    <!--this is an alternate nav bar with the styling css classes already assigne, with color, was unable to style previous nav bar-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>IncSkill</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="topnav">
+    <a class="navbar-brand" href="#">Logo Here</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link active" href="#">Courses</a>
+        <a class="nav-link active" href="#">Progress</a>
+        <a class="nav-link active" href="#">Username</a>
+    </div>
+</div>
+
+<nav aria-label="breadcrumb" id="easyNav">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="homepage.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page" >My Courses</li>
+    </ol>
+</nav>
+
+<h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
+    My Courses
+</h2>
+
+
+<div class="text-center">
+    <a class="btn btn-primary" href="courseOne.html" id="courseBtn">
+        <p id="courseTxt">Introduction to Software Engineering</p>
+        <br>
+        <br>
+        <span class="progress progress-bar bg-success" style="width: 40%" id="progressBar">Progress 100%</span>
+    </a>
+</div>
+
+
+
+
+
+<style>
+    .btn {
+        width: 70%;
+        height: 15%;
+        background-color: #233854;
+    }
+
+    #courseTxt {
+        font-size: 24px;
+        text-align: start;
+        padding-left: 1%;
+        padding-top: 1%;
+
+    }
+
+    #progressbar {
+        float: right;
+        height: 20%;
+    }
+
+    #courseBtn {
+        padding-bottom: 2%;
+    }
+
+    #easyNav{
+        padding-left: 11%;
+        padding-top: 1%;
+    }
+</style>
