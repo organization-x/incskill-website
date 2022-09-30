@@ -36,20 +36,20 @@ background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.
 }
 h4{
 
-position: flex;
-left: 0px;
-top: 80000px;
-float: left;
-
+position: absolute;
+  left: 300px;
+top: 260px;
+text-align: center;
+align-content: center;
 color: white;
-
+image-rendering: auto;
 }
 h6{
-position: flex;
-text-align: center;
-left: 235px;
-top: 545px;
-align-content: center;
+position: absolute;
+
+left: 160px;
+top: 480px;
+
 color: white;
 
 
