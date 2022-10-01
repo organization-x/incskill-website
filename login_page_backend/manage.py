@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+''' How to run this as a website:
+make your current directory C:\Users\...\incskill-website\login_page_backend
+Run the following command: py -3 manage.py runserver
+Copy and paste the link created in your terminal
+'''
+
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
