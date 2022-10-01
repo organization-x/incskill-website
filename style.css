@@ -35,25 +35,28 @@ background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.
   color: black;
 }
 h4{
-
+  
 position: absolute;
-  left: 300px;
+  left: 430px;
 top: 260px;
 text-align: center;
 align-content: center;
 color: white;
 image-rendering: auto;
+width: fit-content;
 }
 h6{
+  display: flex;
 position: absolute;
-
-left: 160px;
-top: 480px;
+text-align: center;
+left: 380px;
+top: 570px;
 
 color: white;
 
 
 }
+
 
 /* Add a color to the active/current link */
 .topnav a.active {
@@ -68,6 +71,8 @@ form {
   color: #f2f2f2;
   width: 400px;
   box-sizing: border-box;
+  
+  
 }
 
 /* Full-width inputs */
@@ -78,6 +83,7 @@ input[type=text], input[type=password] {
   display: inline-block;
   height: auto;
   box-sizing: border-box;
+  display: flex;
   
 }
 
@@ -92,6 +98,7 @@ button {
   cursor: pointer;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
 }
 
 /* Add a hover effect for buttons */
