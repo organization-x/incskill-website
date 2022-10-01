@@ -55,12 +55,18 @@ top: 570px;
 color: white;
 
 
-}
 
+}
+#button{
+  position: absolute;
+  left: 0%;
+  margin-top: 400px;
+  color: #ffffff;
+}
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #1a2240;
+  background-color: #3b4568;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -73,6 +79,11 @@ form {
   box-sizing: border-box;
   
   
+}
+h2{
+  color: #f2f2f2;
+  position: absolute;
+  top: 140px;
 }
 
 /* Full-width inputs */
@@ -130,6 +141,7 @@ button:hover {
   width: 1000px;
   height: auto;
   color: white;
+  
 }
 
 /* The "Forgot password" text */
@@ -155,3 +167,40 @@ img.bg {
   margin-left: -512px;   /* 50% */
 }
 }
+
+    #unitBtn {
+      position: absolute;
+        width: 70%;
+        text-align: start;
+        left: 350px;
+        top: 420px;
+        
+    }
+    
+
+    #courseBtn {
+        text-align: start;
+        padding-left: 18%;
+        left: 350px;
+        top: 650px;
+        
+    }
+
+    .progress {
+        display: inline;
+        top: 650px;
+        left: 350px;
+    }
+
+    #easyNav{
+        color: #080D32;
+        top: 650px;
+        left: 350px;
+    }
+    .collapse{
+      position: absolute;
+      left: 350px;
+      top: 450px;
+    }
+
+
