@@ -83,7 +83,7 @@ form {
 h2{
   color: #f2f2f2;
   position: absolute;
-  top: 140px;
+  top: 40px;
 }
 
 /* Full-width inputs */
@@ -168,39 +168,4 @@ img.bg {
 }
 }
 
-    #unitBtn {
-      position: absolute;
-        width: 70%;
-        text-align: start;
-        left: 350px;
-        top: 420px;
-        
-    }
-    
-
-    #courseBtn {
-        text-align: start;
-        padding-left: 18%;
-        left: 350px;
-        top: 650px;
-        
-    }
-
-    .progress {
-        display: inline;
-        top: 650px;
-        left: 350px;
-    }
-
-    #easyNav{
-        color: #080D32;
-        top: 650px;
-        left: 350px;
-    }
-    .collapse{
-      position: absolute;
-      left: 350px;
-      top: 450px;
-    }
-
-
+   
