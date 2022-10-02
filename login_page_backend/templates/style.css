@@ -35,38 +35,29 @@ background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.
   color: black;
 }
 h4{
-  
+
 position: absolute;
-  left: 430px;
+  left: 300px;
 top: 260px;
 text-align: center;
 align-content: center;
 color: white;
 image-rendering: auto;
-width: fit-content;
 }
 h6{
-  display: flex;
 position: absolute;
-text-align: center;
-left: 380px;
-top: 570px;
+
+left: 160px;
+top: 480px;
 
 color: white;
 
 
-
-}
-#button{
-  position: absolute;
-  left: 0%;
-  margin-top: 400px;
-  color: #ffffff;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #3b4568;
+  background-color: #1a2240;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -77,24 +68,16 @@ form {
   color: #f2f2f2;
   width: 400px;
   box-sizing: border-box;
-  
-  
-}
-h2{
-  color: #f2f2f2;
-  position: absolute;
-  top: 40px;
 }
 
 /* Full-width inputs */
-input[type=username], input[type=password] {
+input[type=text], input[type=password] {
   font-family: Arial, Helvetica, sans-serif;
   width: 400px;
   color: white;
   display: inline-block;
   height: auto;
   box-sizing: border-box;
-  display: flex;
   
 }
 
@@ -109,7 +92,6 @@ button {
   cursor: pointer;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
 }
 
 /* Add a hover effect for buttons */
@@ -141,7 +123,6 @@ button:hover {
   width: 1000px;
   height: auto;
   color: white;
-  
 }
 
 /* The "Forgot password" text */
@@ -167,5 +148,3 @@ img.bg {
   margin-left: -512px;   /* 50% */
 }
 }
-
-   
