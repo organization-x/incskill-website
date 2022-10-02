@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from incskill_site.views import LoginView
+from incskill_site.views import (
+    LoginView,
+    CoursePageView,
+    SignUpView
+    )
+
 
 urlpatterns = [
     path('', LoginView.as_view(), name = 'login'),
+    path('courses/', CoursePageView.as_view(), name = 'courses'),
+    path('signup/', SignUpView, name = "signup"),
     path('admin/', admin.site.urls),
 ]
