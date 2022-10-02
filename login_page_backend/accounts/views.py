@@ -12,4 +12,4 @@ class SignUpView(generic.CreateView):
     template_name = "Register.html"
 
 def home_view(request, *args, **kwargs):
-    return HTTPResponse("loginPage.html")
+    return HTTPResponse("home.html")
