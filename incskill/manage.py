@@ -1,19 +1,12 @@
 #!/usr/bin/env python
-
-# How to run this as a website:
-# make your current directory C:\Users\...\incskill-website\login_page_backend
-# Run the following command: py -3 manage.py runserver
-# Copy and paste the link created in your terminal
-
-
-# Django's command-line utility for administrative tasks.
+"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'login_page_backend.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'incskill.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
