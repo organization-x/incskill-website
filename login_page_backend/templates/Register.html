@@ -24,15 +24,11 @@
   </div>
 </nav>
 
-{% extends 'base.html' %}
 
-{% block title %}Login Page{% endblock %}
-
-{% block content %}
 <body>
   
    <h4>
-    <img src="../static/media/inkskill.png" alt="alternatetext" width="500" height="auto">
+    <img src="inkskill.png" alt="alternatetext" width="500" height="auto">
      <br>
      Our Mission
      <h6>
@@ -44,11 +40,10 @@
     <!--pasword and email input boxes--> 
   <div class="Title" id="loginInput">
     
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p}}
+    <form>
+      
       <div class="container">
-        <h1>Login</h1>
+        <h1>Register</h1>
         
         <label for="password">username:</label>
         <br>
@@ -67,7 +62,7 @@
           <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
           <!--submit button--> 
       </div>
-      <button type="submit" class="btn btn-primary" >Submit</button>
+      <button type="submit" class="btn btn-primary" >Register</button>
     </form>
   </div>
 
@@ -76,4 +71,3 @@
 </body>
 
 </html>
-{% endblock %}
