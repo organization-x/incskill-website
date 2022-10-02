@@ -19,7 +19,7 @@
         <a class="navbar-brand" href="{% url 'courses' %}" src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto"></a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <a class="nav-link active" href="{% url 'courses' %}">My Courses</a>
-          <a class="nav-link active" href="{% url '' %}">{{ User.username }}</a>
+          <a class="nav-link active" href="{% url 'courses' %}">{{ User.username }}</a>
         </div>
       </div> 
   
