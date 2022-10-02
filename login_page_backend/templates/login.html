@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block title %}Login{% endblock %}
+
+{% block content %}  
+  {% if user.is_authenticated %}
+    {% include "coursePage.html" %}
+  {% else %}
+    <h4>
+      <img src="{% static 'media/incskill.png'%}" alt="incskill logo" width="500" height="auto">
+      <br>
+      Our Mission
+      <h6>
+        Unlocking high-growth career opportunities irrespective of past experience or needs
+      </h6>
+    </h4>
+    
+    
+    <!--pasword and email input boxes--> 
+    <div class="Title" id="loginInput">
+      
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <div class="container">
+          <h1>Login</h1>
+          
+          <label for="password">Username:</label>
+          <br>
+          <input type="username" class="form-control" id="email" placeholder="Enter username" name="email">
+          <br>
+          <label for="pwd">Password:</label>
+          <br>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          <div class="logo">
+            <!--add logo here, posssibly?-->
+          </div>
+        </div>
+        
+        <!--link added for testing purposes-->
+        <a href='{% url 'signup' %}'>Sign Up</a>
+        <!--commented out until we're able to implement it
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
+        </div>-->
+
+        <!--submit button--> 
+        <button type="submit" class="btn btn-primary">Submit</button>
+      
+      </form>
+    </div>
+  {% endif %}
+{% endblock %}
