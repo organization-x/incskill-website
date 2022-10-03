@@ -14,7 +14,7 @@
       {% csrf_token %}
       {{ form.as_p}}
       
-      <a class="btn btn-primary" href="courseOne.html" id="courseBtn">
+      <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
         <p id="courseTxt">Introduction to Software Engineering</p>
         <br>
         <br>
