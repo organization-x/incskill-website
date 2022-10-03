@@ -3,9 +3,6 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}  
-  {% if user.is_authenticated %}
-    {% include "coursePage.html" %}
-  {% else %}
     <h4>
       <img src="{% static 'media/incskill.png'%}" alt="incskill logo" width="500" height="auto">
       <br>
@@ -24,20 +21,22 @@
         {{ form.as_p}}
         <div class="container">
           <h1>Sign Up</h1>
-          
+          <label for="password">Email:</label>
+          <br>
+          <input type="username" class="form-control" id="email" placeholder="Enter email" name="email">
+          <br>
           <label for="password">Username:</label>
           <br>
-          <input type="username" class="form-control" id="email" placeholder="Enter username" name="email">
+          <input type="username" class="form-control" id="email" placeholder="Enter username" name="username">
           <br>
           <label for="pwd">Password:</label>
           <br>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
           <div class="logo">
             <!--add logo here, posssibly?-->
           </div>
         </div>
         
-        <a href='{% url 'login' %}'>Log In</a>
         <!--commented out until we're able to implement it
         <div class="form-check mb-3">
           <label class="form-check-label">
@@ -49,5 +48,4 @@
       
       </form>
     </div>
-  {% endif %}
 {% endblock %}

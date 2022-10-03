@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 # Create your views here.
 class LoginView(View):
@@ -26,5 +27,15 @@ class LoginView(View):
 class CoursePageView(TemplateView):
     template_name = 'coursePage.html'
     
-class SignUpView(TemplateView):
+class SignUpView(View):
     template_name = 'signup.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        userName = request.POST['username']
+        userPass = request.POST['password']
+        userMail = request.POST['email']
+        user = User.objects.create_user(username = userName, email = userMail, password = userPass)
+        return redirect('login')

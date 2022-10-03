@@ -25,6 +25,6 @@ from incskill_site.views import (
 urlpatterns = [
     path('', LoginView.as_view(), name = 'login'),
     path('courses/', CoursePageView.as_view(), name = 'courses'),
-    path('signup/', SignUpView, name = "signup"),
+    path('signup/', SignUpView.as_view(), name = "signup"),
     path('admin/', admin.site.urls),
 ]
