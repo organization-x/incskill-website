@@ -18,7 +18,8 @@ from django.urls import path
 from incskill_site.views import (
     LoginView,
     CoursePageView,
-    SignUpView
+    SignUpView,
+    CourseOneView
     )
 
 
@@ -26,5 +27,6 @@ urlpatterns = [
     path('', LoginView.as_view(), name = 'login'),
     path('courses/', CoursePageView.as_view(), name = 'courses'),
     path('signup/', SignUpView.as_view(), name = "signup"),
+    path('courses/courseOne.html/', CourseOneView.as_view(), name = 'course_one'),
     path('admin/', admin.site.urls),
 ]

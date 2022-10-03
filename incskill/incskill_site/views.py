@@ -24,8 +24,13 @@ class LoginView(View):
             return redirect('signup')
 
 
-class CoursePageView(TemplateView):
+class CoursePageView(View):
     template_name = 'coursePage.html'
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        return redirect('course_one')
     
 class SignUpView(View):
     template_name = 'signup.html'
@@ -39,3 +44,10 @@ class SignUpView(View):
         userMail = request.POST['email']
         user = User.objects.create_user(username = userName, email = userMail, password = userPass)
         return redirect('login')
+
+class CourseOneView(View):
+    template_name = 'courseOne.html'
+    def get(self, request):
+        return render(request, self.template_name)
+
+    

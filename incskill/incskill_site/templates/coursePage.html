@@ -11,7 +11,10 @@
 
 
     <div class="text-center">
-      <a class="btn btn-primary" id="courseBtn">
+      {% csrf_token %}
+      {{ form.as_p}}
+      
+      <a class="btn btn-primary" href="courseOne.html" id="courseBtn">
         <p id="courseTxt">Introduction to Software Engineering</p>
         <br>
         <br>
