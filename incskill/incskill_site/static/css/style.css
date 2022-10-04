@@ -87,10 +87,9 @@ h2{
 }
 
 /* Full-width inputs */
-input[type=username], input[type=password] {
+input [type='email'], [type='text'], input[type='password'] {
   font-family: Arial, Helvetica, sans-serif;
   width: 400px;
-  color: white;
   display: inline-block;
   height: auto;
   box-sizing: border-box;
