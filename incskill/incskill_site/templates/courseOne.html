@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block title %}Course One{% endblock %}
+
+{% block content %}  
+  {% if user.is_authenticated %}
+    <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
+      Introduction to Software Engineering
+    </h2>
+
+
+
+    <div class="text-center">
+      <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#unit1" role="button" aria-expanded="false" aria-controls="unit1" id="unitBtn"> Unit 1
+
+        </a>
+      </p>
+      <div class="collapse" id="unit1">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="#" class="card-link" id="courseBtn">
+            <p>Section 1</p>
+          </a>
+          <a href="#" class="card-link" id="courseBtn">
+            <p>Section 2</p>
+          </a>
+          <a href="#" class="card-link" id="courseBtn">
+            <p>Section 3</p>
+          </a>
+          <a href="#" class="card-link" id="courseBtn">
+            <p>Quiz</p>
+          </a>
+          <a href="#" class="card-link" id="courseBtn">
+            <p>Coding Excercise</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+      #unitBtn {
+        margin-top: 200px;
+        width: 70%;
+        text-align: start;
+      }
+
+      #courseBtn {
+        text-align: start;
+        padding-left: 18%;
+        float: left;
+      }
+
+      .progress {
+        display: inline;
+        float: right;
+      }
+
+      #easyNav{
+        padding-left: 11%;
+        padding-top: 1%;
+      }
+    </style>
+  {% else %} 
+    {% include "login.html" %}
+  {% endif %}
+{% endblock %}
