@@ -4,10 +4,48 @@
 
 {% block content %}  
   {% if user.is_authenticated %}
-    <h2 class="text-start" style="padding-left: 11%; max-width: 33%; padding-top: 2%; padding-bottom: 2%;">
+
+
+<html>
+<head>
+    <!--this is an alternate nav bar with the styling css classes already assigne, with color, was unable to style previous nav bar-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>IncSkill</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="navbar-brand" href="#"><img src="inkskill.png" alt="alternatetext" width="100" height="auto"></a>
+    <a class="navbar-brand"><a href="homepage.html">Home</a>
+    
+    
+    
+
+
+    <a class="navbar-brand" href="#">Progress</a>
+    
+    <a class="navbar-brand" href="coursePage.html">My Courses</a>
+
+    <a class="navbar-brand" aria-current="page">Introduction to Software Engineering</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+    
+    
+        
+        
+        
+
+    </div>
+    </div>
+      
+      <h2 class="text-start" style="padding-left: 11%; max-width: 33%; padding-top: 2%; padding-bottom: 2%;">
       Introduction to Software Engineering
     </h2>
-
 
 
     <div class="text-center">
@@ -21,13 +59,13 @@
           <a href="#" class="card-link" id="courseBtn">
             <p></p>
           </a>
-          <a href="#" class="card-link" id="courseBtn">
+          <a href="resource1.html" class="card-link" id="courseBtn">
             <p>Section 1</p>
           </a>
-          <a href="#" class="card-link" id="courseBtn">
+          <a href="resource2.html" class="card-link" id="courseBtn">
             <p>Section 2</p>
           </a>
-          <a href="#" class="card-link" id="courseBtn">
+          <a href="resource3.html" class="card-link" id="courseBtn">
             <p>Section 3</p>
           </a>
           <a href="#" class="card-link" id="courseBtn">
@@ -50,7 +88,7 @@
 
       #courseBtn {
         text-align: start;
-        padding-left: 18%;
+        padding-left: 5%;
         float: left;
       }
 
@@ -63,7 +101,21 @@
         padding-left: 11%;
         padding-top: 1%;
       }
+      /*Added style here since style.css has a colored background for the login and sign up pages*/
+    body{
+        position: cover;
+        width: 100%;
+        height: 100%;
+        left: -4px;
+        top: 0px;
+        overflow: hidden;
+        background:transparent;
+      }
+
     </style>
+</body>
+</html> 
+
   {% else %} 
     {% include "login.html" %}
   {% endif %}
