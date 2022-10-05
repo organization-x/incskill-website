@@ -1,271 +1,257 @@
-
 .topnav {
-    margin-top: 0%;
-    margin-left:0%;
-    max-width:100%;
-    background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected ,*/,
-    radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */,
-    radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected/, */,
-    radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */,
-    radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    padding-top: .75%;
-    padding-left:2%;
-    color:#F1F1F1;
-    height:75px;
-    
-  } 
-  
-  
-  body{
-  
-    position: cover;
-    width: 100%;
-    height: 100%;
-    left: -4px;
-    top: 0px;
-    overflow: hidden;
-  /* background: radial-gradient(39.66% 139.43% at 8.13% 94.24%,  */
-    /* rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) warning: gradient uses a rotation that is not supported by CSS and may not behave as expected,*/ 
-    /* radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected,  */
-    /*radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%)*/ /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected, */
-    /*radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */
-    /*radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected ;*/
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-     font-family: Arial, Helvetica, sans-serif;
-     border-radius: 25px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  h4{
-    
+  width:100%;
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  padding-left: 0;
+  color:#F1F1F1;
+  height:75px;
+ 
+} 
+
+body{
   position: absolute;
-    left: 430px;
-  top: 260px;
+  
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+ 
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  
+  float: left;
+  color: #f2f2f2;
   text-align: center;
-  align-content: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+   font-family: Arial, Helvetica, sans-serif;
+   border-radius: 25px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+h4{
+  
+position: absolute;
+left: 20%;
+margin-top: 8%;
+
+
+
+display: flex;
+color: white;
+
+
+}
+h3{
+  
+  position:absolute;
+    left: 28%;
+    margin-top: 20%;
+  display: flex;
+ 
+  
+  
+  
   color: white;
   image-rendering: auto;
-  width: fit-content;
-  }
-  h6{
-    display: flex;
-  position: absolute;
-  text-align: center;
-  left: 380px;
-  top: 570px;
   
+  }
+h5{
+  position:absolute;
+  display: flex;
+  left: 20%;
+  margin-top: 48%;
+}
+h6{
+  
+  position:absolute;
+text-align: center;
+left: 17%;
+margin-top: 23%;
+
+color: white;
+
+
+
+}
+#button{
+
+  position: absolute;
+  top: 2%;
+  color: #ffffff;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #3b4568;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+form {
+  
+  position: absolute;
+  right: 18%;
+  top: 20%;
+  color: #f2f2f2;
+  width: 15%;
+  box-sizing: border-box;
+  
+  
+}
+h2{
+  color: #f2f2f2;
+  position: absolute;
+  top: 50%;
   color: white;
   
+}
+
+/* Full-width inputs */
+input[type=username], input[type=password] {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 1200%;
+  color: white;
   
+  height: auto;
+  margin-top: 25%;
+  display: flex;
   
-  }
-  #button{
-    position: absolute;
-    left: 0%;
-    margin-top: 400px;
-    color: #ffffff;
-  }
+}
+
+/* Set a style for all buttons */
+button {
+
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  border-radius: 25px;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.2;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Avatar image */
+
+
+/* Add padding to containers */
+.container {
   
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #3b4568;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  form {
-    position: absolute;
-    right: 350px;
-    top: 300px;
-    color: #f2f2f2;
-    width: 400px;
-    box-sizing: border-box;
-    
-    
-  }
-  h2{
-    color: #f2f2f2;
-    position: absolute;
-    top: 40px;
-  }
+  margin-top: 65%;
+  width: 15%;
+  height: auto;
+  color: white;
+  margin-left: 0%;
   
-  /* Full-width inputs */
-  input[type=username], input[type=password] {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 400px;
-    color: white;
-    display: inline-block;
-    height: auto;
-    box-sizing: border-box;
-    display: flex;
-    
-  }
-  
-  /* Set a style for all buttons */
-  button {
-    background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    border-radius: 25px;
-    color: #ffffff;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-  }
-  
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 0.2;
-  }
-  
-  /* Extra style for the cancel button (red) */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-  }
-  
-  
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Avatar image */
-  
-  
-  /* Add padding to containers */
-  .container {
-    padding: 0px;
-    width: 1000px;
-    height: auto;
-    color: white;
-    
-  }
-  
-  /* The "Forgot password" text */
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
   span.psw {
-    float: right;
-    padding-top: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    float: none;
   }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
+  .cancelbtn {
+    width: 100%;
   }
-  @media screen and (max-width: 1024px) { /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-  }
-  
-     
-  /* COURSEONE */
-  /* header Intro to Software Engineering*/
-  .text-start {
-    margin-top: 75px;
-    margin-bottom: 50px;
-    max-width: 33% !important;
-    color:#000000;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Unit 1 Button (I had to use !important since the other buttons had a different css)*/
-  #unitBtn {
-    width:78% !important;
-    margin:11%; 
-    margin-top:2%;
-    /* margin: auto didn't work at all, -11% doesn't work if you change the window size */
-    height: 60px;
-    padding-top:17px;
-    padding-left: 25px;
-    text-align: start;
-    background-color: #233854;
-    margin-bottom:-18px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1em;
-  }
-  
-  
-  /* dropdown/collapse */
-  #unit1{
-    margin:auto;
-    width: 78%;    
-    margin-top:-18px;
-    margin-top: 0px;
-    text-align: start;
-    border-width: 0px 2px 2px 2px;
-    border-style: solid;
-    border-color: #000000;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color:#F1F1F1;
-    font-family: Arial, Helvetica, sans-serif;
-  } 
-  
-  /* Sections within collapse */
-  #courseBtn {
-    margin-left:0px;
-    color: #000000;
-    background-color: #F1F1F1;
-    text-decoration: none;
-    padding-top: 0%;
-    padding-left: 1%;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-
-  /* RESOURCE1 */
-
-  #sec {
-    color:black;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: .5%;
-    padding-bottom:.5%;
-    position:static;
+}
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+img.bg {
+  left: 50%;
+  margin-left: -512px;   /* 50% */
+}
 }
 
-/* roman numeral lists */
-.li-i{
-    padding-left: 5%;
+   
+
+/* header Intro to Software Engineering*/
+.text-start {
+  margin-top: 75px;
+  margin-bottom: 50px;
+  max-width: 33% ;
+  color:#000000;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-  #sec-h2{
-    color:#000000;
-    position: static;
-  text-align: center;
-  align-content: center;
-  image-rendering: auto;
-  width: fit-content;
+/* Unit 1 Button (I had to use !important since the other buttons had a different css)*/
+#unitBtn {
+  width:78% !important;
+  margin:11%;
+  /* margin: auto didn't work at all, margin-left: -11% doesn't work if you change the window size */
+  height: 60px;
+  padding-top:17px;
+  padding-left: 25px;
+  text-align: start;
+  background-color: #233854;
+  margin-bottom:-18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+}
 
-  }
 
-/* enable scroll down */
-  body{
-    overflow-y: scroll;
-  }
+/* dropdown/collapse */
+#unit1{
+  margin:auto;
+  width: 78%;    
+  margin-top:-18px;
+  margin-top: 0px;
+  text-align: start;
+  border-width: 0px 2px 2px 2px;
+  border-style: solid;
+  border-color: #000000;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color:#F1F1F1;
+  font-family: Arial, Helvetica, sans-serif;
+} 
+
+/* Sections within collapse */
+#courseBtn {
+  margin-left:0px;
+  color: #000000;
+  background-color: #F1F1F1;
+  text-decoration: none;
+  padding-top: 0%;
+  padding-left: 1%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-center {
+  margin-top: 2px;
+}
