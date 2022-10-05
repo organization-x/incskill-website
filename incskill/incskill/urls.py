@@ -19,7 +19,8 @@ from incskill_site.views import (
     LoginView,
     CoursePageView,
     SignUpView,
-    CourseOneView
+    CourseOneView,
+    ProfileView
     )
 
 
@@ -28,5 +29,6 @@ urlpatterns = [
     path('courses/', CoursePageView.as_view(), name = 'courses'),
     path('signup/', SignUpView.as_view(), name = "signup"),
     path('courses/course-one/', CourseOneView.as_view(), name = 'course_one'),
+    path('profile/', ProfileView.as_view(), name = 'profile'),
     path('admin/', admin.site.urls),
 ]

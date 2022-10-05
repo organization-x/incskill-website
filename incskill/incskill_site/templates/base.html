@@ -15,14 +15,17 @@
   <body>
     <!--request.user.is_authenticated apparently not compatible, despite being reccomended-->
     {% if user.is_authenticated %}
-      <div class="topnav">
-        <a class="navbar-brand" href="{% url 'courses' %}" src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto"></a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <a class="nav-link active" href="{% url 'courses' %}">My Courses</a>
-          <a class="nav-link active" href="{% url 'courses' %}">{{ User.username }}</a>
-        </div>
-      </div> 
-  
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="topnav">
+            <a class="navbar-brand" href="{% url 'courses' %}"><img src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto"></img></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <a class="nav-link active" href="{% url 'courses' %}">My Courses</a>
+              <a class="nav-link active" href="{% url 'profile' %}">Profile</a>
+            </div>
+          </div>
+        </div> 
+      </nav>
     {% endif %}
 
     {% block content %}
