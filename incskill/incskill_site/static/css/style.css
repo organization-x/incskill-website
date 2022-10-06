@@ -1,23 +1,34 @@
 .topnav {
+  margin-top: 0%;
+  margin-left:0%;
   max-width:100%;
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected ,*/,
+  radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */,
+  radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected/, */,
+  radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */,
+  radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   padding-top: .75%;
+  padding-left:2%;
   color:#F1F1F1;
   height:75px;
+
 } 
 
+
 body{
+
   position: cover;
   width: 100%;
   height: 100%;
   left: -4px;
   top: 0px;
   overflow: hidden;
-  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, 
-   rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected,*/ ,
-   radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected,  */,
-   radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected, */,
-   radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */,
-   radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected ;*/;
+/* background: radial-gradient(39.66% 139.43% at 8.13% 94.24%,  */
+  /* rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) warning: gradient uses a rotation that is not supported by CSS and may not behave as expected,*/ 
+  /* radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected,  */
+  /*radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%)*/ /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected, */
+  /*radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected , */
+  /*radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected ;*/
 }
 
 /* Style the links inside the navigation bar */
@@ -38,7 +49,7 @@ body{
   color: black;
 }
 h4{
-  
+
 position: absolute;
   left: 430px;
 top: 260px;
@@ -70,7 +81,7 @@ color: white;
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: #3b4568;
-  color: #ffffff;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 form {
@@ -80,8 +91,8 @@ form {
   color: #f2f2f2;
   width: 400px;
   box-sizing: border-box;
-  
-  
+
+
 }
 h2{
   color: #f2f2f2;
@@ -98,17 +109,12 @@ input[type=username], input[type=password] {
   height: auto;
   box-sizing: border-box;
   display: flex;
-  
+
 }
 
 /* Set a style for all buttons */
 button {
-  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, 
-  rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, 
-  radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, 
-  radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, 
-  radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, 
-  radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   border-radius: 25px;
   color: #ffffff;
   padding: 14px 20px;
@@ -149,7 +155,7 @@ button:hover {
   width: 1000px;
   height: auto;
   color: white;
-  
+
 }
 
 /* The "Forgot password" text */
@@ -176,8 +182,8 @@ img.bg {
 }
 }
 
-   
 
+/* COURSEONE */
 /* header Intro to Software Engineering*/
 .text-start {
   margin-top: 75px;
@@ -190,8 +196,9 @@ img.bg {
 /* Unit 1 Button (I had to use !important since the other buttons had a different css)*/
 #unitBtn {
   width:78% !important;
-  margin:11%;
-  /* margin: auto didn't work at all, margin-left: -11% doesn't work if you change the window size */
+  margin:11%; 
+  margin-top:2%;
+  /* margin: auto didn't work at all, -11% doesn't work if you change the window size */
   height: 60px;
   padding-top:17px;
   padding-left: 25px;
@@ -230,6 +237,34 @@ img.bg {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.text-center {
-  margin:auto;
+
+/* RESOURCE1 */
+
+#sec {
+  color:black;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: .5%;
+  padding-bottom:.5%;
+  position:static;
+}
+
+/* roman numeral lists */
+.li-i{
+  padding-left: 5%;
+}
+
+#sec-h2{
+  color:#000000;
+  position: static;
+text-align: center;
+align-content: center;
+image-rendering: auto;
+width: fit-content;
+
+}
+
+/* enable scroll down */
+body{
+  overflow-y: scroll;
 }

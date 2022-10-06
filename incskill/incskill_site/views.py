@@ -92,4 +92,37 @@ class CourseOneView(View):
         else:
             return redirect('login')
 
-    
+    def post(self, request):
+        if 'resourceone' in request.POST:
+            return redirect('resourceone')
+        if 'resourcetwo' in request.POST:
+            return redirect('resourcetwo')
+        if 'resourcethree' in request.POST:
+            return redirect('resourcethree')
+
+
+class ResourceOneView(View):
+    template_name = 'resource1.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceTwoView(View):
+    template_name = 'resource2.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceThreeView(View):
+    template_name = 'resource3.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
