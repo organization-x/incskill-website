@@ -1,69 +1,77 @@
-{% extends 'base.html' %} {% load static %} 
+{% extends 'base.html' %}
 
-{% block title %}Course One{% endblock %}
+{% block title %}Introduction to Software Engineering{% endblock %}
 
-{% block content %}  
-  {% if user.is_authenticated %}
-    <h2 class="text-start" style="padding-left: 11%; max-width: 33%; padding-top: 2%; padding-bottom: 2%;">
-      Introduction to Software Engineering
-    </h2>
+{% block content %}
+
+  <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
+    Introduction to Software Engineering
+  </h2>
 
 
+  <div class="text-center">
 
-    <div class="text-center">
-      <p>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#unit1" role="button" aria-expanded="false" aria-controls="unit1" id="unitBtn"> Unit 1</a>
-        <span class="visually-hidden">List of all courses in Unit 1 available</span>
-      </p>
-      <div class="collapse" id="unit1">
-        <div class="card card-text border-1">
-          <a href="#" class="card-link" id="courseBtn">
-            <p></p>
-          </a>
-          <a href="#" class="card-link" id="courseBtn">
-            <p>Section 1</p>
-          </a>
-          <a href="#" class="card-link" id="courseBtn">
-            <p>Section 2</p>
-          </a>
-          <a href="#" class="card-link" id="courseBtn">
-            <p>Section 3</p>
-          </a>
-          <a href="#" class="card-link" id="courseBtn">
-            <p>Quiz</p>
-          </a>
-          <a href="#" class="card-link" id="courseBtn">
-            <p>Coding Excercise</p>
-          </a>
-        </div>
+    <p>
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#unit1" role="button" aria-expanded="false" aria-controls="unit1" id="unitBtn">
+        Unit 1
+      </a>
+    </p>
+
+    <div class="collapse" id="unit1">
+      <div class="card card-text border-1">
+        <a href="#" class="card-link" id="courseBtn">
+          <p></p>
+        </a>
+        <a href="{% url 'resourceone' %}" class="card-link" id="courseBtn">
+          <p>Section 1</p>
+        </a>
+        <a href="{% url 'resourcetwo' %}" class="card-link" id="courseBtn">
+          <p>Section 2</p>
+        </a>
+        <a href="{% url 'resourcethree' %}" class="card-link" id="courseBtn">
+          <p>Section 3</p>
+        </a>
+        <a href="#" class="card-link" id="courseBtn">
+          <p>Quiz</p>
+        </a>
+        <a href="#" class="card-link" id="courseBtn">
+          <p>Coding Excercise</p>
+        </a>
       </div>
-
     </div>
-
-    <style>
-      #unitBtn {
+  </div>
+  <style>
+    #unitBtn {
         margin-top: 200px;
         width: 70%;
         text-align: start;
-      }
+    }
 
-      #courseBtn {
+    /* Changed padding from 18% to 4% */
+    #courseBtn {
         text-align: start;
-        padding-left: 18%;
+        padding-left: 5%;
         float: left;
-      }
+    }
 
-      .progress {
+    .progress {
         display: inline;
         float: right;
-      }
-
-      #easyNav{
+    }
+    #easyNav{
         padding-left: 11%;
         padding-top: 1%;
-      }
-    </style>
-  {% else %} 
-    {% include "login.html" %}
-  {% endif %}
+    }
+
+    /*Added style here since style.css has a colored background for the login and sign up pages*/
+    body{
+        position: cover;
+        width: 100%;
+        height: 100%;
+        left: -4px;
+        top: 0px;
+        overflow: hidden;
+        background:transparent;
+    }
+  </style>
 {% endblock %}

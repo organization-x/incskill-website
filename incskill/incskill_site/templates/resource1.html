@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}  
+  <div class="sec" id="sec">    
+    <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
+    <p>
+      Welcome to your first programming course. In this resource, we will help 
+      you get started with your first program. This involves setting up the
+      development environment, understanding how to use the command line
+      interface (often referred to as CLI), and basic Python syntax.
+    </p>
+  </div>
+
+
+  <div class="sec" id="sec">
+    <h3 id="sec-h3">Setting Up Development Environment</h3>
+    <p>
+      There are two major versions of Python available today-Python 2 and Python
+      3. Each of these further have subversions. We will be working with the
+      latest version available.
+    </p>
+    <p>
+      To get started, do the following:
+    </p>
+    <ol>
+      <li>
+      </li>
+    </ol>
+    <ol type="i" class="li-i">
+      <li>
+        For Windows 8 and up: Install Anaconda from
+        <a href="https://docs.anaconda.com/anaconda/install/windows/">https://docs.anaconda.com/anaconda/install/windows/</a>. This page has very
+        detailed installation instructions. For our purposes, we can go with
+        all defaults.
+      </li>
+      <li>
+        For Windows 7 or lower: You will need to download an older version of
+        Anaconda from the archives located at
+        <a href="https://repo.anaconda.com/archive/">https://repo.anaconda.com/archive/</a>. Search for
+        "Anaconda2-2019.10-Windows-x86.exe" or
+        "Anaconda2-2019.10-Windows-x86_64.exe" depending on your system
+        configuration.
+      </li>
+    </ol>
+    <ol type="1", start="2">
+      <li>
+        Once installed, restart the computer for changes to take effect.
+      </li>
+      <li>
+        Python is now installed on your computer along with a number of helpful
+        libraries and packages through the Anaconda distribution.
+      </li>
+    </ol>
+  </div>
+
+  <div class="sec" id="sec">
+    <h3 id="sec-h3">Introducing Command Line Interface (CLI)</h3>  
+    <p>
+        There are generally two interfaces-character user interface (CUI) or
+        graphical user interface (GUI). GUI is what we commonly use on our
+        computers, i.e. the desktop consisting of icons that we can interact with
+        etc. CUI is where all of the computer actions are performed using textual
+        commands. Although GUI is more intuitive and easy-to-use, it can also be
+        inaccessible as many of us have experienced inaccessible apps and websites.
+        CUI, on the other hand, being completely textual is inherently accessible.
+        The good news is that most developers also prefer to use the CUI and not
+        the GUI, as it gives us more control of the system. This is one of the
+        crucial factors that makes programming accessible-much more accessible than
+        some of the other professions that may have inaccessible apps.
+    </p>
+    <p>
+        We will be using the command prompt for executing our programs and for
+        working with the Python interpreter. Alternatively, you can use the
+        Anaconda prompt. Here is how you can launch the command prompt.
+    </p>
+    <ol>
+      <li>
+        Search for "cmd" in the Windows search. You will hear "command prompt".
+        Press enter to launch. If you want to use Anaconda prompt, you can
+        similar type “anaconda” and will hear Anaconda prompt.
+      </li>
+      <li>
+        Alternatively, you can type "cmd" in the "run" dialog box. To do so,
+        press Win+R which will open the "run" dialog box, then type cmd and hit
+        enter.
+      </li>
+    </ol>
+    <p>
+        Once command prompt is open, you will find yourself in a default directory.
+        You can use the up/down arrow keys to read the location of this default
+        directory opened again. For instance, the default directory on my computer
+        is "C:\users\administrator". You can then use the "cd" keyword to change
+        directory.
+    </p>
+    <p>
+        Let's say that I would like to save my code files in the "documents" folder
+        which in turn is in the "C:\users\administrator" directory. Now, we are
+        already in the "C:\users\administrator" directory in the command prompt, so
+        we need to go into the documents folder. So, we can type in "cd documents".
+        You will hear the updated directory path now, i.e.
+        "C:\users\administrator\documents".
+    </p>
+    <p>
+        Let's also consider the second case where your preferred working directory
+        (e.g. "documents" in the previous example) may not be in the default
+        directory opened up in the command prompt. In this case, you can use "cd
+        .." to go to the previous directory from the default directory until you
+        reach the root directory from which you can then traverse the directory
+        tree. The ".." keyword represents the previous directory from the active
+        directory.
+    </p>
+    <p>
+        Using the commands above, you can reach the working directory. Going
+        forward, we will assume this to be the "documents" folder.
+    </p>
+  </div>
+
+  <div class="sec" id="sec">
+    <h3 id="sec-h3">Writing Your First Program</h3>
+    <p>
+      Now, we will write our first program. This program will print "hello world"
+      in command prompt (also often called the "terminal window").
+    </p>
+    <p>
+      Open notepad and copy/paste the following line.
+    </p>
+    <p>
+      print("Hello world")
+    </p>
+    <p>
+        Save this notepad file with the name "helloWorld.py". Don't press enter.
+        Press the tab key to reach "save as type" and make sure to select "All
+        files". Then save the file in the working directory. You now saved your
+        first Python code file "helloWorld.py". .py is the file extension for
+        Python files.
+    </p>
+    <p>
+        Assuming that you are in the working directory in command prompt as well,
+        you can now go into Command Prompt, and type "python helloWorld.py". The
+        output of the program "Hello world" will be displayed on the console. At
+        all times, you can copy/paste the output in the console window by selecting
+        all content (ALT + space, followed by e, followed by s), and then copying
+        it to the clickboard (ALT + space, followed by E, followed by y). If you
+        would like to paste something into the command prompt, you can use ALT +
+        space, followed by E, followed by P. Copying/pasting is particularly useful
+        when you want to access large amounts of output, in which case you can copy
+        the output from Command prompt into a plain text editor such as Notepad and
+        navigate and access easily.
+    </p>
+    <p>
+        Congratulations! You just wrote your first computer program and executed
+        it. The print statement you wrote is an inbuilt function that prints out
+        whatever is passed to it (in this case "Hello world"). We will discuss
+        functions, parameters etc. in the next few resources.
+    </p>
+  </div>
+
+  <div class="sec" id="sec">
+    <h3 id="sec-h3">Exercises</h3>
+    <p>
+        Write programs to print each of the following. Each program should be its
+        own file.
+    </p>
+    <ol>
+      <li>
+        It's exciting to learn programming
+      </li>
+      <li>
+        I'm looking forward to the next week's resource
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+<style>
+  body{
+    overflow-y: scroll;
+  } 
+
+  #sec{
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 2%;
+      margin-right: 2%;
+      margin-bottom: 3%;    
+      font-size: medium;
+      font-weight: 500;
+  }
+
+  #sec-h1{
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      margin-top: 7%;
+      max-width: 55%;
+      margin-bottom: 5%;
+  }
+
+  #sec-h3{
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight:500;
+      margin-bottom: 2%; 
+  }
+</style>
