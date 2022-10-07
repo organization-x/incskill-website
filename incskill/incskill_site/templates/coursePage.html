@@ -1,61 +1,45 @@
 {% extends 'base.html' %} {% load static %} 
-
 {% block title %}My Courses{% endblock %}
 
 {% block content %}  
-{% if user.is_authenticated %}
-   
-    <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
-      My Courses
-    </h2>
+  <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
+    My Courses
+  </h2>
+  <div class="text-center">
+    {% csrf_token %}
+    {{ form.as_p}}
+    
+    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
+      <p id="courseTxt">Introduction to Software Engineering</p>
+      <br>
+      <br>
+      <span class="progress progress-bar bg-success" style="width: 40%" id="progressBar">Progress 0% {{ course_progress_one }}</span>
+    </a>
+  </div>
 
-
-    <div class="text-center">
-      {% csrf_token %}
-      {{ form.as_p}}
-      
-      <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
-        <p id="courseTxt">Introduction to Software Engineering</p>
-        <br>
-        <br>
-        <span class="visually-hidden">View the progress of Course 1</span>
-        <span class="progress progress-bar bg-success" style="width: 40%" id="progressBar">Progress 0% {{ User.course_progress_one }}</span>
-      </a>
-    </div>
-
-
-    <style>
-      .btn {
-        width: 70%;
-        height: 15%;
-        background-color: #233854;
-        margin-top: 200px;
-      }
-
-      #courseTxt {
-        font-size: 24px;
-        text-align: start;
-        padding-left: 1%;
-        padding-top: 1%;
-
-      }
-
-      #progressbar {
-        float: right;
-        height: 20%;
-      }
-
-      #courseBtn {    
-        padding-bottom: 2%;
-      }
-
-      #easyNav{
-        padding-left: 11%;
-        padding-top: 1%;
-      }
-    </style>
-{% else %}
-  {% include "login.html" %}
-{% endif %}
-
+  <style>
+    .btn {
+      width: 70%;
+      height: 15%;
+      background-color: #233854;
+      margin-top: 200px;
+    }
+    #courseTxt {
+      font-size: 24px;
+      text-align: start;
+      padding-left: 1%;
+      padding-top: 1%;
+    }
+    #progressbar {
+      float: right;
+      height: 20%;
+    }
+    #courseBtn {    
+      padding-bottom: 2%;
+    }
+    #easyNav{
+      padding-left: 11%;
+      padding-top: 1%;
+    }
+  </style>
 {% endblock %}
