@@ -47,7 +47,6 @@ class CoursePageView(View):
 
 class SignUpView(View):
     template_name = 'signup.html'
-
     def get(self, request):
         if not request.user.is_authenticated:
             return render(request, self.template_name)
