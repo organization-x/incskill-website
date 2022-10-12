@@ -2,13 +2,14 @@
 *~
 
 
-#ignore local
+#ignore venv
 .venv
-.env
-*.sqlite3
 
 #ignore django
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+
+#ignore generated files
+sent**/sent_emails
