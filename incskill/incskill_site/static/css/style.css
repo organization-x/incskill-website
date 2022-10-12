@@ -246,7 +246,7 @@ img.bg {
   padding-left: 5%;
   padding-right: 5%;
   padding-top: .5%;
-  padding-bottom:.5%;
+  margin-bottom: 5%;
   position:static;
 }
 
@@ -255,17 +255,31 @@ img.bg {
   padding-left: 5%;
 }
 
-#sec-h2{
-  color:#000000;
-  position: static;
-text-align: center;
-align-content: center;
-image-rendering: auto;
-width: fit-content;
-
-}
-
-/* enable scroll down */
-body{
+#sec{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 3%;    
+  font-size: medium;
+  font-weight: 500;
+  }
+  
+  #sec-h1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 7%;
+  max-width: 55%;
+  margin-bottom: 5%;
+  }
+  
+  #sec-h3{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight:500;
+  margin-bottom: 2%; 
+  }
+  
+  body{
   overflow-y: scroll;
-}
+  }

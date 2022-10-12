@@ -3,6 +3,7 @@
 {% block title %}Introduction to Software Engineering{% endblock %}
 
 {% block content %}  
+    
   <div class="sec" id="sec">    
     <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
     <p>
@@ -24,36 +25,36 @@
     <p>
       To get started, do the following:
     </p>
-    <ol>
-      <li>
-      </li>
-    </ol>
-    <ol type="i" class="li-i">
-      <li>
-        For Windows 8 and up: Install Anaconda from
-        <a href="https://docs.anaconda.com/anaconda/install/windows/">https://docs.anaconda.com/anaconda/install/windows/</a>. This page has very
-        detailed installation instructions. For our purposes, we can go with
-        all defaults.
-      </li>
-      <li>
-        For Windows 7 or lower: You will need to download an older version of
-        Anaconda from the archives located at
-        <a href="https://repo.anaconda.com/archive/">https://repo.anaconda.com/archive/</a>. Search for
-        "Anaconda2-2019.10-Windows-x86.exe" or
-        "Anaconda2-2019.10-Windows-x86_64.exe" depending on your system
-        configuration.
-      </li>
-    </ol>
-    <ol type="1", start="2">
-      <li>
-        Once installed, restart the computer for changes to take effect.
-      </li>
-      <li>
-        Python is now installed on your computer along with a number of helpful
-        libraries and packages through the Anaconda distribution.
-      </li>
-    </ol>
-  </div>
+      <ol>
+        <li>
+        </li>
+      </ol>
+      <ol type="i" class="li-i">
+        <li>
+          For Windows 8 and up: Install Anaconda from
+          <a href="https://docs.anaconda.com/anaconda/install/windows/">https://docs.anaconda.com/anaconda/install/windows/</a>. This page has very
+          detailed installation instructions. For our purposes, we can go with
+          all defaults.
+        </li>
+        <li>
+          For Windows 7 or lower: You will need to download an older version of
+          Anaconda from the archives located at
+          <a href="https://repo.anaconda.com/archive/">https://repo.anaconda.com/archive/</a>. Search for
+          "Anaconda2-2019.10-Windows-x86.exe" or
+          "Anaconda2-2019.10-Windows-x86_64.exe" depending on your system
+          configuration.
+        </li>
+      </ol>
+      <ol type="1", start="2">
+        <li>
+          Once installed, restart the computer for changes to take effect.
+        </li>
+        <li>
+          Python is now installed on your computer along with a number of helpful
+          libraries and packages through the Anaconda distribution.
+        </li>
+      </ol>
+    </div>
 
   <div class="sec" id="sec">
     <h3 id="sec-h3">Introducing Command Line Interface (CLI)</h3>  
@@ -172,35 +173,38 @@
       </li>
     </ol>
   </div>
-{% endblock %}
+
+
 
 <style>
-  body{
-    overflow-y: scroll;
-  } 
+#sec{
+font-family: Arial, Helvetica, sans-serif;
+margin-left: 3%;
+margin-right: 3%;
+margin-bottom: 3%;    
+font-size: medium;
+font-weight: 500;
+}
 
-  #sec{
-      font-family: Arial, Helvetica, sans-serif;
-      margin-left: 2%;
-      margin-right: 2%;
-      margin-bottom: 3%;    
-      font-size: medium;
-      font-weight: 500;
-  }
+#sec-h1{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: 500;
+margin-top: 7%;
+max-width: 55%;
+margin-bottom: 5%;
+}
 
-  #sec-h1{
-      font-family: Arial, Helvetica, sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      margin-top: 7%;
-      max-width: 55%;
-      margin-bottom: 5%;
-  }
+#sec-h3{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight:500;
+margin-bottom: 2%; 
+}
 
-  #sec-h3{
-      font-family: Arial, Helvetica, sans-serif;
-      font-style: normal;
-      font-weight:500;
-      margin-bottom: 2%; 
-  }
+body{
+overflow-y: scroll;
+}
 </style>
+
+{% endblock %}

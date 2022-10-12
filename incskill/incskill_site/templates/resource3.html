@@ -4,229 +4,235 @@
 
 {% block content %}
 
-<div class="sec" id="sec">
-    <h1 id="sec-h1">Week 3: Input and Output, <br> Data Types and Loops</h1>
 
-    <p>
-        In this resource, you will learn about the following.
-    </p>
-    <ul>
-        <li>
-            How to accept input from the user and print to the console
-        </li>
-        <li>
-            Data types
-        </li>
-    </ul>
+<div class="sec" id="sec">
+  <h1 id="sec-h1">Week 3: Input and Output, <br> Data Types and Loops</h1>
+
+  <p>
+    In this resource, you will learn about the following.
+  </p>
+  <ul>
+    <li>
+      How to accept input from the user and print to the console
+    </li>
+    <li>
+      Data types
+    </li>
+  </ul>
 </div>
 
 <div class="sec" id="sec">
-    <h3 id="sec-h3">Input and Output</h3>
-    <p>
-        You may remember that in the exercise for the previous resource, we had to
-        try out multiple values one by one and then validate the output. That is
-        time consuming and not very optimal. So, let's begin this week by
-        understanding how you can accept input from the user.
-    </p>
-    <p>
-        Python has an inbuilt function called input(). Think of it as a parallel to
-        the print() that you have been using thus far to print to the console. The
-        following is a sample program that demonstrates how this function can be
-        used.
-    </p>
-    <p>
-        val = input("Enter your value you want me to use")
-    </p>
-    <p>
-        print(val)
-    </p>
-    <p>
-        In the first line, the input function has been used which will suspend the
-        execution of the program until the user enters a value. At the same time,
-        it will display the message passed to the input function, i.e. "Enter your
-        value you want me to use". This message displayed on the console is
-        optional, however. So, it's perfectly fine to have this function as
-        follows.
-    </p>
-    <p>
-        val = input()
-    </p>
-    <p>
-        print(val)
-    </p>
-    <p>
-        The behavior of this program will be the same as the last one except that
-        no message will be printed on the prompt, and the user will just be
-        expected to enter a value. The input received by the program from the user
-        in both the cases will be assigned to the variable val, and then is printed
-        using the print function.
-    </p>
-    <p>
-        This brings me to the print() function itself. This function is used to
-        print values to the console. You can pass it the string that you want to be
-        printed, or even print the value of a variable or any other computation.
-        Note that when you print a string (such as a message), we enclose it by
-        double quotes. This is actually a characteristic of the string data type
-        and not so much a characteristic of the print function. We will discuss
-        data types in just a second, but just know that if you want to print a
-        message, you enclose that in double quotes, but if you are printing the
-        value of a variable or a number, you do not need the double quotes. Here
-        are a few examples.
-    </p>
-    <p>
-        print("This will print a string which is why it has been enclosed in double
-        quotes")
-    </p>
-    <p>
-        print(23.33)
-    </p>
-    <p>
-        print(4*5) #This will print 20
-    </p>
-    <p>
-        print(a) #This will print the value of the variable a, but remember
-        variable a should have been defined before for this to work
-    </p>
-    <p>
-        You can also combine or concatenate a string with a number, expression or a
-        variable value using the "+" or the concatenation operator as follows.
-    </p>
-    <p>
-        print("The value of the variable a is " + a) #Here, we first enclose the
-        string within quotes, then use the "+" operator to concatenate the string
-        that we have defined with the value of variable a
-    </p>
+  <h3 id="sec-h3">Input and Output</h3>
+  <p>
+    You may remember that in the exercise for the previous resource, we had to
+    try out multiple values one by one and then validate the output. That is
+    time consuming and not very optimal. So, let's begin this week by
+    understanding how you can accept input from the user.
+  </p>
+  <p>
+    Python has an inbuilt function called input(). Think of it as a parallel to
+    the print() that you have been using thus far to print to the console. The
+    following is a sample program that demonstrates how this function can be
+    used.
+  </p>
+  <p>
+    val = input("Enter your value you want me to use")
+  </p>
+  <p>
+    print(val)
+  </p>
+  <p>
+    In the first line, the input function has been used which will suspend the
+    execution of the program until the user enters a value. At the same time,
+    it will display the message passed to the input function, i.e. "Enter your
+    value you want me to use". This message displayed on the console is
+    optional, however. So, it's perfectly fine to have this function as
+    follows.
+  </p>
+  <p>
+    val = input()
+  </p>
+  <p>
+    print(val)
+  </p>
+  <p>
+    The behavior of this program will be the same as the last one except that
+    no message will be printed on the prompt, and the user will just be
+    expected to enter a value. The input received by the program from the user
+    in both the cases will be assigned to the variable val, and then is printed
+    using the print function.
+  </p>
+  <p>
+    This brings me to the print() function itself. This function is used to
+    print values to the console. You can pass it the string that you want to be
+    printed, or even print the value of a variable or any other computation.
+    Note that when you print a string (such as a message), we enclose it by
+    double quotes. This is actually a characteristic of the string data type
+    and not so much a characteristic of the print function. We will discuss
+    data types in just a second, but just know that if you want to print a
+    message, you enclose that in double quotes, but if you are printing the
+    value of a variable or a number, you do not need the double quotes. Here
+    are a few examples.
+  </p>
+  <p>
+    print("This will print a string which is why it has been enclosed in double
+    quotes")
+  </p>
+  <p>
+    print(23.33)
+  </p>
+  <p>
+    print(4*5) #This will print 20
+  </p>
+  <p>
+    print(a) #This will print the value of the variable a, but remember
+    variable a should have been defined before for this to work
+  </p>
+  <p>
+    You can also combine or concatenate a string with a number, expression or a
+    variable value using the "+" or the concatenation operator as follows.
+  </p>
+  <p>
+    print("The value of the variable a is " + a) #Here, we first enclose the
+    string within quotes, then use the "+" operator to concatenate the string
+    that we have defined with the value of variable a
+  </p>
 </div>
 
 <div class="sec" id="sec">
-    <h3 id="sec-h3">Data Types</h3>
-    <p>
-        Given the discussion above around when to use quotes and when not to etc.,
-        let's discuss data types. Data types represent the fundamental
-        representation of data or values in a programming language. For instance,
-        when you say that you want to assign the text I want to learn Python to a
-        variable a, what is the underlying representation of this data that is
-        being stored? This representation is what is governed by data types.
-    </p>
-    <p>
-        The most basic data type is int, representing an integer. Consider the
-        following. 
-    </p>
-    <p>
-        a = 5
-    </p>
-    <p>
-        Here, the variable a is assigned a value of 5 which is an integer.
-    </p>
-    <p>
-        Floats represent floating point numbers or essentially decimals. Consider
-        this.
-    </p>
-    <p>
-        a = 3.14
-    </p>
-    <p>
-        Here, the value 3.14 is stored as a float.
-    </p>
-    <p>
-        String represents a sequence of characters. So, all of the messages that we
-        have been printing thus far (not the variable values or numbers) were
-        actually strings. Strings are always enclosed in double quotes.
-    </p>
-    <p>
-        a = "hello world"
-    </p>
-    <p>
-        Here, hello world is text that we want to assign to variable A. Because
-        this isn't a number and instead a sequence of characters, it is string
-        enclosed in double quotes.
-    </p>
-    <p>
-        Finally, boolean represents True or False.
-    </p>
-    <p>
-        a = True
-    </p>
-    <p>
-        b = False
-    </p>
-    <p>
-        These two variables defined above are assigned boolean values.
-    </p>
-    <p>
-        Now, it may be necessary sometimes to convert from one data type to the
-        other. For instance, if I try out the expression 5/2, I get the answer as
-        2. This is because both 5 and 2 are integers. But, what if I actually
-        wanted decimal places as well? I have two options to do that.
-    </p>
-    <p>
-        Method1. I could change the values of one or both of the values to be 5.0
-        and 2.0 (i.e. storing them as floats instead of ints). Let's say I make 5
-        5.0. So, our expression becomes 5.0/2. Now, the result will be 2.5 since
-        one of the values was floats and Python prefers floats over int.
-    </p>
-    <p>
-        Method 2.You could actually use the float() function to convert an integer
-        into float. For instance, instead of changing 5 to 5.0, you can instead use
-        float(5)/2, and it will give you the same value.
-    </p>
-    <p>
-        Similarly, if you want to change a floating point number into an integer,
-        you can either do so by removing the decimal place or by using the int()
-        function.
-    </p>
-    <p>
-        This concept of converting one data type into another is known as type
-        casting. Another application of type casting is when you want to
-        concatenate two different data types. For instance, what if you computed an
-        expression in a variable a, and this is stored as a float, and you want to
-        combine your string stored in variable b with the value in variable a? 
-    </p>
-    <p>
-        a = 2
-    </p>
-    <p>
-        b = "The value of variable a is " + a # wrong, you cannot combine a string
-        with an int
-    </p>
-    <p>
-        To concatenate a string and an int, you need to use type casting as
-        follows.
-    </p>
-    <p>
-        a = 2
-    </p>
-    <p>
-        b = "The value of variable a is " + str(a) # correct, a is type casted to a
-        string, and hence can be concatenated with the value of b which is a string
-    </p>
+  <h3 id="sec-h3">Data Types</h3>
+  <p>
+    Given the discussion above around when to use quotes and when not to etc.,
+    let's discuss data types. Data types represent the fundamental
+    representation of data or values in a programming language. For instance,
+    when you say that you want to assign the text I want to learn Python to a
+    variable a, what is the underlying representation of this data that is
+    being stored? This representation is what is governed by data types.
+  </p>
+  <p>
+    The most basic data type is int, representing an integer. Consider the
+    following. 
+  </p>
+  <p>
+    a = 5
+  </p>
+  <p>
+    Here, the variable a is assigned a value of 5 which is an integer.
+  </p>
+  <p>
+    Floats represent floating point numbers or essentially decimals. Consider
+    this.
+  </p>
+  <p>
+    a = 3.14
+  </p>
+  <p>
+    Here, the value 3.14 is stored as a float.
+  </p>
+  <p>
+    String represents a sequence of characters. So, all of the messages that we
+    have been printing thus far (not the variable values or numbers) were
+    actually strings. Strings are always enclosed in double quotes.
+  </p>
+  <p>
+    a = "hello world"
+  </p>
+  <p>
+    Here, hello world is text that we want to assign to variable A. Because
+    this isn't a number and instead a sequence of characters, it is string
+    enclosed in double quotes.
+  </p>
+  <p>
+    Finally, boolean represents True or False.
+  </p>
+  <p>
+    a = True
+  </p>
+  <p>
+    b = False
+  </p>
+  <p>
+    These two variables defined above are assigned boolean values.
+  </p>
+  <p>
+    Now, it may be necessary sometimes to convert from one data type to the
+    other. For instance, if I try out the expression 5/2, I get the answer as
+    2. This is because both 5 and 2 are integers. But, what if I actually
+    wanted decimal places as well? I have two options to do that.
+  </p>
+  <p>
+    Method1. I could change the values of one or both of the values to be 5.0
+    and 2.0 (i.e. storing them as floats instead of ints). Let's say I make 5
+    5.0. So, our expression becomes 5.0/2. Now, the result will be 2.5 since
+    one of the values was floats and Python prefers floats over int.
+  </p>
+  <p>
+    Method 2.You could actually use the float() function to convert an integer
+    into float. For instance, instead of changing 5 to 5.0, you can instead use
+    float(5)/2, and it will give you the same value.
+  </p>
+  <p>
+    Similarly, if you want to change a floating point number into an integer,
+    you can either do so by removing the decimal place or by using the int()
+    function.
+  </p>
+  <p>
+    This concept of converting one data type into another is known as type
+    casting. Another application of type casting is when you want to
+    concatenate two different data types. For instance, what if you computed an
+    expression in a variable a, and this is stored as a float, and you want to
+    combine your string stored in variable b with the value in variable a? 
+  </p>
+  <p>
+    a = 2
+  </p>
+  <p>
+    b = "The value of variable a is " + a # wrong, you cannot combine a string
+    with an int
+  </p>
+  <p>
+    To concatenate a string and an int, you need to use type casting as
+    follows.
+  </p>
+  <p>
+    a = 2
+  </p>
+  <p>
+    b = "The value of variable a is " + str(a) # correct, a is type casted to a
+    string, and hence can be concatenated with the value of b which is a string
+  </p>
 </div>
-{% endblock %}
+
 
 <style>
-#sec{
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 3%;    
-    font-size: medium;
-    font-weight: 500;
-}
-
-#sec-h1{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    margin-top: 7%;
-    max-width: 55%;
-    margin-bottom: 5%;
-}
-
-#sec-h3{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight:500;
-    margin-bottom: 2%; 
-}
-
-</style>
+  #sec{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 3%;    
+  font-size: medium;
+  font-weight: 500;
+  }
+  
+  #sec-h1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 7%;
+  max-width: 55%;
+  margin-bottom: 5%;
+  }
+  
+  #sec-h3{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight:500;
+  margin-bottom: 2%; 
+  }
+  
+  body{
+  overflow-y: scroll;
+  }
+  </style>
+  
+  {% endblock %}
