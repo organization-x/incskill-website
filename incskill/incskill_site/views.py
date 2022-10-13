@@ -192,4 +192,5 @@ class ResourceSixView(View):
     def get(self, request):
         if request.user.is_authenticated:
             return render(request, self.template_name)
-	
+        else:
+            return redirect('login')

@@ -5,204 +5,441 @@
 {% block content %}
 
 
-<div class="sec" id="sec">
-  <h1 id="sec-h1">Week 3: Input and Output, <br> Data Types and Loops</h1>
+<div  class="sec" id="sec">
+  <h1 id="sec-h1">Week 4: Loops</h1>
 
   <p>
     In this resource, you will learn about the following.
   </p>
   <ul>
     <li>
-      How to accept input from the user and print to the console
-    </li>
-    <li>
-      Data types
+      Loops (for and while loops)
     </li>
   </ul>
 </div>
 
-<div class="sec" id="sec">
-  <h3 id="sec-h3">Input and Output</h3>
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Loops</h3>
   <p>
-    You may remember that in the exercise for the previous resource, we had to
-    try out multiple values one by one and then validate the output. That is
-    time consuming and not very optimal. So, let's begin this week by
-    understanding how you can accept input from the user.
-  </p>
-  <p>
-    Python has an inbuilt function called input(). Think of it as a parallel to
-    the print() that you have been using thus far to print to the console. The
-    following is a sample program that demonstrates how this function can be
-    used.
-  </p>
-  <p>
-    val = input("Enter your value you want me to use")
-  </p>
-  <p>
-    print(val)
-  </p>
-  <p>
-    In the first line, the input function has been used which will suspend the
-    execution of the program until the user enters a value. At the same time,
-    it will display the message passed to the input function, i.e. "Enter your
-    value you want me to use". This message displayed on the console is
-    optional, however. So, it's perfectly fine to have this function as
-    follows.
-  </p>
-  <p>
-    val = input()
-  </p>
-  <p>
-    print(val)
-  </p>
-  <p>
-    The behavior of this program will be the same as the last one except that
-    no message will be printed on the prompt, and the user will just be
-    expected to enter a value. The input received by the program from the user
-    in both the cases will be assigned to the variable val, and then is printed
-    using the print function.
-  </p>
-  <p>
-    This brings me to the print() function itself. This function is used to
-    print values to the console. You can pass it the string that you want to be
-    printed, or even print the value of a variable or any other computation.
-    Note that when you print a string (such as a message), we enclose it by
-    double quotes. This is actually a characteristic of the string data type
-    and not so much a characteristic of the print function. We will discuss
-    data types in just a second, but just know that if you want to print a
-    message, you enclose that in double quotes, but if you are printing the
-    value of a variable or a number, you do not need the double quotes. Here
-    are a few examples.
-  </p>
-  <p>
-    print("This will print a string which is why it has been enclosed in double
-    quotes")
-  </p>
-  <p>
-    print(23.33)
-  </p>
-  <p>
-    print(4*5) #This will print 20
-  </p>
-  <p>
-    print(a) #This will print the value of the variable a, but remember
-    variable a should have been defined before for this to work
-  </p>
-  <p>
-    You can also combine or concatenate a string with a number, expression or a
-    variable value using the "+" or the concatenation operator as follows.
-  </p>
-  <p>
-    print("The value of the variable a is " + a) #Here, we first enclose the
-    string within quotes, then use the "+" operator to concatenate the string
-    that we have defined with the value of variable a
+    One of the key concepts in programming is loops. Loops allow us to have the
+    computer take an action repeatedly either for a specific number of times or
+    until a particular condition holds. Based on how we want the computer to
+    take actions, there are two kinds of loops-for loop or wile loop. We will
+    discuss each of these now.
   </p>
 </div>
 
-<div class="sec" id="sec">
-  <h3 id="sec-h3">Data Types</h3>
+<div  class="sec" id="sec">
+  <h3>For Loop</h3>
   <p>
-    Given the discussion above around when to use quotes and when not to etc.,
-    let's discuss data types. Data types represent the fundamental
-    representation of data or values in a programming language. For instance,
-    when you say that you want to assign the text I want to learn Python to a
-    variable a, what is the underlying representation of this data that is
-    being stored? This representation is what is governed by data types.
+    For loop executes a particular action a certain number of times. Here is
+    how it works.
   </p>
   <p>
-    The most basic data type is int, representing an integer. Consider the
-    following. 
+    for i in range(No. of times you want to run the code):
   </p>
   <p>
-    a = 5
+    &lt;Do this&gt;
   </p>
   <p>
-    Here, the variable a is assigned a value of 5 which is an integer.
+    Just like the "if" condition, what we want the computer to perform
+    repeatedly is included within the "for" block. As you may remember from the
+    last resource, whenever this happens, we use indentation. Therefore,
+    everything within the "for" block should be indented. In the above example,
+    for instance, &lt;do this&gt; has been indented using four spaces.
   </p>
   <p>
-    Floats represent floating point numbers or essentially decimals. Consider
-    this.
+    Here is an example of printing the first ten numbers.
   </p>
   <p>
-    a = 3.14
+    for i in range(10):
   </p>
   <p>
-    Here, the value 3.14 is stored as a float.
+    print(i)
   </p>
   <p>
-    String represents a sequence of characters. So, all of the messages that we
-    have been printing thus far (not the variable values or numbers) were
-    actually strings. Strings are always enclosed in double quotes.
+    This will give the following output.
   </p>
   <p>
-    a = "hello world"
+    0
   </p>
   <p>
-    Here, hello world is text that we want to assign to variable A. Because
-    this isn't a number and instead a sequence of characters, it is string
-    enclosed in double quotes.
+    1
   </p>
   <p>
-    Finally, boolean represents True or False.
+    2
   </p>
   <p>
-    a = True
+    3
   </p>
   <p>
-    b = False
+    4
   </p>
   <p>
-    These two variables defined above are assigned boolean values.
+    5
   </p>
   <p>
-    Now, it may be necessary sometimes to convert from one data type to the
-    other. For instance, if I try out the expression 5/2, I get the answer as
-    2. This is because both 5 and 2 are integers. But, what if I actually
-    wanted decimal places as well? I have two options to do that.
+    6
   </p>
   <p>
-    Method1. I could change the values of one or both of the values to be 5.0
-    and 2.0 (i.e. storing them as floats instead of ints). Let's say I make 5
-    5.0. So, our expression becomes 5.0/2. Now, the result will be 2.5 since
-    one of the values was floats and Python prefers floats over int.
+    7
   </p>
   <p>
-    Method 2.You could actually use the float() function to convert an integer
-    into float. For instance, instead of changing 5 to 5.0, you can instead use
-    float(5)/2, and it will give you the same value.
+    8
   </p>
   <p>
-    Similarly, if you want to change a floating point number into an integer,
-    you can either do so by removing the decimal place or by using the int()
-    function.
+    9
   </p>
   <p>
-    This concept of converting one data type into another is known as type
-    casting. Another application of type casting is when you want to
-    concatenate two different data types. For instance, what if you computed an
-    expression in a variable a, and this is stored as a float, and you want to
-    combine your string stored in variable b with the value in variable a? 
+    Now, you may be surprised to see why it printed 0. This is because in
+    programming, values are zero-indexed. In other words, computers start
+    counters from 0. So, to print the first ten numbers, you can do the
+    following.
   </p>
   <p>
-    a = 2
+    for i in range(10):
   </p>
   <p>
-    b = "The value of variable a is " + a # wrong, you cannot combine a string
-    with an int
+    print(i+1)
   </p>
   <p>
-    To concatenate a string and an int, you need to use type casting as
-    follows.
+    There is another way to do this as well.
   </p>
   <p>
-    a = 2
+    for i in range(1, 11):
   </p>
   <p>
-    b = "The value of variable a is " + str(a) # correct, a is type casted to a
-    string, and hence can be concatenated with the value of b which is a string
+    print(i)
+  </p>
+  <p>
+    This will give the same output. Here, we passed two values to the "range"
+    function in the "for" loop. The first value was the initializing value,
+    i.e. we wanted the computer to start counting from 1, not its default 0.
+    Second, we specified until what value of i should the computer execute the
+    code. Now, because we wanted to execute 10 times with the value of i
+    starting from 1, we specified that the computer should execute until the
+    value of i is 11 at which point it should break. Remember that by default,
+    the value of i increases by 1 every time the loop is run.
+   </p>
+  <p>
+    Next, what if we wanted to print the first ten even numbers exclusive of 0?
+    We could do something like this.
+  </p>
+  <p>
+    for i in range(1, 11):
+  </p>
+  <p>
+    print(i*2)
+  </p>
+  <p>
+    Output:
+  </p>
+  <p>
+    2
+  </p>
+  <p>
+    4
+  </p>
+  <p>
+    6
+  </p>
+  <p>
+    8
+  </p>
+  <p>
+    10
+  </p>
+  <p>
+    12
+  </p>
+  <p>
+    14
+  </p>
+  <p>
+    16
+  </p>
+  <p>
+    18
+  </p>
+  <p>
+    20
+  </p>
+  <p>
+    There is yet another way to do this. What if we wanted to tell the computer
+    that start with the value of i as 2, go until the value of i is 22, but
+    each time instead of increasing the value of i by 1 as you normally do,
+    increase by 2. What do you think will happen? Try out this code.
+  </p>
+  <p>
+    for i in range(2, 22, 2):
+  </p>
+  <p>
+    print(i)
+  </p>
+  <p>
+    This will give you the exact same value. The third parameter in this
+    function specifies how much the value of i should increase each time the
+    code runs.
+  </p>
+  <p>
+    What if we want to print these in the reverse order?
+  </p>
+  <p>
+    for i in range(20, 0, -2):
+  </p>
+  <p>
+    print(i)
+  </p>
+  <p>
+    Here, we initialize the value of i as 20, we want it to execute the program
+    until the value of i reaches 0 (at which point it should stop), but each
+    time, the value of i should increase by -2 or decrease by 2.
+  </p>
+  <p>
+    In summary, the "for" loop can take three values-the initialization value,
+    the value until which the code should be executed and the amount by which
+    the value should increase (or decrease as denoted by a negative sign). Only
+    the second parameter is mandatory which is why we can have a completely
+    valid for loop with just one and as many as three parameters.
   </p>
 </div>
 
+<div  class="sec" id="sec">
+  <h3>While Loop</h3>
+  <p>
+    What if you wanted to execute an action repeatedly until a certain
+    condition was true? Let's imagine that you want to multiply 1 by 2, and
+    then multiply the resultant repeatedly by 2 so long as the value is less
+    than 50. This is where you would use the while loop. Here is the syntax
+    (i.e. how it works).
+  </p>
+  <p>
+    while &lt;condition&gt;:
+  </p>
+  <p>
+    &lt;Do this&gt;
+  </p>
+  <p>
+    Note the block within the “while” loop is indented.
+  </p>
+  <p>
+    So, the above code will be written as:
+  </p>
+  <p>
+    i = 1 #Initializing i to be 1
+  </p>
+  <p>
+    while i &lt; 50: #This is the condition of the while loop
+  </p>
+  <p>
+    i = i*2
+  </p>
+  <p>
+    print(i)
+  </p>
+  <p>
+    Output:
+  </p>
+  <p>
+    2
+  </p>
+  <p>
+    4
+  </p>
+  <p>
+    8
+  </p>
+  <p>
+    16
+  </p>
+  <p>
+    32
+  </p>
+  <p>
+    64
+  </p>
+  <p>
+    Here is what happened.
+  </p>
+  <ul>
+    <li>
+      i was first initialized to 1
+    </li>
+    <li>
+      The while loop condition was set as i &lt; 50. This means that every
+      time, at this step, the computer will check the value of i and only if
+      it is less than 50 will it go to the block within the "while" loop.
+    </li>
+    <li>
+      Within the block, we multiply the current value of i with 2, assign it
+      back to i (i.e. essentially update it), and then print it.
+    </li>
+  </ul>
+  <p>
+    You will notice that the last number in the output is 64. This is because
+    when the value of i was 32, it went into the loop (since 32 &lt; 64), got
+    multiplied by 2 (i.e. became 64) and 64 was printed. But as the next step,
+    it came back to the while condition; the computer checked if the current
+    value of i (which is now 64) is less than 50 and of course it isn't. Hence,
+    the loop stopped.
+  </p>
+  </div>
+
+<div  class="sec" id="sec">
+  <h3>Break Statement</h3>
+  <p>
+    Now let's combine "if" condition with loops. What if you wanted to
+    terminate a loop based on a condition which is in addition to what may be
+    specified already in a while loop. This is where the break statement comes
+    handy.
+  </p>
+  <p>
+Let's say you want to implement the same exercise as above, i.e.
+multiplying 1 by 2 and then the resulting number by 2 until it is less than
+50. Now, what if you want to stop this process as soon as the value of i×2
+is 32. Notice that there are two conditions here. To do so, the above code
+will be adapted as follows.
+  </p>
+  <p>
+    i = 1 #Initializing i to be 1
+  </p>
+  <p>
+    while i &lt; 50: #This is the condition of the while loop
+  </p>
+  <p>
+    i = i*2 # value multiplied by 2
+  </p>
+  <p>
+    if i == 32: # The second condition
+  </p>
+  <p>
+    break # If the above second condition is true, break out of the
+    loop
+  </p>
+  <p>
+    print(i)
+  </p>
+  <p>
+    Output:
+  </p>
+  <p>
+    2
+  </p>
+  <p>
+    4
+  </p>
+  <p>
+    8
+  </p>
+  <p>
+    16
+  </p>
+  <p>
+    Here is what happened.
+  </p>
+  <ul>
+    <li>
+      i was first initialized to 1
+    </li>
+    <li>
+      The while loop condition was set as i &lt; 50. This means that every
+      time, at this step, the computer will check the value of i and only if
+      it is less than 50 will it go to the block within the "while" loop.
+    </li>
+    <li>
+      Within the block, we multiply the current value of i with 2, assign it
+      back to i (i.e. essentially update it). Then, we check if the current
+      value of i (i.e. the value that was just multiplied by 2) is 32. If
+      yes, we break out. Otherwise, we print the value of i and then go back
+      to the top of the loop where the first loop condition (i.e. i&lt;50) is
+      checked again.
+    </li>
+  </ul>
+  <p>
+    Here, when the value of i was 16, there was a check to see if it is less
+    than 50. Since it is, the control passed into the loop where i was
+    multiplied by 2 to yield 32. Then, an "if" condition checked if the value
+    was 32, which being true, resulted in a break out of the loop and hence the
+    output stopped there and then.
+  </p>
+  <p>
+    Similar "break" statement can be used with for loop as well.
+  </p>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Exercises</h3>
+  <ol>
+    <li>
+      Print the first 10:
+    </li>
+  </ol>
+  <ol>
+    <li>
+      Numbers inclusive of 0
+    </li>
+    <li>
+      Numbers started from 1
+    </li>
+    <li>
+      Numbers started from 5
+    </li>
+    <li>
+      Odd numbers started from 23
+    </li>
+    <li>
+      Multiples of 8 (try both using computation within the loop as well as
+      by manipulating the loop itself)
+    </li>
+    <li>
+      Multiples of 10 but only until the multiple is less than 80
+    </li>
+  </ol>
+  <ol>
+    <li>
+      Write a program to accept the name of the user, but continue to do so
+      until the name of the user is "Kartik". Try the program out with the
+      following names to ensure it works as expected: John, James, Joe, Carl,
+      Kartik.
+    </li>
+    <li>
+      Print the first 10 Fibonacci numbers. Read more about them at
+      https://en.wikipedia.org/wiki/Fibonacci_number. Check your output and
+      compare it to the following.
+    </li>
+  </ol>
+  <p>
+    0
+  </p>
+  <p>
+    1
+  </p>
+  <p>
+    1
+  </p>
+  <p>
+    2
+  </p>
+  <p>
+    3
+  </p>
+  <p>
+    5
+  </p>
+  <p>
+    8
+  </p>
+  <p>
+    13
+  </p>
+  <p>
+    21
+  </p>
+  <p>
+    34
+  </p>
+</div>
+</body>
 
 <style>
   #sec{
@@ -213,7 +450,7 @@
   font-size: medium;
   font-weight: 500;
   }
-
+  
   #sec-h1{
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -222,17 +459,17 @@
   max-width: 55%;
   margin-bottom: 5%;
   }
-
+  
   #sec-h3{
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight:500;
   margin-bottom: 2%; 
   }
-
+  
   body{
   overflow-y: scroll;
   }
   </style>
-
+  
   {% endblock %}

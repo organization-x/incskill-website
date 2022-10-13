@@ -1,3 +1,4 @@
+
 .topnav {
   margin-top: 0%;
   margin-left:0%;
@@ -255,7 +256,6 @@ img.bg {
   padding-left: 5%;
 }
 
-
 #sec{
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 3%;
@@ -264,8 +264,7 @@ img.bg {
   font-size: medium;
   font-weight: 500;
   }
-
-
+  
   #sec-h1{
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -274,16 +273,14 @@ img.bg {
   max-width: 55%;
   margin-bottom: 5%;
   }
-
-
+  
   #sec-h3{
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight:500;
   margin-bottom: 2%; 
   }
-
-
+  
   body{
   overflow-y: scroll;
   }
