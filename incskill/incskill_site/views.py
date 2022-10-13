@@ -3,8 +3,21 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from cerberus import Validator
 
-# Create your views here.
+
+class var:
+    notvalid = False
+    mail_schema = {'name': {'type': 'string'}}
+    val_mail = Validator(mail_schema)
+    name_schema = {'name': {'type': 'string'}}
+    val_name = Validator(name_schema)
+    pass_schema = {'name': {'type': 'string'}}
+    val_pass = Validator(pass_schema)
+
+
+
+# Create your views here.	# Create your views here.
 class LoginView(View):
     template_name = 'login.html'
     def get(self, request):
@@ -25,6 +38,8 @@ class LoginView(View):
                 return render(request, self.template_name)
         if 'signup' in request.POST:
             return redirect('signup')
+
+            
 class CoursePageView(View):
     template_name = 'coursePage.html'
     def get(self, request):
@@ -49,19 +64,42 @@ class SignUpView(View):
     template_name = 'signup.html'
     def get(self, request):
         if not request.user.is_authenticated:
-            return render(request, self.template_name)
+            context = {
+                "input_notvalid" : var.notvalid,
+            }
+            return render(request, self.template_name, context)
         else:
             return redirect('courses')
 
     def post(self, request):
         if 'submit' in request.POST:
-            userName = request.POST['username']
-            userPass = request.POST['password']
-            userMail = request.POST['email']
-            user = User.objects.create_user(username = userName, email = userMail, password = userPass)
-            return redirect('login')
+            get_mail = request.POST['email']
+            user_mail = {'name' : get_mail }
+            valid_mail = var.val_mail.validate(user_mail, var.mail_schema)
+
+            get_name = request.POST['username']
+            user_name = {'name' : get_name}
+            valid_name = var.val_name.validate(user_name, var.name_schema)
+
+            get_pass = request.POST['password']
+            user_pass = {'name' : get_pass}
+            valid_pass = var.val_pass.validate(user_pass, var.pass_schema)
+
+
+            try:
+                if valid_mail and valid_name and valid_pass:
+                    var.notvalid=False
+                    user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
+                    return redirect('login')
+                else:
+                    var.notvalid=True
+                    return redirect('signup')
+            except ValueError:
+                var.notvalid=True
+                return redirect('signup')
 
         if 'login' in request.POST:
+            var.notvalid=False
             return redirect('login')
 
 
