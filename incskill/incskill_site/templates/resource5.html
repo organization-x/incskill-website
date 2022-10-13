@@ -1,0 +1,404 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}
+
+<div  class="sec" id="sec">
+  <h1 id="sec-h1">Week 5: More Data Structures</h1>
+
+  <h3 id="sec-h3">Objectives</h3>
+
+
+  <p>
+    In this resource, you will learn the following.
+  </p>
+  <ul>
+    <li>
+      Working with advanced data structures (lists, dictionaries, sets,
+      tuples)
+    </li>
+  </ul>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Advance Data Structures</h3>
+  <p>
+    We learnt about strings, integers, float, boolean etc. in the last
+    resource. Now, it's time to expand that knowledge to talk about data
+    structures, i.e. ways in which we can organize these in logical groups that
+    can then be used together. For instance, what if we wanted to process a
+    list of students and their marks to generate a report that contains the
+    names of students who have scored more than 40 marks out of 60? One way to
+    do that is to create multiple variables containing each of the student
+    names, and then yet other variables containing their scores, and then using
+    "if" condition to check if the score obtained by a student is greater than
+    40 and ultimately printing that student name. In other words, the code will
+    look something like this.
+  </p>
+  <p>
+    student1Name = "Kartik"
+  </p>
+  <p>
+    student2Name = "Karan"
+  </p>
+  <p>
+    student1Marks = 60
+  </p>
+  <p>
+    student2Marks = 20
+  </p>
+  <p>
+    if student1Marks &gt; 40:
+  </p>
+  <p>
+    print(student1Name)
+  </p>
+  <p>
+    if student2Marks &gt; 40:
+  </p>
+  <p>
+    print(student2Name)
+  </p>
+  <p>
+    Here, the program will correctly print "Kartik" because Kartik's
+    marks&gt;40. But, imagine that we wanted to do this with 500 students. We
+    will then be working with 1000 variables which is crazy. Here is where data
+    structures come in.
+  </p>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">List</h3>
+
+  </p>
+  <p>
+    The first data structure we will discuss is a list. As the name suggests, a
+    list is simply a list of values. For instance, in the last example, instead
+    of creating a variable for every student, we can create a list of all of
+    the student names as follows.
+  </p>
+  <p>
+    studentNames = ["Kartik", "Karan"]
+  </p>
+  <p>
+    Note the [ and ]. This is used to declare a list and comma-separated string
+    values are the elements of the list. Here are a few other examples of
+    lists.
+  </p>
+  <p>
+    numbers = [1, 4, 6, 10]
+  </p>
+  <p>
+    floatVals = [2.5, 5.3, 3.3, 4.6]
+  </p>
+  <p>
+    listOfMultipleDatatypes = [2.5, 2, "test"] # This is valid. You can have a
+    list consisting of multiple data types, although this doesn't make sense in
+    most cases.
+  </p>
+  <p>
+    Just like the "for" loop we discussed previously where the counter starts
+    from 0, lists are zero-indexed as well (in general, everything in computer
+    science is). This means that the first element of a list is actually
+    represented as the 0th element, the second element as the 1st element and
+    so on. Given this information, we use the listName[indexOfElement] to get
+    the value at a particular index within the list. For instance, if I wanted
+    to print the first element in the numbers list defined above, here is how I
+    would do it.
+  </p>
+  <p>
+    print(numbers[0])
+  </p>
+  <p>
+    numbers[0] means the element at the 0th index, i.e. the first element. The
+    index goes upto the length of the list-1. If you try to get a value beyond
+    this, the interpreter will throw an "out of bounds" exception.
+    Interestingly, the index can also be negative. for instance, I can write
+    the following:
+  </p>
+  <p>
+    print(numbers[-1])
+  </p>
+  <p>
+    If the index is negative, then the counting starts from the end of the
+    list. So, -1 indicates the last element, -2 indicates the second last
+    element and so on. The print statement above will thus print the last
+    element in the list.
+  </p>
+  <p>
+    A few other functions that are important to remember include the following:
+  </p>
+  <ul>
+    <li>
+      list.append(elementToBeAppended) function is used to append or add the
+      value at the end of the list. For instance, numbers.append(4) will add
+      the value 4 at the end of the list.
+    </li>
+    <li>
+      list.insert(position, elementToBeInserted) inserts the element
+      specified as the second argument at the position indicated by the first
+      argument. e.g. numbers.insert(2, 9) inserts 9 at index 2.
+    </li>
+    <li>
+      list.remove(elementToBeRemoved) will remove the element passed to the
+      function from the list if it exists in the list, otherwise will throw
+      an error. For instance, numbers.remove(4) will remove the value 4 we
+      recently appended to the list.
+    </li>
+    <li>
+      list1.extend(list2) merges the contents of list1 and list2 into a
+      single list. e.g. Consider the following.
+    </li>
+  </ul>
+  <p>
+    list1 = ["Kartik", "Karan"]
+  </p>
+  <p>
+    list2 = ["Mehak", "Shradha"]
+  </p>
+  <p>
+    list1.extend(list2)
+  </p>
+  <p>
+    print(list1)
+  </p>
+  <p>
+    The output will be the elements of list2 merged into list1, i.e. Kartik,
+    Karan, Mehak, Shradha.
+  </p>
+  <ul>
+    <li>
+      len(list) returns the length of the list. e.g. len(numbers) will return
+      the No. of elements in the list.
+    </li>
+    <li>
+      reversed(list) reverses the list. reversed(numbers), for example, will
+      reverse the elements of the list such that the last element becomes the
+      first and so on.
+    </li>
+  </ul>
+  <p>
+    Please note that string is also essentially a list of characters. Consider
+    the following example.
+  </p>
+  <p>
+    str = "Hello"
+  </p>
+  <p>
+    print(len(str)) #the output will be 5
+  </p>
+  <p>
+    print(str[0]) #the output will be H
+  </p>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Iterating a List</h3>
+  <p>
+    Using our understanding of for loop, we an iterate a list as follows.
+  </p>
+  <p>
+    for i in range(len(list)):
+  </p>
+  <p>
+    print(list[i])
+  </p>
+  <p>
+    Here, we are going from 0 to len(list) not included and printing each of
+    the values, thereby printing the list. Python provides another way,
+    however, to iterate a list.
+  </p>
+  <p>
+    for elem in list: # elem is just a variable name, you can use any other
+    variable name
+  </p>
+  <p>
+    print(elem)
+  </p>
+  <p>
+    This will directly print the various elements in the list. You don't have
+    to worry about range or index here.
+  </p>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Dictionaries</h3>
+  <p>
+    In the previous example of students and their marks, there is an
+    association between the student and their marks. We previously modeled this
+    using a list of students and a list of marks with the elements of both the
+    lists mapping to each other. But that is not the most efficient way to
+    represent this structure. A better way is to use what is known as a
+    dictionary. A dictionary consists of a key and an associated value. In this
+    case, for example, the key will be the name of the student and the value
+    will be their marks. This helps us encapsulate all information about a
+    student and their marks in one data structure. Here is how it works.
+  </p>
+  <p>
+    studentDictionary = {} # This is used to initialize a dictionary
+  </p>
+  <p>
+    studentDictionary["Kartik"] = 60
+  </p>
+  <p>
+    studentDictionary["Karan"] = 20
+  </p>
+  <p>
+    Here, the dictionary has two keys "Kartik" and "Karan" each containing a
+    value 60 and 20 respectively. Once added to the dictionary, the value for a
+    particular key can be obtained as follows:
+  </p>
+  <p>
+    valueForKey = nameOfTheDictionary[key]
+  </p>
+  <p>
+    In other words:
+  </p>
+  <p>
+    marksForKartik = studentDictionary["Kartik"] # Where Kartik is the key
+  </p>
+  <p>
+    Further, you can get a list of all of the keys and values in the dictionary
+    using the dictionary.keys() and dictionary.values() function. e.g.
+  </p>
+  <p>
+    listOfKeys = studentDictionary.keys() #This will give me a list of the keys
+    in the studentDictionary
+  </p>
+  <p>
+    listOfValues = studentDictionary.values() #This will give me a list of the
+    values in the studentDictionary
+  </p>
+  <p>
+    Finally, note that the value can be anything-an integer, a string, a list
+    or even another dictionary.
+  </p>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Sets</h3>
+  <p>
+    Just like a set in mathematics, a set in computer science is essentially a
+    list but without any duplication, i.e. all elements in a set are unique
+    elements. A set is declared as follows.
+  </p>
+  <p>
+    a = set([list of values])
+  </p>
+  <p>
+    e.g.
+  </p>
+  <p>
+    a = set([4, 4, 5, 5, 6]) #This will be stored as set([4, 5, 6]) since all
+    dupicate values will be removed
+  </p>
+  <p>
+    All other operations and traversal methods remain the same as a list.
+  </p>
+</div>
+
+<div  class="sec" id="sec">
+  <h3 id="sec-h3">Tuples</h3>
+  <p>
+    Tuples are used to store multiple items in a single variable. This is a
+    collection which has a specific order to it and is unchangeable. Consider
+    the following example.
+  </p>
+  <p>
+    tupleOfStudents = ("Kartik", "Karan")
+  </p>
+  <p>
+    Just like lists, tuples are zero-indexed and can have various data types
+    within the same tuple. The individual elements of a tuple can also be
+    accessed in a similar way as a list as follows.
+  </p>
+  <p>
+    print(tupleOfStuents[0]) #Will print the first element of the tuple, i.e.
+    Kartik
+  </p>
+  <p>
+    Tuple as a data structure is relatively less used, but it's good to have it
+    in our toolbox.
+  </p>
+</div>
+
+<div class="sec" id="sec">
+  <h1 id="sec-h1">Exercises</h1>
+  <h1 id="sec-h1">Additional Exercises on Data Structures</h1>
+  <ol>
+    <li>
+      Create a list of days of the week and print out the days at odd
+      indices.
+    </li>
+    <li>
+      Create a list of numbers between 1 and 10,000, and print numbers that
+      are divisible by 4 and 5 but not by 10.
+    </li>
+    <li>
+      Traverse numbers from 1 to 100,000. Add those numbers to a list called
+      magicNumbers where the unit digit of the number exceeds the ten's digit
+      by at least 5.
+    </li>
+    <li>
+      You are given the following string.
+    </li>
+  </ol>
+  <p>
+    str = "There is a lot that can be done to solve this problem. But the best
+    way to solve the problem is none other than a peaceful resolution."
+  </p>
+  <p>
+    split() is a function that splits a string based on a character provided by
+    the user. e.g. listComponents = str.split(".") will give us a list called
+    listComponents containing two elements as follows.
+  </p>
+  <p>
+    ["There is a lot that can be done to solve this problem", " But the best
+    way to solve the problem is none other than a peaceful resolution"]
+  </p>
+  <p>
+    Given the string str above, print all distinct words in the string using
+    split() and your understanding of data structures discussed.
+  </p>
+  <ol>
+    <li>
+      Create a dictionary that maps an integer from 1 to 10 to five words of
+      that length each. Then print the first three words of length 3.
+    </li>
+  </ol>
+</div>
+</body>
+
+<style>
+  #sec{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 3%;    
+  font-size: medium;
+  font-weight: 500;
+  }
+
+  #sec-h1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 7%;
+  max-width: 55%;
+  margin-bottom: 5%;
+  }
+
+  #sec-h3{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight:500;
+  margin-bottom: 2%; 
+  }
+
+  body{
+  overflow-y: scroll;
+  }
+  </style>
+
+  {% endblock %}

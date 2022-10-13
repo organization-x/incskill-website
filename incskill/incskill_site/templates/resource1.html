@@ -2,7 +2,8 @@
 
 {% block title %}Introduction to Software Engineering{% endblock %}
 
-{% block content %}  
+{% block content %}
+
   <div class="sec" id="sec">    
     <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
     <p>
@@ -55,7 +56,7 @@
     </ol>
   </div>
 
-  <div class="sec" id="sec">
+<div class="sec" id="sec">
     <h3 id="sec-h3">Introducing Command Line Interface (CLI)</h3>  
     <p>
         There are generally two interfaces-character user interface (CUI) or
@@ -172,35 +173,38 @@
       </li>
     </ol>
   </div>
-{% endblock %}
 
-<style>
-  body{
+
+
+  <style>
+    #sec{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;    
+    font-size: medium;
+    font-weight: 500;
+    }
+    
+    #sec-h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 7%;
+    max-width: 55%;
+    margin-bottom: 5%;
+    }
+    
+    #sec-h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:500;
+    margin-bottom: 2%; 
+    }
+    
+    body{
     overflow-y: scroll;
-  } 
-
-  #sec{
-      font-family: Arial, Helvetica, sans-serif;
-      margin-left: 2%;
-      margin-right: 2%;
-      margin-bottom: 3%;    
-      font-size: medium;
-      font-weight: 500;
-  }
-
-  #sec-h1{
-      font-family: Arial, Helvetica, sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      margin-top: 7%;
-      max-width: 55%;
-      margin-bottom: 5%;
-  }
-
-  #sec-h3{
-      font-family: Arial, Helvetica, sans-serif;
-      font-style: normal;
-      font-weight:500;
-      margin-bottom: 2%; 
-  }
-</style>
+    }
+    </style>
+    
+    {% endblock %}
