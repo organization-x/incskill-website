@@ -5,12 +5,14 @@
 {% block content %}  
     <h4>
       <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" width="500" height="auto">
-      <br>
+    </h4>
+    <h3>
       Our Mission
+      </h3>
       <h6>
         Unlocking high-growth career opportunities irrespective of past experience or needs
       </h6>
-    </h4>
+    
     
     
     <!--pasword and email input boxes--> 
@@ -23,17 +25,15 @@
           <h1>Login</h1>
           
           <label for="username">Username:</label>
-          <br>
+          
           <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
-          <br>
+          
           <label for="password">Password:</label>
-          <br>
+          
           <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-          <div class="logo">
-            <!--add logo here, posssibly?-->
-          </div>
+         
         </div>
-        
+        <br>
         <!--link added for testing purposes-->
         <!--commented out until we're able to implement it
         <div class="form-check mb-3">
@@ -42,7 +42,10 @@
         </div>-->
         <!--submit button--> 
         <span class="visually-hidden">Check if your information is correct</span>
+        
         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        <br>
+        <br>
         <button type ="submit" class="btn btn-primary" name="signup">Sign Up</button>
       
       </form>
