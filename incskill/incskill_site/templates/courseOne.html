@@ -23,22 +23,40 @@
           <p></p>
         </a>
         <a href="{% url 'resourceone' %}" class="card-link" id="courseBtn">
-          <p>Section 1</p>
+          <p>Week 1: Introduction to Computer Programming Using Python</p>
         </a>
         <a href="{% url 'resourcetwo' %}" class="card-link" id="courseBtn">
-          <p>Section 2</p>
+          <p>Week 2: Introduction to Computer Programming Using Python</p>
         </a>
         <a href="{% url 'resourcethree' %}" class="card-link" id="courseBtn">
-          <p>Section 3</p>
+          <p>Week 3: Input and Output, Data Types and Loops</p>
         </a>
         <a href="{% url 'resourcefour' %}" class="card-link" id="courseBtn">
-          <p>Section 4</p>
+          <p>Week 4: Loops</p>
         </a>
         <a href="{% url 'resourcefive' %}" class="card-link" id="courseBtn">
-          <p>Section 5</p>
+          <p>Week 5: More Data Structures</p>
         </a>
         <a href="{% url 'resourcesix' %}" class="card-link" id="courseBtn">
-          <p>Section 6</p>
+          <p>Week 6: Functions</p>
+        </a>
+        <a href="{% url 'resourceseven' %}" class="card-link" id="courseBtn">
+          <p>Week 7: Flask 1</p>
+        </a>
+        <a href="{% url 'resourceeight' %}" class="card-link" id="courseBtn">
+          <p>Week 8: Flask 2</p>
+        </a>
+        <a href="{% url 'resourcenine' %}" class="card-link" id="courseBtn">
+          <p>Week 9: Flask Templates</p>
+        </a>
+        <a href="{% url 'resourceten' %}" class="card-link" id="courseBtn">
+          <p>Week 10</p>
+        </a>
+        <a href="{% url 'resourceeleven' %}" class="card-link" id="courseBtn">
+          <p>Week 11</p>
+        </a>
+        <a href="{% url 'resourcetwelve' %}" class="card-link" id="courseBtn">
+          <p>Week 12: Flask Extensions</p>
         </a>
         <a href="#" class="card-link" id="courseBtn">
           <p>Quiz</p>
@@ -49,7 +67,12 @@
       </div>
     </div>
   </div>
+  
   <style>
+    #unit1 {
+      margin-bottom: 7%;
+    }
+    
     #unitBtn {
         margin-top: 200px;
         width: 70%;
@@ -82,5 +105,10 @@
         overflow: hidden;
         background:transparent;
     }
+    
+    body{
+    overflow-y: scroll;
+    }
+
   </style>
 {% endblock %}

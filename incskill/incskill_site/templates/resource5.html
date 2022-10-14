@@ -324,8 +324,8 @@
 </div>
 
 <div class="sec" id="sec">
-  <h1 id="sec-h1">Exercises</h1>
-  <h1 id="sec-h1">Additional Exercises on Data Structures</h1>
+  <h3 id="sec-h3">Exercises</h3>
+  <h3 id="sec-h3">Additional Exercises on Data Structures</h3>
   <ol>
     <li>
       Create a list of days of the week and print out the days at odd
@@ -370,7 +370,34 @@
 </div>
 </body>
 
+<div>
+  <a href="#" role="button" id="sec-btn">
+      <p>Mark as Done</p>
+  </a>
+  <a href="{% url 'resourcesix' %}" role="button" id="sec-btn">
+      <p>Start Week 6</p>
+  </a>
+</div>
+
+
 <style>
+  #sec-btn {
+      margin:auto;
+      width:30%;
+      border-radius:50px;
+      background-color:#233854;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 75px;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1em;
+      margin-bottom:1%;
+  }
+
   #sec{
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 3%;
