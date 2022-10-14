@@ -1,0 +1,502 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}
+
+
+<div class="sec" id="sec">
+    <h1 id="sec-h1">Week 9: Flask Templates</h1>
+</div>
+
+<div class="sec" id="sec">
+  <p>
+    It is possible to return the output of a function bound to a certain URL in
+    the form of HTML. For instance, in the following script, hello() function
+    will render 'Hello World' with &lt;h1&gt; tag attached to it.
+  </p>
+  <p>
+    from flask import Flask
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def index():
+  </p>
+  <p>
+        return '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello
+    World'&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;'
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+        app.run()
+  </p>
+  <p>
+    However, generating HTML content from Python code is cumbersome, especially
+    when variable data and Python language elements like conditionals or loops
+    need to be put. This would require frequent escaping from HTML.
+  </p>
+  <p>
+    This is where one can take advantage of Jinja2 template engine on which
+    Flask is based. Instead of returning hardcode HTML from the function, a
+    HTML file can be rendered by the render_template() function.
+  </p>
+  <p>
+    from flask import Flask
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def index():
+  </p>
+  <p>
+        return render_template('hello.html')
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+        app.run()
+  </p>
+  <p>
+    Flask will try to find the HTML file in the templates folder in the same
+    folder in which this script is present. So, for instance, if the
+    application folder contains Hello.py, it in turn should contain a folder
+    called templates which should contain hello.html.
+  </p>
+  <p>
+    Now, let's go through an example where the HTML template file will taken in
+    a variable.
+  </p>
+  <p>
+    Save the following as hello.html in templates folder.
+  </p>
+  <p>
+    &lt;!doctype html&gt;
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    Note the {{ name }} here. The {{ and }} suggest that the name, which will
+    be a parameter of the function, needs to be substituted here.
+  </p>
+  <p>
+    The following is the corresponding Python code.
+  </p>
+  <p>
+    from flask import Flask, render_template
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/hello/&lt;user&gt;')
+  </p>
+  <p>
+    def hello_name(user):
+  </p>
+  <p>
+        return render_template('hello.html', name = user)
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+        app.run(debug = True)
+  </p>
+  <p>
+    As the development server starts running, open the browser and enter URL as
+    <a href="http://localhost:5000/hello/kartik">
+        http://localhost:5000/hello/kartik
+    </a>
+    . The variable part of URL is inserted at {{ name }} placeholder, i.e.
+    replaced with Kartik in this case.
+  </p>
+  <p>
+    We can also support conditional rendering. This means that different HTML
+    output should be rendered based on the value received as part of the URL.
+    For instance, in the following example, the URL rule to the hello()
+    function accepts the integer parameter. It is passed to the hello.html
+    template. Inside it, the value of number received (marks) is compared
+    (greater or less than 50) and accordingly HTML is conditionally rendered.
+  </p>
+  <p>
+    The Python Script is as follows.
+  </p>
+  <p>
+    from flask import Flask, render_template
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/hello/&lt;int:score&gt;')
+  </p>
+  <p>
+    def hello_name(score):
+  </p>
+  <p>
+        return render_template('hello.html', marks = score)
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+        app.run()
+  </p>
+  <p>
+    HTML template script of hello.html is as follows.
+  </p>
+  <p>
+    &lt;!doctype html&gt;
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p> 
+    &#123% if marks&gt;50 %&#125; 
+  </p>
+  <p>
+    &lt;h1&gt; Your result is pass!&lt;/h1&gt;
+  </p>
+  <p>
+    &#123% else %&#125;
+  </p>
+  <p>
+    &lt;h1&gt;Your result is fail&lt;/h1&gt;
+  </p>
+  <p>
+    &#123% endif %&#125;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    Note that the conditional statements if-else and endif are enclosed in
+    delimiter &#123%..%&#125;.
+  </p>
+  <p>
+    Run the Python script and visit URL http://localhost:5000/hello/60 and then
+    http://localhost:5000/hello/30 to see the output of HTML changing
+    conditionally.
+  </p>
+  <p>
+    The Python loop constructs can also be employed inside the template. In the
+    following script, the result() function sends a dictionary object to
+    template results.html when URL http://localhost:5000/result is opened in
+    the browser. The Template part of result.html employs a for loop to render
+    key and value pairs of dictionary object result{} as cells of an HTML
+    table.
+  </p>
+  <p>
+    Here is the Python code.
+  </p>
+  <p>
+    from flask import Flask, render_template
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/result')
+  </p>
+  <p>
+    def result():
+  </p>
+  <p>
+        dict = {'phy':50,'che':60,'math':70}
+  </p>
+  <p>
+        return render_template('result.html', result = dict)
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+        app.run()
+  </p>
+  <p>
+    Save the following HTML script as result.html in the templates folder.
+  </p>
+  <p>
+    &lt;!doctype html&gt;
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;table border = 1&gt;
+  </p>
+  <p>
+    &#123% for key, value in result.items() %&#125;
+  </p>
+  <p>
+    &lt;tr&gt;
+  </p>
+  <p>
+    &lt;th&gt; {{ key }} &lt;/th&gt;
+  </p>
+  <p>
+    &lt;td&gt; {{ value }} &lt;/td&gt;
+  </p>
+  <p>
+    &lt;/tr&gt;
+  </p>
+  <p>
+    &#123% endfor %&&#125;
+  </p>
+  <p>
+    &lt;/table&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    Here, again the Python statements corresponding to the For loop are
+    enclosed in &#123%..%&#125; whereas the expressions key and value are put inside {{
+    }}.
+  </p>
+</div>
+
+<div class="sec" id="sec">
+  <h3 id="sec-h3">Exercises</h3>
+  <ol>
+    <li>
+      Develop a web application authentication system for a school that would
+      take in the following fields and then print out a welcome message.
+    </li>
+  </ol>
+  <ol>
+    <li>
+      Student ID
+    </li>
+    <li>
+      First name
+    </li>
+    <li>
+      Last name
+    </li>
+    <li>
+      Grade
+    </li>
+  </ol>
+  <p>
+    The welcome message should look like: "Hello &lt;first name&gt; &lt;last
+    name&gt; (student ID. &lt;student ID&gt;) of grade &lt;grade&gt;" where
+    values between &lt; and &gt; should be replaced with appropriate values.
+  </p>
+  <ol>
+    <li>
+      Develop an E-commerce form that takes item ID as an input from the user
+      in an HTML form and then renders the price as per the following table.
+    </li>
+  </ol>
+  <table cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                    Item ID
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Price
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    345
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    $545
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    212
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    $545
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    045
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    $132
+                </p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <ol>
+    <li>
+      Create a webpage that will render the following table. Here, the
+      company names and stock prices should be passed in from Flask using the
+      templating concepts you have learnt.
+    </li>
+  </ol>
+  <table cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                    Company
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Stock price
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Microsoft
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    305
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Google
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    2424
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Facebook
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    185
+                </p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+  <button type="submit" id="sec-btn">Mark as Done</button>
+</div>
+
+<div>
+  <a href="{% url 'resourceten' %}" role="button" id="sec-btn">
+      <p>Start Week 10</p>
+  </a>
+</div>
+
+
+<style>
+  #sec-btn {
+      margin:auto;
+      width:30%;
+      border-radius:50px;
+      background:#233854;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 75px;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1em;
+      margin-bottom:1%;
+  }
+
+  #sec{
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 3%;
+      margin-right: 3%;
+      margin-bottom: 3%;    
+      font-size: medium;
+      font-weight: 500;
+    }
+  
+    #sec-h1{
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      margin-top: 7%;
+      max-width: 55%;
+      margin-bottom: 5%;
+    }
+  
+    #sec-h3{
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight:500;
+      margin-bottom: 2%; 
+    }
+  
+  body{
+  overflow-y: scroll;
+  }
+  </style>
+  
+{% endblock %}

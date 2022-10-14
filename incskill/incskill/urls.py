@@ -26,7 +26,13 @@ from incskill_site.views import (
     ResourceThreeView,
     ResourceFourView,
     ResourceFiveView,
-    ResourceSixView    
+    ResourceSixView,
+    ResourceSevenView,
+    ResourceEightView,
+    ResourceNineView,
+    ResourceTenView,
+    ResourceElevenView,
+    ResourceTwelveView    
     )
 
 
@@ -42,5 +48,11 @@ urlpatterns = [
     path('courses/course-one/resource-three', ResourceThreeView.as_view(), name = 'resourcethree'),
     path('courses/course-one/resource-four', ResourceFourView.as_view(), name = 'resourcefour'),
     path('courses/course-one/resource-five', ResourceFiveView.as_view(), name = 'resourcefive'),
-    path('courses/course-one/resource-six', ResourceSixView.as_view(), name = 'resourcesix')
+    path('courses/course-one/resource-six', ResourceSixView.as_view(), name = 'resourcesix'),
+    path('courses/course-one/resource-seven', ResourceSevenView.as_view(), name = 'resourceseven'),
+    path('courses/course-one/resource-eight', ResourceEightView.as_view(), name = 'resourceeight'),
+    path('courses/course-one/resource-nine', ResourceNineView.as_view(), name = 'resourcenine'),
+    path('courses/course-one/resource-ten', ResourceTenView.as_view(), name = 'resourceten'),
+    path('courses/course-one/resource-eleven', ResourceElevenView.as_view(), name = 'resourceeleven'),
+    path('courses/course-one/resource-twelve', ResourceTwelveView.as_view(), name = 'resourcetwelve')
 ]

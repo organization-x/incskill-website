@@ -140,6 +140,18 @@ class CourseOneView(View):
             return redirect('resourcefive')
         if 'resourcesix' in request.POST:
             return redirect('resourcesix')
+        if 'resourceseven' in request.POST:
+            return redirect('resourceseven')
+        if 'resourceeight' in request.POST:
+            return redirect('resourceeight')
+        if 'resourcenine' in request.POST:
+            return redirect('resourcenine')
+        if 'resourceten' in request.POST:
+            return redirect('resourceten')
+        if 'resourceeleven' in request.POST:
+            return redirect('resourceeleven')
+        if 'resourcetwelve' in request.POST:
+            return redirect('resourcetwelve')
 
 
 class ResourceOneView(View):
@@ -189,6 +201,60 @@ class ResourceFiveView(View):
 
 class ResourceSixView(View):
     template_name = 'resource6.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceSevenView(View):
+    template_name = 'resource7.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceEightView(View):
+    template_name = 'resource8.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceNineView(View):
+    template_name = 'resource9.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceTenView(View):
+    template_name = 'resource10.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceElevenView(View):
+    template_name = 'resource11.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+
+class ResourceTwelveView(View):
+    template_name = 'resource12.html'
     def get(self, request):
         if request.user.is_authenticated:
             return render(request, self.template_name)

@@ -1,0 +1,359 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}
+
+<div class="sec" id="sec">
+    <h1 id="sec-h1">Week 11</h1>
+</div>
+
+<div class="sec" id="sec">
+    <h3 id="sec-h3">Flask Redirect and Errors</h3>
+    <p>
+        Flask class has a redirect() function. When called, it returns a response
+        object and redirects the user to another target location with specified
+        status code.
+    </p>
+    <p>
+        In the following example, the redirect() function is used to display the
+        login page again when a login attempt fails.
+    </p>
+    <p>
+        from flask import Flask, redirect, url_for, render_template, request
+    </p>
+    <p>
+        app = Flask(__name__)
+    </p>
+    <p>
+        @app.route('/')
+    </p>
+    <p>
+        def index():
+    </p>
+    <p>
+            return render_template('log_in.html')
+    </p>
+    <p>
+        @app.route('/login',methods = ['POST'])
+    </p>
+    <p>
+        def login():
+    </p>
+    <p>
+            if request.method == 'POST' and request.form['username'] == 'admin':
+    </p>
+    <p>
+                return redirect(url_for('success'))
+    </p>
+    <p>
+        @app.route('/success')
+    </p>
+    <p>
+        def success():
+    </p>
+    <p>
+            return 'logged in successfully'
+    </p>
+    <p>
+        if __name__ == '__main__':
+    </p>
+    <p>
+            app.run(debug = True)
+    </p>
+    <p>
+        Flask class has abort() function with an error code.
+    </p>
+    <p>
+        Flask.abort(code)
+    </p>
+    <p>
+        The Code parameter takes one of following values:
+    </p>
+    <ul>
+        <li>
+            400-for Bad Request
+        </li>
+        <li>
+            401 - for Unauthenticated
+        </li>
+        <li>
+            403 - for Forbidden
+        </li>
+        <li>
+            404 - for Not Found
+        </li>
+        <li>
+            406 - for Not Acceptable
+        </li>
+        <li>
+            415 - for Unsupported Media Type
+        </li>
+        <li>
+            429 - Too Many Requests
+        </li>
+    </ul>
+    <p>
+        Let us make a slight change in the login() function in the above code.
+        Instead of re-displaying the login page, if 'Unauthourized' page is to be
+        displayed, replace it with call to abort(401).
+    </p>
+    <p>
+        from flask import Flask, redirect, url_for, render_template, request, abort
+    </p>
+    <p>
+        app = Flask(__name__)
+    </p>
+    <p>
+        @app.route('/')
+    </p>
+    <p>
+        def index():
+    </p>
+    <p>
+            return render_template('log_in.html')
+    </p>
+    <p>
+        @app.route('/login',methods = ['POST'])
+    </p>
+    <p>
+        def login():
+    </p>
+    <p>
+            if request.method == 'POST':
+    </p>
+    <p>
+                if request.form['username'] == 'admin' :
+    </p>
+    <p>
+                    return redirect(url_for('success'))
+    </p>
+    <p>
+                else:
+    </p>
+    <p>
+                    abort(401)
+    </p>
+    <p>
+        @app.route('/success')
+    </p>
+    <p>
+        def success():
+    </p>
+    <p>
+            return 'logged in successfully'
+    </p>
+    <p>
+        if __name__ == '__main__':
+    </p>
+    <p>
+            app.run()
+    </p>
+    <p>
+        The code for log_in.html is as follows.
+    </p>
+    <p>
+        &lt;html&gt;
+    </p>
+    <p>
+        &lt;body&gt;
+    </p>
+    <p>
+        &lt;form action = "/login" method = "post"&gt;
+    </p>
+    <p>
+        &lt;p&gt;&lt;input type = "text" name = "username"&gt;&lt;/p&gt;
+    </p>
+    <p>
+        &lt;p&gt;&lt;input type = "submit" value = "Login"&gt;&lt;/p&gt;
+    </p>
+    <p>
+        &lt;/form&gt;
+    </p>
+    <p>
+        &lt;/body&gt;
+    </p>
+    <p>
+        &lt;/html&gt;
+    </p>
+    <p>
+        Now see how this changes.
+    </p>
+</div>
+
+<div class="sec" id="sec">
+    <h3 id="sec-h3">File Uploading</h3>
+    <p>
+        Handling file upload in Flask is very easy. It needs an HTML form with its
+        enctype attribute set to 'multipart/form-data', posting the file to a URL.
+        The URL handler fetches file from request.files[] object and saves it to
+        the desired location.
+    </p>
+    <p>
+        Each uploaded file is first saved in a temporary location on the server,
+        before it is actually saved to its ultimate location. Name of destination
+        file can be hard-coded or can be obtained from filename property of
+        request.files[file] object. However, it is recommended to obtain a secure
+        version of it using the secure_filename() function.
+    </p>
+    <p>
+        It is possible to define the path of default upload folder and maximum size
+        of uploaded file in configuration settings of Flask object.
+    </p>
+    <ul>
+        <li>
+            app.config['UPLOAD_FOLDER'] Defines path for upload folder
+        </li>
+        <li>
+            app.config['MAX_CONTENT_PATH'] Specifies maximum size of file yo be
+            uploaded - in bytes
+        </li>
+    </ul>
+    <p>
+        The following code has '/upload' URL rule that displays 'upload.html' from
+        the templates folder, and '/upload-file' URL rule that calls uploader()
+        function handling upload process.
+    </p>
+    <p>
+        'upload.html' has a file chooser button and a submit button.
+    </p>
+    <p>
+        Upload.html contents
+    </p>
+    <p>
+        &lt;html&gt;
+    </p>
+    <p>
+        &lt;body&gt;
+    </p>
+    <p>
+        &lt;form action = "http://localhost:5000/uploader" method = "POST" enctype
+        = "multipart/form-data"&gt;
+    </p>
+    <p>
+        &lt;input type = "file" name = "file" /&gt;
+    </p>
+    <p>
+        &lt;input type = "submit"/&gt;
+    </p>
+    <p>
+        &lt;/form&gt;
+    </p>
+    <p>
+        &lt;/body&gt;
+    </p>
+    <p>
+        &lt;/html&gt;
+    </p>
+    <p>
+        Here, if you view this in browser, click Submit after choosing file. Form's
+        post method invokes '/upload_file' URL. The underlying function uploader()
+        does the save operation.
+    </p>
+    <p>
+        Following is the Python code of Flask application.
+    </p>
+    <p>
+        from flask import Flask, render_template, request
+    </p>
+    <p>
+        from werkzeug.utils import secure_filename
+    </p>
+    <p>
+        app = Flask(__name__)
+    </p>
+    <p>
+        @app.route('/upload')
+    </p>
+    <p>
+        def upload_file():
+    </p>
+    <p>
+            return render_template('upload.html')
+    </p>
+    <p>
+        @app.route('/uploader', methods = ['POST'])
+    </p>
+    <p>
+        def uploader_file():
+    </p>
+    <p>
+            if request.method == 'POST':
+    </p>
+    <p>
+                f = request.files['file']
+    </p>
+    <p>
+                f.save(secure_filename(f.filename))
+    </p>
+    <p>
+                return 'file uploaded successfully'
+    </p>
+    <p>
+        if __name__ == '__main__':
+    </p>
+    <p>
+            app.run()
+    </p>
+</div>
+
+<div>
+    <button type="submit" id="sec-btn">Mark as Done</button>
+</div>
+
+<div>
+    <a href="{% url 'resourcetwelve' %}" role="button" id="sec-btn">
+        <p>Start Week 12</p>
+    </a>
+</div>
+
+
+<style>
+    #sec-btn {
+        margin:auto;
+        width:30%;
+        border-radius:50px;
+        background:#233854;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 75px;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1em;
+        margin-bottom:1%;
+    }
+
+    #sec{
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 3%;
+      margin-right: 3%;
+      margin-bottom: 3%;    
+      font-size: medium;
+      font-weight: 500;
+    }
+  
+    #sec-h1{
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      margin-top: 7%;
+      max-width: 55%;
+      margin-bottom: 5%;
+    }
+  
+    #sec-h3{
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight:500;
+      margin-bottom: 2%; 
+    }
+  
+  body{
+  overflow-y: scroll;
+  }
+  </style>
+  
+{% endblock %}
