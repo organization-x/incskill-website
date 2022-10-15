@@ -4,6 +4,7 @@ from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from cerberus import Validator
+from incskill_site.models import Profile, create_user_profile, save_user_profile, calculate_progress
 
 
 class var:
@@ -33,6 +34,7 @@ class LoginView(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+#                user.profile.progress = .3
                 return redirect('courses')
             else:
                 return render(request, self.template_name)
@@ -44,6 +46,7 @@ class CoursePageView(View):
     template_name = 'coursePage.html'
     def get(self, request):
         if request.user.is_authenticated:
+            calculate_progress(sender=User, instance=request.user)
             return render(request, self.template_name)
         else:
             return redirect('login')
@@ -123,6 +126,7 @@ class CourseOneView(View):
     template_name = 'courseOne.html'
     def get(self, request):
         if request.user.is_authenticated:
+            calculate_progress(sender=User, instance=request.user)
             return render(request, self.template_name)
         else:
             return redirect('login')
@@ -157,10 +161,18 @@ class CourseOneView(View):
 class ResourceOneView(View):
     template_name = 'resource1.html'
     def get(self, request):
+        print("Something")
         if request.user.is_authenticated:
             return render(request, self.template_name)
         else:
             return redirect('login')
+    
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource1 = True
+            print("submitted")
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 
 class ResourceTwoView(View):
@@ -171,6 +183,12 @@ class ResourceTwoView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource2 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
+
 
 class ResourceThreeView(View):
     template_name = 'resource3.html'
@@ -180,6 +198,11 @@ class ResourceThreeView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource3 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceFourView(View):
     template_name = 'resource4.html'
@@ -189,6 +212,11 @@ class ResourceFourView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource4 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceFiveView(View):
     template_name = 'resource5.html'
@@ -198,6 +226,11 @@ class ResourceFiveView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource5 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceSixView(View):
     template_name = 'resource6.html'
@@ -207,6 +240,11 @@ class ResourceSixView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource6 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceSevenView(View):
     template_name = 'resource7.html'
@@ -216,6 +254,11 @@ class ResourceSevenView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource7 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceEightView(View):
     template_name = 'resource8.html'
@@ -225,6 +268,11 @@ class ResourceEightView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource8 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceNineView(View):
     template_name = 'resource9.html'
@@ -234,6 +282,11 @@ class ResourceNineView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource9 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceTenView(View):
     template_name = 'resource10.html'
@@ -243,6 +296,11 @@ class ResourceTenView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource10 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceElevenView(View):
     template_name = 'resource11.html'
@@ -252,6 +310,11 @@ class ResourceElevenView(View):
         else:
             return redirect('login')
 
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource11 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
 
 class ResourceTwelveView(View):
     template_name = 'resource12.html'
@@ -260,3 +323,9 @@ class ResourceTwelveView(View):
             return render(request, self.template_name)
         else:
             return redirect('login')
+
+    def post(self, request):
+        if 'submit' in request.POST:
+            request.user.profile.resource12 = True
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)

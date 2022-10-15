@@ -13,7 +13,7 @@
       <p id="courseTxt">Introduction to Software Engineering</p>
       <br>
       <br>
-      <span class="progress progress-bar bg-success" style="width: 40%" id="progressBar">Progress 0% {{ course_progress_one }}</span>
+      <span class="progress progress-bar bg-success" style="height:24px;width:{{ user.profile.progress }}%" id="progressBar">{{ user.profile.progress }}%</span>
     </a>
   </div>
 
