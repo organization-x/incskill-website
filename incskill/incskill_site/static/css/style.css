@@ -2,7 +2,7 @@
   margin-top: 0%;
   margin-left:0%;
   max-width:100%;
-  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  background: linear-gradient(180deg, #090D2A 0%, rgba(9, 13, 42, 0.569076) 8.23%, rgba(9, 13, 42, 0) 13.95%), radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%)  radial-gradient(83.47% 39.22% at 57.69% 50%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) / warning: gradient uses a rotation that is not supported by CSS and may not behave as expected /, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) / warning: gradient uses a rotation that is not supported by CSS and may not behave as expected /, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) / warning: gradient uses a rotation that is not supported by CSS and may not behave as expected /, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) / warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   padding-top: .5%;
   padding-left:2%;
   color:#F1F1F1;
@@ -19,6 +19,9 @@ body{
   background-repeat: no-repeat;
   background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   
+}
+head{
+  background: #ddd;
 }
 
 /* Style the links inside the navigation bar */
@@ -42,7 +45,7 @@ body{
 h4{
   
 position: absolute;
-left: 20%;
+left: 21%;
 top: 29%;
 
 
@@ -52,10 +55,10 @@ color: white;
 
 
 }
-h3{
+#mission{
   
   position:absolute;
-    left: 26%;
+    left: 29%;
     top: 42%;
   display: flex;
  
@@ -253,6 +256,13 @@ img.bg {
   padding-top: 0%;
   padding-left: 1%;
   font-family: Arial, Helvetica, sans-serif;
+}
+#submitbutton{
+  background: transparent;
+  border-color: white;
+}
+#signupbutton{
+  background: #8844d6;
 }
 
 
