@@ -1,0 +1,699 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}
+
+
+<div class="sec" id="sec">
+    <h1 id="sec-h1">Week 10</h1>
+</div>
+
+<div class="sec" id="sec">
+  <h3 id="sec-h3">Objectives</h3>
+  <p>
+    In this resource, we will learn the following.
+  </p>
+  <ul>
+    <li>
+      Flask request in more detail
+    </li>
+    <li>
+      Sending form data to template
+    </li>
+    <li>
+      Cookies
+    </li>
+    <li>
+      Sessions
+    </li>
+  </ul>
+</div>
+
+<div class="sec" id="sec">
+    <h3 id="sec-h3">Request Objective</h3>
+  <p>
+    The data from a client's web page is sent to the server as a request
+    object. In order to process the request data, it should be imported from
+    the Flask module. We used this in the last week's resource, but following
+    is a more detailed treatment. The following are the important attributes of
+    request object.
+  </p>
+  <ol>
+    <li>
+      Form: It is a dictionary object containing key and value pairs of form
+      parameters and their values.
+    </li>
+    <li>
+      args: Parsed contents of query string which is part of URL after
+      question mark (?). e.g. in the URL localhost:5000/hello?name=kartik,
+      name is an argument with value kartik.
+    </li>
+    <li>
+      Cookies: dictionary object holding Cookie names and values. We will
+      discuss cookies soon.
+    </li>
+    <li>
+      files: data pertaining to uploaded file.
+    </li>
+    <li>
+      method: current request method.
+    </li>
+  </ol>
+</div>
+
+<div class="sec" id="sec">
+    <h3 id="sec-h3">Sending Form Data to Template</h3>
+  <p>
+    We have already seen that the http method can be specified in URL rule. The
+    Form data received by the triggered function can collect it in the form of
+    a dictionary object and forward it to a template to render it on a
+    corresponding web page.
+  </p>
+  <p>
+    In the following example, '/' URL renders a web page (student.html) which
+    has a form. The data filled in it is posted to the '/result' URL which
+    triggers the result() function. The results() function collects form data
+    present in request.form in a dictionary object and sends it for rendering
+    to result.html. The template then dynamically renders an HTML table of form
+    data.
+  </p>
+  <p>
+    Given below is the Python code of the application.
+  </p>
+  <p>
+    from flask import Flask, render_template, request
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def student():
+  </p>
+  <p>
+    return render_template('student.html')
+  </p>
+  <p>
+    @app.route('/result',methods = ['POST',])
+  </p>
+  <p>
+    def result():
+  </p>
+  <p>
+    if request.method == 'POST':
+  </p>
+  <p>
+        result = request.form
+  </p>
+  <p>
+        return render_template("result.html", result = result)
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+    app.run()
+  </p>
+  <p>
+    Given below is the HTML script of student.html.
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;form action = "http://localhost:5000/result" method = "POST"&gt;
+  </p>
+  <p>
+    &lt;p&gt;Name &lt;input type = "text" name = "Name" /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;Physics &lt;input type = "text" name = "Physics" /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;Chemistry &lt;input type = "text" name = "chemistry"
+    /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;Math &lt;input type ="text" name = "Mathematics" /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = "submit" value = "submit" /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;/form&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    Code of template (result.html) is given below:
+  </p>
+  <p>
+    &lt;!doctype html&gt;
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;table border = 1&gt;
+  </p>
+  <p>
+    &#123;% for key, value in result.items() %	&#125;
+  </p>
+  <p>
+    &lt;tr&gt;
+  </p>
+  <p>
+    &lt;th&gt; {{ key }} &lt;/th&gt;
+  </p>
+  <p>
+    &lt;td&gt; {{ value }} &lt;/td&gt;
+  </p>
+  <p>
+    &lt;/tr&gt;
+  </p>
+  <p>
+    &#123;% endfor %	&#125;
+  </p>
+  <p>
+    &lt;/table&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    Run the Python script and enter the URL http://localhost:5000/ in the
+    browser.
+  </p>
+  <p>
+    Output: It should render a page to accept marks. When the Submit button is
+    clicked, form data is rendered on result.html in the form of HTML table.
+  </p>
+</div>
+
+<div class="sec" id="sec">
+    <h3 id="sec-h3">Cookies</h3>
+  <p>
+    A cookie is stored on a client's computer in the form of a text file. Its
+    purpose is to remember and track data pertaining to a client's usage for
+    better visitor experience and site statistics.
+  </p>
+  <p>
+    A Request object contains a cookie's attribute. It is a dictionary object
+    of all the cookie variables and their corresponding values, a client has
+    transmitted. In addition to it, a cookie also stores its expiry time, path
+    and domain name of the site.
+  </p>
+  <p>
+    In Flask, cookies are set on response object. Use make_response() function
+    to get response object from return value of a view function. After that,
+    use the set_cookie() function of response object to store a cookie.
+  </p>
+  <p>
+    Reading back a cookie is easy. The get() method of request.cookies
+    attribute is used to read a cookie.
+  </p>
+  <p>
+    In the following Flask application, a simple form opens up as you visit '/'
+    URL.
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def index():
+  </p>
+  <p>
+    return render_template('index.html')
+  </p>
+  <p>
+    This HTML page contains one text input.
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;form action = "/setcookie" method = "POST"&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;h3&gt;Enter userID&lt;/h3&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = 'text' name = 'nm'/&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = 'submit' value = 'Login'/&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;/form&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    The Form is posted to '/setcookie' URL. The associated view function sets a
+    Cookie name userID and renders another page. You will need to import
+    make_response here.
+  </p>
+  <p>
+    @app.route('/setcookie', methods = ['POST'])
+  </p>
+  <p>
+    def setcookie():
+  </p>
+  <p>
+    if request.method == 'POST':
+  </p>
+  <p>
+        user = request.form['nm']
+  </p>
+  <p>
+        resp = make_response(render_template('readcookie.html'))
+  </p>
+  <p>
+        resp.set_cookie('userID', user)
+  </p>
+  <p>
+        return resp
+  </p>
+  <p>
+    'readcookie.html' contains a hyperlink to another view function
+    getcookie(), which reads back and displays the cookie value in browser.
+  </p>
+  <p>
+    @app.route('/getcookie')
+  </p>
+  <p>
+    def getcookie():
+  </p>
+  <p>
+    name = request.cookies.get('userID')
+  </p>
+  <p>
+    return '&lt;h1&gt;welcome '+name+'&lt;/h1&gt;'
+  </p>
+  <p>
+    Run the application and visit http://localhost:5000/. You should be able to
+    explore all the functionality discussed here.
+  </p>
+  <p>
+    The final Python code can be given as follows.
+  </p>
+  <p>
+    from flask import Flask, redirect, url_for, request, render_template,
+    make_response
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def index():
+  </p>
+  <p>
+    return render_template('index.html')
+  </p>
+  <p>
+    @app.route('/setcookie', methods = ['POST'])
+  </p>
+  <p>
+    def setcookie():
+  </p>
+  <p>
+    if request.method == 'POST':
+  </p>
+  <p>
+        user = request.form['nm']
+  </p>
+  <p>
+        resp = make_response(render_template('readcookie.html'))
+  </p>
+  <p>
+        resp.set_cookie('userID', user)
+  </p>
+  <p>
+        return resp
+  </p>
+  <p>
+    @app.route('/getcookie')
+  </p>
+  <p>
+    def getcookie():
+  </p>
+  <p>
+    name = request.cookies.get('userID')
+  </p>
+  <p>
+    return '&lt;h1&gt;welcome '+name+'&lt;/h1&gt;'
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+    app.run()
+  </p>
+  <p>
+    index.html code can be given as follows.
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;form action = "/setcookie" method = "POST"&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;h3&gt;Enter userID&lt;/h3&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = 'text' name = 'nm'/&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = 'submit' value = 'Login'/&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;/form&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    readcookie.html can be given as follows.
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;a href="/getcookie"&gt;click here&lt;/a&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+</div>
+
+<div class="sec" id="sec">
+    <h3 id="sec-h3">Flask Sessions</h3>
+<p>
+Unlike a Cookie, Session data is stored on the server. Session is the time
+interval when a client logs into a server and logs out of it. The data,
+which is needed to be held across this session, is stored in a temporary
+directory on the server.
+</p>
+<p>
+A session with each client is assigned a Session ID. The Session data is
+stored on top of cookies and the server signs them cryptographically. For
+this encryption, a Flask application needs a defined SECRET_KEY.
+</p>
+<p>
+Session object is also a dictionary object containing key-value pairs of
+session variables and associated values.
+</p>
+<p>
+For example, to set a 'username' session variable use the statement
+</p>
+<p>
+Session['username'] = 'admin'
+</p>
+<p>
+To release a session variable use pop() method.
+</p>
+<p>
+session.pop('username', None)
+</p>
+<p>
+The following code is a simple demonstration of session works in Flask. URL
+'/'' simply prompts user to log in, as session variable 'username' is not
+set.
+</p>
+<p>
+@app.route('/')
+</p>
+<p>
+def index():
+</p>
+<p>
+    if 'username' in session:
+</p>
+<p>
+        username = session['username']
+</p>
+<p>
+        return "Logged in as " + username + "&lt;br&gt; &lt;b&gt;&lt;a href
+= '/logout'&gt;click here to log out&lt;/a&gt;&lt;/b&gt;"
+</p>
+<p>
+    return "You are not logged in &lt;br&gt;&lt;a href =
+'/login'&gt;&lt;/b&gt;click here to log in&lt;/b&gt;&lt;/a&gt;"
+</p>
+<p>
+As user browses to '/login' the login() view function opens up a login
+form. Note that this is the case because we are using the 'GET' method. A
+Form is posted back to '/login' and now session variable is set.
+Application is redirected to '/'. This time session variable 'username' is
+found.
+</p>
+<p>
+@app.route('/login', methods = ['GET', 'POST'])
+</p>
+<p>
+def login():
+</p>
+<p>
+    if request.method == 'POST':
+</p>
+<p>
+        session['username'] = request.form['username']
+</p>
+<p>
+        return redirect(url_for('index'))
+</p>
+<p>
+    return render_template('index.html')
+</p>
+<p>
+code corresponding to index.html.
+</p>
+<p>
+&lt;html&gt;
+</p>
+<p>
+&lt;body&gt;
+</p>
+<p>
+&lt;form action = "/login" method = "post"&gt;
+</p>
+<p>
+&lt;p&gt;&lt;input type = "text" name = "username"&gt;&lt;/p&gt;
+</p>
+<p>
+&lt;p&gt;&lt;input type = "submit" value = "Login"&gt;&lt;/p&gt;
+</p>
+<p>
+&lt;/form&gt;
+</p>
+<p>
+&lt;/body&gt;
+</p>
+<p>
+&lt;/html&gt;
+</p>
+<p>
+The application also contains a logout() view function, which pops out
+'username' session variable. Hence, '/' URL again shows the opening page.
+</p>
+<p>
+@app.route('/logout')
+</p>
+<p>
+def logout():
+</p>
+<p>
+    # remove the username from the session if it is there
+</p>
+<p>
+    session.pop('username', None)
+</p>
+<p>
+    return redirect(url_for('index'))
+</p>
+<p>
+Run the application and visit the homepage. (Ensure to set secret_key of
+the application)
+</p>
+<p>
+from flask import Flask, session, redirect, url_for, escape, request
+</p>
+<p>
+app = Flask(__name__)
+</p>
+<p>
+app.secret_key = "any random string"
+</p>
+<p>
+The final Python code can then be given as:
+</p>
+<p>
+from flask import Flask, session, redirect, url_for, escape, request,
+render_template
+</p>
+<p>
+app = Flask(__name__)
+</p>
+<p>
+app.secret_key = "any random string"
+</p>
+<p>
+@app.route('/')
+</p>
+<p>
+def index():
+</p>
+<p>
+    if 'username' in session:
+</p>
+<p>
+        username = session['username']
+</p>
+<p>
+        return "Logged in as " + username + "&lt;br&gt; &lt;b&gt;&lt;a href
+= '/logout'&gt;click here to log out&lt;/a&gt;&lt;/b&gt;"
+</p>
+<p>
+    return "You are not logged in &lt;br&gt;&lt;a href =
+'/login'&gt;&lt;/b&gt;click here to log in&lt;/b&gt;&lt;/a&gt;"
+</p>
+<p>
+@app.route('/login', methods = ['GET', 'POST'])
+</p>
+<p>
+def login():
+</p>
+<p>
+    if request.method == 'POST':
+</p>
+<p>
+        session['username'] = request.form['username']
+</p>
+<p>
+        return redirect(url_for('index'))
+</p>
+<p>
+    return     render_template('index.html')
+</p>
+<p>
+@app.route('/logout')
+</p>
+<p>
+def logout():
+</p>
+<p>
+    # remove the username from the session if it is there
+</p>
+<p>
+    session.pop('username', None)
+</p>
+<p>
+    return redirect(url_for('index'))
+</p>
+<p>
+if __name__ == '__main__':
+</p>
+<p>
+    app.run()
+</p>
+</div>
+
+<div>
+  <button type="submit" id="sec-btn">Mark as Done</button>
+</div>
+
+<div>
+  <a href="{% url 'resourceeleven' %}" role="button" id="sec-btn">
+      <p>Start Week 11</p>
+  </a>
+</div>
+
+
+<style>
+  #sec-btn {
+      margin:auto;
+      width:30%;
+      border-radius:50px;
+      background:#233854;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 75px;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1em;
+      margin-bottom:1%;
+  }
+
+#sec{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;    
+    font-size: medium;
+    font-weight: 500;
+}
+
+#sec-h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 7%;
+    max-width: 55%;
+    margin-bottom: 5%;
+}
+
+#sec-h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:500;
+    margin-bottom: 2%; 
+}
+
+body{
+overflow-y: scroll;
+}
+</style>
+
+{% endblock %}

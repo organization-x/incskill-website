@@ -439,9 +439,37 @@ will be adapted as follows.
     34
   </p>
 </div>
-</body>
+
+
+<div>
+  <button type="submit" id="sec-btn">Mark as Done</button>
+</div>
+
+<div>
+  <a href="{% url 'resourcefive' %}" role="button" id="sec-btn">
+      <p>Start Week 5</p>
+  </a>
+</div>
+
 
 <style>
+  #sec-btn {
+      margin:auto;
+      width:30%;
+      border-radius:50px;
+      background:#233854;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 75px;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1em;
+      margin-bottom:1%;
+  }
+
   #sec{
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 3%;

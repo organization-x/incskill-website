@@ -44,9 +44,13 @@
         </div>-->
 
         <!--submit button--> 
-        <span class="visually-hidden">Check if your information is correct</span>
-        <button type="submit" class="btn btn-primary" >Submit</button>
-        <button type="login" class="btn btn-primary">Log In</button>
+        <span class="visually-hidden">Check if your information is correct</span>	     
+        {% if input_notvalid %}
+          <br>
+          <p style="color: black;">That information is not valid</p>
+        {% endif %}
+        <button type='submit' class="btn btn-primary" name="submit">Submit</button>
+        <button type='submit' class="btn btn-primary" name="login">Log In</button>
   
       </form>
     </div>
