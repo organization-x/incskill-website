@@ -2,9 +2,12 @@
 {% block title %}My Courses{% endblock %}
 
 {% block content %}  
-  <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%; top: 0%; color: white;">
+
     My Courses
   </h2>
+</header>
+
+<main>
   <div class="text-center">
     {% csrf_token %}
     {{ form.as_p}}
@@ -16,6 +19,7 @@
       <span class="progress progress-bar bg-success" style="width: 40%" id="progressBar">Progress 0% {{ course_progress_one }}</span>
     </a>
   </div>
+</main>
 
   <style>
     .btn {

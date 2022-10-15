@@ -1,52 +1,47 @@
-{% extends 'base.html' %} {% load static %} 
+{% extends 'base.html' %} {% load static %}
 
 {% block title %}Login{% endblock %}
 
-{% block content %}  
-    <h4>
-      <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" width="500" height="auto">
-    </h4>
-    <h3 id="mission">
-      Our Mission
-      </h3>
-      <h6>
-        Unlocking high-growth career opportunities irrespective of past experience or needs
-      </h6>
-    
-    
-    
-    <!--pasword and email input boxes--> 
-    <div class="Title" id="loginInput">
-      
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <div class="container">
-          <h1>Login</h1>
-          
-          <label for="username">Username:</label>
-          
-          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
-          
-          <label for="password">Password:</label>
-          
-          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-         
+
+{% block content %}
+<aside>
+  <h4>
+    <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" width="500" height="auto">
+    <br>
+    Our Mission
+    <h6>
+      Unlocking high-growth career opportunities irrespective of past experience or needs
+    </h6>
+  </h4>
+</aside>
+
+
+<!--pasword and email input boxes-->
+<main>
+  <div class="Title" id="loginInput">
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p}}
+      <div class="container">
+        <h1>Login</h1>
+
+        <label for="username">Username:</label>
+        <br>
+        <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <br>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+        <div class="logo">
+          <!--add logo here, posssibly?-->
         </div>
-<br>
-        <!--commented out until we're able to implement it
+      </div>
+
+
         <div class="form-check mb-3">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
         </div>-->
-        <!--submit button--> 
-        <span class="visually-hidden">Check if your information is correct</span>
-        
-        <button type="submit" class="btn btn-primary" name="submit" id="submitbutton">Submit</button>
-        <br>
-        <br>
-        <button type ="submit" class="btn btn-primary" name="signup" id="signupbutton">Sign Up</button>
-      
-      </form>
-    </div>
+
 {% endblock %}
