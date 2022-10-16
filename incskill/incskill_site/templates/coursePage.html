@@ -2,20 +2,24 @@
 {% block title %}My Courses{% endblock %}
 
 {% block content %}  
-  <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
+
     My Courses
   </h2>
+</header>
+
+<main>
   <div class="text-center">
     {% csrf_token %}
     {{ form.as_p}}
     
-    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
+    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn" style="margin-left: -15.3%;">
       <p id="courseTxt">Introduction to Software Engineering</p>
       <br>
       <br>
       <span class="progress progress-bar bg-success" style="height:24px;width:{{ user.profile.progress }}%" id="progressBar">{{ user.profile.progress }}%</span>
     </a>
   </div>
+</main>
 
   <style>
     .btn {
