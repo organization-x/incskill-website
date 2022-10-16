@@ -1,14 +1,14 @@
+<header> 
 {% extends 'base.html' %}
 
 {% block title %}Introduction to Software Engineering{% endblock %}
 
 {% block content %}  
-    
+   
   <div class="sec" id="sec">    
-    <header>
+    
     <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
-  </header>
-  <main>
+
     <p>
       Welcome to your first programming course. In this resource, we will help 
       you get started with your first program. This involves setting up the
@@ -16,8 +16,9 @@
       interface (often referred to as CLI), and basic Python syntax.
     </p>
   </div>
-
-
+  <br>
+</header>
+<br>
   <div class="sec" id="sec">
     <h3 id="sec-h3">Setting Up Development Environment</h3>
     <p>
@@ -178,7 +179,8 @@
   </main>
   </div>
 
-
+<header>
+  <br>
 <div>
     <button type="submit" id="sec-btn">Mark as Done</button>
 </div>
@@ -187,8 +189,9 @@
     <a href="{% url 'resourcetwo' %}" role="button" id="sec-btn">
         <p>Start Week 2</p>
     </a>
+    <br>
   </div>
-  
+  </header>
   
   <style>
     #sec-btn {
@@ -207,7 +210,11 @@
         padding-top: 1em;
         margin-bottom:1%;
     }
-  
+  header{
+    border-radius: 0.5%;
+    color: white;
+    background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  }
 #sec{
 font-family: Arial, Helvetica, sans-serif;
 margin-left: 3%;
@@ -235,6 +242,7 @@ margin-bottom: 2%;
 
 body{
 overflow-y: scroll;
+background: white;
 }
 </style>
 

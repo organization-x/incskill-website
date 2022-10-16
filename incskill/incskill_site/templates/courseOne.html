@@ -4,8 +4,7 @@
 
 {% block content %}
 
-  <main>
-  <h2 class="text-start" style="padding-left: 11%; max-width: 30%; padding-top: 2%; padding-bottom: 2%;">
+
     Introduction to Software Engineering
   </h2>
 
@@ -13,7 +12,7 @@
   <div class="text-center">
 
     <p>
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#unit1" role="button" aria-expanded="false" aria-controls="unit1" id="unitBtn">
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#unit1" role="button" aria-expanded="false" aria-controls="unit1" id="unitBtn" style=" color: rgb(0, 0, 0); background: white;">
         Unit 1
       </a>
     </p>
@@ -91,25 +90,12 @@
         display: inline;
         float: right;
     }
+
     #easyNav{
         padding-left: 11%;
         padding-top: 1%;
     }
 
     /*Added style here since style.css has a colored background for the login and sign up pages*/
-    body{
-        position: cover;
-        width: 100%;
-        height: 100%;
-        left: -4px;
-        top: 0px;
-        overflow: hidden;
-        background:transparent;
-    }
-    
-    body{
-    overflow-y: scroll;
-    }
-
-  </style>
+</style>
 {% endblock %}
