@@ -179,11 +179,12 @@
   </main>
   </div>
 
-<header>
-  <br>
 <div>
-    <button type="submit" id="sec-btn">Mark as Done</button>
-</div>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p}}
+    <button type="submit" name="submit" id="submit">Mark as Done</button>
+</form>
 
 <div>
     <a href="{% url 'resourcetwo' %}" role="button" id="sec-btn">
@@ -191,7 +192,8 @@
     </a>
     <br>
   </div>
-  </header>
+</div>
+  
   
   <style>
     #sec-btn {

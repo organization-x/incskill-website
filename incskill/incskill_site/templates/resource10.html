@@ -638,12 +638,12 @@ if __name__ == '__main__':
     app.run()
 </p>
 </div>
-<header>
-  <br>
-<div>
-  <button type="submit" id="sec-btn">Mark as Done</button>
-</div>
 
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p}}
+    <button type="submit" name="submit" id="submit">Mark as Done</button>
+</form>
 <div>
   <a href="{% url 'resourceeleven' %}" role="button" id="sec-btn">
       <p>Start Week 11</p>

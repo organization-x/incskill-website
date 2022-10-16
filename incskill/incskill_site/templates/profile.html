@@ -3,7 +3,8 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}  
-  <h1 style="color: white; top: 3%;">Hi, {{user.username}}</h1>
+  <h1>Hi, {{user.username}}</h1>
+  <h1>Your progress: {{ user.profile.progress }}</h1>
   <br>
   <form method="post">
     {% csrf_token %}
