@@ -169,7 +169,10 @@ class ResourceOneView(View):
     
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource1 = True
+            if (request.user.profile.resource1 == False):
+                request.user.profile.resource1 = True
+            else: 
+                request.user.profile.resource1 = False
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
@@ -185,7 +188,11 @@ class ResourceTwoView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource2 = True
+            if (request.user.profile.resource2 == False):
+                request.user.profile.resource2 = True
+            else: 
+                request.user.profile.resource2 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -200,7 +207,11 @@ class ResourceThreeView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource3 = True
+            if (request.user.profile.resource3 == False):
+                request.user.profile.resource3= True
+            else: 
+                request.user.profile.resource3= False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -214,7 +225,11 @@ class ResourceFourView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource4 = True
+            if (request.user.profile.resource4 == False):
+                request.user.profile.resource4 = True
+            else: 
+                request.user.profile.resource4 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -228,7 +243,11 @@ class ResourceFiveView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource5 = True
+            if (request.user.profile.resource5 == False):
+                request.user.profile.resource5 = True
+            else: 
+                request.user.profile.resource5 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -242,7 +261,11 @@ class ResourceSixView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource6 = True
+            if (request.user.profile.resource6 == False):
+                request.user.profile.resource6 = True
+            else: 
+                request.user.profile.resource6 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -256,7 +279,11 @@ class ResourceSevenView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource7 = True
+            if (request.user.profile.resource7 == False):
+                request.user.profile.resource7 = True
+            else: 
+                request.user.profile.resource7 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -270,7 +297,11 @@ class ResourceEightView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource8 = True
+            if (request.user.profile.resource8 == False):
+                request.user.profile.resource8 = True
+            else: 
+                request.user.profile.resource8 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -284,7 +315,11 @@ class ResourceNineView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource9 = True
+            if (request.user.profile.resource9 == False):
+                request.user.profile.resource9 = True
+            else: 
+                request.user.profile.resource9 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -298,7 +333,11 @@ class ResourceTenView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource10 = True
+            if (request.user.profile.resource10 == False):
+                request.user.profile.resource10= True
+            else: 
+                request.user.profile.resource10 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -312,7 +351,11 @@ class ResourceElevenView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource11 = True
+            if (request.user.profile.resource11 == False):
+                request.user.profile.resource11 = True
+            else: 
+                request.user.profile.resource11 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -326,6 +369,10 @@ class ResourceTwelveView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource12 = True
+            if (request.user.profile.resource12 == False):
+                request.user.profile.resource12 = True
+            else: 
+                request.user.profile.resource12 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
