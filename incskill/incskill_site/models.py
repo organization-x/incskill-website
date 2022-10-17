@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django import forms
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -18,6 +19,17 @@ class Profile(models.Model):
     resource10 = models.BooleanField(default=False)
     resource11 = models.BooleanField(default=False)
     resource12 = models.BooleanField(default=False)
+
+@receiver(post_save, sender=User)
+def check_email(sender, self, **kwargs):
+    umail = User.objects.filter('email')
+    if umail.instance:
+        umail = umail.exclude(pk=self.instance.pk)
+    if umail.count():
+        raise forms.ValidationError(
+            'That email address is already in use')
+    else:
+        return self.cleaned_data['email']
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

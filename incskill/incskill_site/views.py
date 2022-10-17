@@ -1,24 +1,18 @@
+from django.db import IntegrityError
+from django.forms import NullBooleanField
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from cerberus import Validator
-from incskill_site.models import Profile, create_user_profile, save_user_profile, calculate_progress
+from incskill_site.models import Profile, create_user_profile, save_user_profile, calculate_progress, check_email
 
 
 class var:
     notvalid = False
-    mail_schema = {'name': {'type': 'string'}}
-    val_mail = Validator(mail_schema)
-    name_schema = {'name': {'type': 'string'}}
-    val_name = Validator(name_schema)
-    pass_schema = {'name': {'type': 'string'}}
-    val_pass = Validator(pass_schema)
 
 
-
-# Create your views here.	# Create your views here.
+# Create your views here
 class LoginView(View):
     template_name = 'login.html'
     def get(self, request):
@@ -51,14 +45,6 @@ class CoursePageView(View):
         else:
             return redirect('login')
 
-#testing something out
-#    def get(self, request):
-#        if request.user.is_authenticated:
-#           course_progress_one = request.GET['progress']
-#           return render(course_progress_one, request, self.template_name)
-#        else:
-#            return redirect('login')
-
     def post(self, request):
         return redirect('course_one')
 
@@ -75,32 +61,45 @@ class SignUpView(View):
             return redirect('courses')
 
     def post(self, request):
+        var.notvalid=False
         if 'submit' in request.POST:
-            get_mail = request.POST['email']
-            user_mail = {'name' : get_mail }
-            valid_mail = var.val_mail.validate(user_mail, var.mail_schema)
-
-            get_name = request.POST['username']
-            user_name = {'name' : get_name}
-            valid_name = var.val_name.validate(user_name, var.name_schema)
-
-            get_pass = request.POST['password']
-            user_pass = {'name' : get_pass}
-            valid_pass = var.val_pass.validate(user_pass, var.pass_schema)
-
-
             try:
-                if valid_mail and valid_name and valid_pass:
-                    var.notvalid=False
-                    user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
-                    return redirect('login')
+                get_mail = request.POST['email']
+                get_name = request.POST['username']
+                get_pass = request.POST['password']
+                if get_mail != None and get_mail != '':
+                    print('checking mail')
+                    check_email(sender=User, self = get_mail, instance=request.user)
+                    print(get_mail)
+                    if get_name != None and get_name != '':
+                        print(get_name)
+                        if get_pass != None and get_pass != '':
+                            print(get_pass)
+                            var.notvalid=False
+                            print('forms filled')
+                            user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
+                            print('user created')
+                            return redirect('login')
+                        else:
+                            print('empty pass')
+                    else:
+                        print('empty name')
                 else:
-                    var.notvalid=True
-                    return redirect('signup')
+                    print('empty mail')
+
+                var.notvalid=True
+                print('forms blank')
+                return redirect('signup')
+            except IntegrityError:
+                var.notvalid=True
+                print('integrity error')
+                return redirect('signup')
             except ValueError:
                 var.notvalid=True
+                print('value error')
                 return redirect('signup')
-
+                
+        
         if 'login' in request.POST:
             var.notvalid=False
             return redirect('login')
