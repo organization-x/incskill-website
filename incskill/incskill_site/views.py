@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from incskill_site.models import Profile, create_user_profile, save_user_profile, calculate_progress, check_email
+from incskill_site.models import Profile, create_user_profile, save_user_profile, calculate_progress
 
 
 class var:
@@ -69,7 +69,7 @@ class SignUpView(View):
                 get_pass = request.POST['password']
                 if get_mail != None and get_mail != '':
                     print('checking mail')
-                    check_email(sender=User, self = get_mail, instance=request.user)
+                    #check_email(sender=User, self = get_mail, instance=request.user)
                     print(get_mail)
                     if get_name != None and get_name != '':
                         print(get_name)
