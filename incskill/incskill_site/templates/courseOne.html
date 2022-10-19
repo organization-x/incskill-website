@@ -58,7 +58,7 @@
         <a href="{% url 'resourcetwelve' %}" class="card-link" id="courseBtn">
           <p>Week 12: Flask Extensions</p>
         </a>
-        <a href="#" class="card-link" id="courseBtn">
+        <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
           <p>Quiz</p>
         </a>
         <a href="#" class="card-link" id="courseBtn">
@@ -70,7 +70,7 @@
 </main>
   <style>
     #unit1 {
-      margin-bottom: 7%;
+      margin-bottom: 2%;
     }
     
     #unitBtn {
@@ -100,6 +100,10 @@
       
       top: 3%;
       margin-right: 60%;
+    }
+
+    body{
+    overflow-y: scroll;
     }
 
     /*Added style here since style.css has a colored background for the login and sign up pages*/

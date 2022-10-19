@@ -441,11 +441,7 @@
   </table>
 </div>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p}}
-  <button type="submit" name="submit" id="submit" style="border-radius:50px; text-align: right;">Mark as Done</button>
-</form>
+
 
 <div>
   <a href="{% url 'resourceten' %}" role="button" id="sec-btn">
