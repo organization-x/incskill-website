@@ -8,7 +8,8 @@
   <div class="sec" id="sec">    
     
     <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
-
+    <br>
+  </header>
     <p>
       Welcome to your first programming course. In this resource, we will help 
       you get started with your first program. This involves setting up the
@@ -16,8 +17,8 @@
       interface (often referred to as CLI), and basic Python syntax.
     </p>
   </div>
-  <br>
-</header>
+ 
+
 <br>
   <div class="sec" id="sec">
     <h3 id="sec-h3">Setting Up Development Environment</h3>
@@ -180,10 +181,11 @@
   </div>
 
 <div>
+  
 <form method="post">
   {% csrf_token %}
   {{ form.as_p}}
-    <button type="submit" name="submit" id="submit">Mark as Done</button>
+    <button type="submit" name="submit" id="submit" style="border-radius:50px; text-align: right;">Mark as Done</button>
 </form>
 
 <div>
@@ -241,7 +243,21 @@ font-style: normal;
 font-weight:500;
 margin-bottom: 2%; 
 }
-
+form{
+  position: absolute;
+  right: 35%;
+  top: 142%;
+  color: #f2f2f2;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 50px;
+  
+}
+#submit{
+  position: relative;
+  text-align: center;
+  justify-content: center;
+}
 body{
 overflow-y: scroll;
 background: white;

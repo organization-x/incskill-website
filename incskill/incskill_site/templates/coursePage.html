@@ -3,11 +3,12 @@
 
 {% block content %}  
 
-    My Courses
-  </h2>
-</header>
+
 
 <main>
+  <h2>
+    My Courses
+  </h2>
   <div class="text-center">
     {% csrf_token %}
     {{ form.as_p}}
@@ -16,7 +17,7 @@
       <p id="courseTxt">Introduction to Software Engineering</p>
       <br>
       <br>
-      <span class="progress progress-bar bg-success" style="height:24px;width:{{ user.profile.progress }}%" id="progressBar">{{ user.profile.progress }}%</span>
+      <span class="progress progress-bar bg-success" style="height:24px; width:{{ user.profile.progress }}%" id="progressBar">{{ user.profile.progress }}%</span>
     </a>
   </div>
 </main>
@@ -43,7 +44,13 @@
     }
     #easyNav{
       padding-left: 11%;
-      padding-top: 1%;
+      padding-top: -1%;
+    }
+    h2{
+      position: relative;
+      
+      top: 3%;
+      margin-right: 80%;
     }
   </style>
 {% endblock %}
