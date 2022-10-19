@@ -45,7 +45,7 @@ class Question(models.Model):
 
 def get_default_question():
         return Question.objects.get_or_create(
-            query='default', corr_ans='default', inc_ans1='default', inc_ans2='default', inc_ans3='default')[0]
+            query='default', corr_ans='default', inc_ans1='default', inc_ans2='default', inc_ans3='default')
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -65,7 +65,7 @@ class Profile(models.Model):
     quiz_score = models.IntegerField(default = 0)
     pot_quiz_score = models.IntegerField(default = 0)
     curr_quiz_index = models.IntegerField(default = 0)
-    curr_question = models.ForeignKey("Question", default=get_default_question, on_delete=models.CASCADE)
+    curr_question = models.ForeignKey("Question", null=True, on_delete=models.CASCADE)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
