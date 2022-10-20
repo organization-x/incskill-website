@@ -248,11 +248,19 @@
 </div>
 </body>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p}}
-    <button type="submit" name="submit" id="submit">Mark as Done</button>
-</form>
+{% if user.profile.resource6 %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Undone</button>
+  </form>
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Done</button>
+  </form>
+{% endif %}
 
 <div>
   <a href="{% url 'resourceseven' %}" role="button" id="sec-btn">

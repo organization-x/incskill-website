@@ -3,22 +3,15 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from cerberus import Validator
+from django.db import IntegrityError
 from incskill_site.models import Profile, create_user_profile, save_user_profile, calculate_progress
 
 
 class var:
     notvalid = False
-    mail_schema = {'name': {'type': 'string'}}
-    val_mail = Validator(mail_schema)
-    name_schema = {'name': {'type': 'string'}}
-    val_name = Validator(name_schema)
-    pass_schema = {'name': {'type': 'string'}}
-    val_pass = Validator(pass_schema)
 
 
-
-# Create your views here.	# Create your views here.
+# Create your views here.
 class LoginView(View):
     template_name = 'login.html'
     def get(self, request):
@@ -51,13 +44,6 @@ class CoursePageView(View):
         else:
             return redirect('login')
 
-#testing something out
-#    def get(self, request):
-#        if request.user.is_authenticated:
-#           course_progress_one = request.GET['progress']
-#           return render(course_progress_one, request, self.template_name)
-#        else:
-#            return redirect('login')
 
     def post(self, request):
         return redirect('course_one')
@@ -75,31 +61,40 @@ class SignUpView(View):
             return redirect('courses')
 
     def post(self, request):
+        var.notvalid=False
         if 'submit' in request.POST:
-            get_mail = request.POST['email']
-            user_mail = {'name' : get_mail }
-            valid_mail = var.val_mail.validate(user_mail, var.mail_schema)
-
-            get_name = request.POST['username']
-            user_name = {'name' : get_name}
-            valid_name = var.val_name.validate(user_name, var.name_schema)
-
-            get_pass = request.POST['password']
-            user_pass = {'name' : get_pass}
-            valid_pass = var.val_pass.validate(user_pass, var.pass_schema)
-
-
             try:
-                if valid_mail and valid_name and valid_pass:
-                    var.notvalid=False
-                    user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
-                    return redirect('login')
+                get_mail = request.POST['email']
+                get_name = request.POST['username']
+                get_pass = request.POST['password']
+                if get_mail != None and get_mail != '':
+                    if get_name != None and get_name != '':
+                        print("Username: " + get_name)
+                        if get_pass != None and get_pass != '':
+                            var.notvalid=False
+                            print('forms filled')
+                            user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
+                            print('user created')
+                            return redirect('login')
+                        else:
+                            print('empty pass')
+                    else:
+                        print('empty name')
                 else:
-                    var.notvalid=True
-                    return redirect('signup')
+                    print('empty mail')
+
+                var.notvalid=True
+                print('forms blank')
+                return redirect('signup')
+            except IntegrityError:
+                var.notvalid=True
+                print('integrity error')
+                return redirect('signup')
             except ValueError:
                 var.notvalid=True
+                print('value error')
                 return redirect('signup')
+
 
         if 'login' in request.POST:
             var.notvalid=False
@@ -156,6 +151,8 @@ class CourseOneView(View):
             return redirect('resourceeleven')
         if 'resourcetwelve' in request.POST:
             return redirect('resourcetwelve')
+        if 'quizone' in request.POST:
+            return redirect('quizone')
 
 
 class ResourceOneView(View):
@@ -169,7 +166,10 @@ class ResourceOneView(View):
     
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource1 = True
+            if (request.user.profile.resource1 == False):
+                request.user.profile.resource1 = True
+            else: 
+                request.user.profile.resource1 = False
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
@@ -185,7 +185,11 @@ class ResourceTwoView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource2 = True
+            if (request.user.profile.resource2 == False):
+                request.user.profile.resource2 = True
+            else: 
+                request.user.profile.resource2 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -200,7 +204,11 @@ class ResourceThreeView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource3 = True
+            if (request.user.profile.resource3 == False):
+                request.user.profile.resource3= True
+            else: 
+                request.user.profile.resource3= False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -214,7 +222,11 @@ class ResourceFourView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource4 = True
+            if (request.user.profile.resource4 == False):
+                request.user.profile.resource4 = True
+            else: 
+                request.user.profile.resource4 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -228,7 +240,11 @@ class ResourceFiveView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource5 = True
+            if (request.user.profile.resource5 == False):
+                request.user.profile.resource5 = True
+            else: 
+                request.user.profile.resource5 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -242,7 +258,11 @@ class ResourceSixView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource6 = True
+            if (request.user.profile.resource6 == False):
+                request.user.profile.resource6 = True
+            else: 
+                request.user.profile.resource6 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -256,7 +276,11 @@ class ResourceSevenView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource7 = True
+            if (request.user.profile.resource7 == False):
+                request.user.profile.resource7 = True
+            else: 
+                request.user.profile.resource7 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -270,7 +294,11 @@ class ResourceEightView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource8 = True
+            if (request.user.profile.resource8 == False):
+                request.user.profile.resource8 = True
+            else: 
+                request.user.profile.resource8 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -284,7 +312,11 @@ class ResourceNineView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource9 = True
+            if (request.user.profile.resource9 == False):
+                request.user.profile.resource9 = True
+            else: 
+                request.user.profile.resource9 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -298,7 +330,11 @@ class ResourceTenView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource10 = True
+            if (request.user.profile.resource10 == False):
+                request.user.profile.resource10= True
+            else: 
+                request.user.profile.resource10 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -312,7 +348,11 @@ class ResourceElevenView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource11 = True
+            if (request.user.profile.resource11 == False):
+                request.user.profile.resource11 = True
+            else: 
+                request.user.profile.resource11 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -326,6 +366,29 @@ class ResourceTwelveView(View):
 
     def post(self, request):
         if 'submit' in request.POST:
-            request.user.profile.resource12 = True
+            if (request.user.profile.resource12 == False):
+                request.user.profile.resource12 = True
+            else: 
+                request.user.profile.resource12 = False
+            print("submitted")
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
+
+
+class QuizOneView(View):
+    template_name = 'quiz1.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+    def post(self, request):
+        if 'submit' in request.POST:
+            if (request.user.profile.quiz1 == False):
+                request.user.profile.quiz1 = True
+            else: 
+                request.user.profile.quiz1 = False
+            print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)

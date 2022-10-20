@@ -444,11 +444,19 @@ will be adapted as follows.
 </main>
 </div>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p}}
-    <button type="submit" name="submit" id="submit">Mark as Done</button>
-</form>
+{% if user.profile.resource4 %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Undone</button>
+  </form>
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Done</button>
+  </form>
+{% endif %}
 <div>
   <a href="{% url 'resourcefive' %}" role="button" id="sec-btn">
       <p>Start Week 5</p>

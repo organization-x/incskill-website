@@ -21,6 +21,7 @@
   <div class="Title" id="loginInput">
 
     <form method="post">
+
       {% csrf_token %}
       {{ form.as_p}}
       <div class="container">
@@ -33,19 +34,14 @@
         <label for="password">Password:</label>
         <br>
         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-        <div class="logo">
-          <!--add logo here, posssibly?-->
-        </div>
       </div>
-      <button type='submit' class="btn btn-primary" name="submit">Submit</button>
-      <button type='submit' class="btn btn-primary" name="signup">Sign Up</button>
+              <!--submit button-->
+      <span class="visually-hidden">Check if your information is correct</span>
+      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+      <button type="submit" class="btn btn-primary" name="signup">Sign Up</button>
 
     </form>
-
-
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
-        </div>
+  </div>
+</main>
 
 {% endblock %}
