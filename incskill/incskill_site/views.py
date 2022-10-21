@@ -153,6 +153,8 @@ class CourseOneView(View):
             return redirect('resourcetwelve')
         if 'quizone' in request.POST:
             return redirect('quizone')
+        if 'codingexcercise' in request.POST:
+            return redirect('codingexcercise')
 
 
 class ResourceOneView(View):
@@ -377,6 +379,24 @@ class ResourceTwelveView(View):
 
 class QuizOneView(View):
     template_name = 'quiz1.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, self.template_name)
+        else:
+            return redirect('login')
+
+    def post(self, request):
+        if 'submit' in request.POST:
+            if (request.user.profile.quiz1 == False):
+                request.user.profile.quiz1 = True
+            else: 
+                request.user.profile.quiz1 = False
+            print("submitted")
+            save_user_profile(sender=User, instance=request.user)
+            return render(request, self.template_name)
+
+class CodingExcerciseView(View):
+    template_name = 'exampleCode.html'
     def get(self, request):
         if request.user.is_authenticated:
             return render(request, self.template_name)
