@@ -378,15 +378,23 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
+<<<<<<< Updated upstream
       <button type="submit" name="submit" id="submit">Mark as Undone</button>
+=======
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Undone</button>
+>>>>>>> Stashed changes
   </form>
 {% else %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
+<<<<<<< Updated upstream
       <button type="submit" name="submit" id="submit">Mark as Done</button>
+=======
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Done</button>
+>>>>>>> Stashed changes
   </form>
-{% endif %}
+{% endif %}}
 <div>
   <a href="{% url 'resourcesix' %}" role="button" id="sec-btn">
       <p>Start Week 6</p>
@@ -412,6 +420,24 @@
       padding-top: 1em;
       margin-bottom:1%;
   }
+<<<<<<< Updated upstream
+=======
+  form{
+  position: absolute;
+  right: 35%;
+  top: 305%;
+  color: #f2f2f2;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 50px;
+  
+}
+#submit{
+  position: relative;
+  text-align: center;
+  justify-content: center;
+}
+>>>>>>> Stashed changes
 header{
   border-radius: 0.5%;
   color: white;
