@@ -45,10 +45,8 @@ head{
 }
 h4{
   
-position: absolute;
-left: 21%;
-top: 29%;
-
+position: relative;
+float: left;
 
 
 display: flex;
@@ -75,12 +73,14 @@ h5{
   display: flex;
   left: 17%;
   top: 57%;
+  color: white;
 }
+
 h6{
   
   position:absolute;
 text-align: center;
-left: 17%;
+left: 40%;
 top: 45%;
 
 color: white;
@@ -110,7 +110,6 @@ form {
   width: 15%;
   box-sizing: border-box;
   
-  
 }
 h2{
   color: #f2f2f2;
@@ -120,9 +119,9 @@ h2{
 }
 
 /* Full-width inputs */
-input[type=username], input[type=password] {
+input[type=text], input[type=password] {
   font-family: Arial, Helvetica, sans-serif;
-  width: 14%;
+  width: -30px;
   color: white;
   
   height: auto;

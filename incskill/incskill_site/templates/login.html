@@ -4,16 +4,18 @@
 
 
 {% block content %}
-<aside>
+
   <h4>
     <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" width="500" height="auto">
-    <br>
+  </h4>
+  <h5 id="mission" style="margin-left: -1%;">
     Our Mission
-    <h6>
+  </h5>
+    <h6 style="margin-left: 2%;">
       Unlocking high-growth career opportunities irrespective of past experience or needs
     </h6>
-  </h4>
-</aside>
+ 
+
 
 
 <!--pasword and email input boxes-->
@@ -37,8 +39,11 @@
       </div>
               <!--submit button-->
       <span class="visually-hidden">Check if your information is correct</span>
-      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-      <button type="submit" class="btn btn-primary" name="signup">Sign Up</button>
+      <br>
+      <button type="submit" class="btn btn-primary" name="submit" id="submitbutton" >Submit</button>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary" name="signup" id="signupbutton">Sign Up</button>
 
     </form>
   </div>
