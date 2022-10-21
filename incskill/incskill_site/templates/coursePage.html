@@ -3,11 +3,14 @@
 
 {% block content %}  
 
-    My Courses
-  </h2>
-</header>
+
 
 <main>
+  <div>
+    <h2 id="page-title">
+      My Courses
+    </h2>
+  </div>
   <div class="text-center">
     {% csrf_token %}
     {{ form.as_p}}
@@ -22,11 +25,18 @@
 </main>
 
   <style>
+  #page-title{
+    margin-left:12.5%;
+    color:white;
+    top:14%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:500;
+    }
     .btn {
       width: 70%;
       height: 15%;
-      background-color: #233854;
-      margin-top: 200px;
+      margin-top: 15%;
     }
     #courseTxt {
       font-size: 24px;
@@ -41,9 +51,8 @@
     #courseBtn {    
       padding-bottom: 2%;
     }
-    #easyNav{
-      padding-left: 11%;
-      padding-top: 1%;
+    .text-center{
+      top:5%;
     }
   </style>
 {% endblock %}
