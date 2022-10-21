@@ -280,17 +280,17 @@
     </p>
 </div>
 
-{% if user.profile.resource7 %}
+{% if user.profile.resource1 %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Undone</button>
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Done</button>
   </form>
 {% else %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
-    <button type="submit" name="submit" id="submit" style="border-radius:50px; text-align: right;">Mark as Done</button>
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Undone</button>
   </form>
 {% endif %}
 

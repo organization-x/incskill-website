@@ -250,11 +250,25 @@
 </body>
 
 
-
+<div>
+  {% if user.profile.resource1 %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Done</button>
+  </form>
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Undone</button>
+  </form>
+{% endif %}
 <div>
   <a href="{% url 'resourceseven' %}" role="button" id="sec-btn">
       <p>Start Week 7</p>
-  </a>>
+  </a>
+</div>
 </div>
 <br>
 </header>
