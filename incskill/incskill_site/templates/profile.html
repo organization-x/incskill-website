@@ -3,11 +3,29 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}  
-  <h1>Hi, {{user.username}}</h1>
-  <h1>Your progress: {{ user.profile.progress }}</h1>
+  <h1 id="profile-h1">Hi, {{user.username}}</h1>
+  <h1 id="profile-h1">Your progress: {{ user.profile.progress }}</h1>
   <br>
   <form method="post">
     {% csrf_token %}
-    <button type ="submit" class="btn btn-primary" name="logout" style="margin-left: -387%;">Log Out</button>
+    <button type ="submit" class="btn btn-primary" name="logout" style="margin-left: -387%;" id="profile-btn">Log Out</button>
   </form>
+
+  <style>
+    #profile-h1{
+      color:white;
+      margin-left:10%;
+      margin-top:7%;
+    }
+    #profile-btn{
+      background-color: transparent;
+      border:solid;
+      border-width: 2px;
+      border-color:white;
+      color:white;
+      border-radius: 50px;
+      margin-left:15%;
+      margin-top:70%;
+    }
+  </style>
 {% endblock %}

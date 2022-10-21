@@ -5,9 +5,11 @@
 {% block content %}
 
 
-    Introduction to Software Engineering
-  </h2>
-
+<header>
+  <div>
+    <h2 id="page-title">Introduction to Software Engineering</h2>
+  </div>
+</header>
 
   <div class="text-center">
 
@@ -23,10 +25,10 @@
           <p></p>
         </a>
         <a href="{% url 'resourceone' %}" class="card-link" id="courseBtn">
-          <p>Week 1: Introduction to Computer Programming Using Python</p>
+          <p>Week 1: Introduction to Computer Programming Using Python 1</p>
         </a>
         <a href="{% url 'resourcetwo' %}" class="card-link" id="courseBtn">
-          <p>Week 2: Introduction to Computer Programming Using Python</p>
+          <p>Week 2: Introduction to Computer Programming Using Python 2</p>
         </a>
         <a href="{% url 'resourcethree' %}" class="card-link" id="courseBtn">
           <p>Week 3: Input and Output, Data Types and Loops</p>
@@ -50,10 +52,10 @@
           <p>Week 9: Flask Templates</p>
         </a>
         <a href="{% url 'resourceten' %}" class="card-link" id="courseBtn">
-          <p>Week 10</p>
+          <p>Week 10: Session Data and Cookies</p>
         </a>
         <a href="{% url 'resourceeleven' %}" class="card-link" id="courseBtn">
-          <p>Week 11</p>
+          <p>Week 11: Flask Redirect, Errors, and Uploading</p>
         </a>
         <a href="{% url 'resourcetwelve' %}" class="card-link" id="courseBtn">
           <p>Week 12: Flask Extensions</p>
@@ -67,19 +69,28 @@
       </div>
     </div>
   </div>
-</main>
+
   <style>
+
+#page-title{
+      margin-left:11%;
+      color:white;
+      top:14%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight:500;
+    }
+    
     #unit1 {
       margin-bottom: 2%;
     }
     
     #unitBtn {
-        margin-top: 200px;
+        margin-top: 15%;
         width: 70%;
         text-align: start;
     }
 
-    /* Changed padding from 18% to 4% */
     #courseBtn {
         text-align: start;
         padding-left: 5%;
@@ -91,15 +102,10 @@
         float: right;
     }
 
-    #easyNav{
-        padding-left: 11%;
-        padding-top: 1%;
-    }
-
     body{
     overflow-y: scroll;
     }
+    
 
-    /*Added style here since style.css has a colored background for the login and sign up pages*/
 </style>
 {% endblock %}
