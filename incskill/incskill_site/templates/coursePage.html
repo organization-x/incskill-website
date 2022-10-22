@@ -11,7 +11,7 @@
       My Courses
     </h2>
   </div>
-  <div class="text-center">
+  <div class="text-center" id="text-center">
     {% csrf_token %}
     {{ form.as_p}}
     
@@ -24,7 +24,7 @@
   </div>
 </main>
 
-  <style>
+<style>
   #page-title{
     margin-left:12.5%;
     color:white;
@@ -37,22 +37,24 @@
       width: 70%;
       height: 15%;
       margin-top: 15%;
-    }
-    #courseTxt {
-      font-size: 24px;
-      text-align: start;
-      padding-left: 1%;
-      padding-top: 1%;
+      top:5%;
     }
     #progressbar {
       float: right;
       height: 20%;
     }
+
     #courseBtn {    
       padding-bottom: 2%;
     }
-    .text-center{
+
+    #text-center{
       top:5%;
     }
-  </style>
+
+    #courseTxt{
+      margin-top:1%;
+      text-align: left;
+    }
+</style>
 {% endblock %}
