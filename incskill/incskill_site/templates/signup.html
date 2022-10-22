@@ -4,24 +4,23 @@
 
 {% block content %}  
 <aside>
-    <h4>
-      <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" width="500" height="auto">
-      <br>
-      Our Mission
-      <h6>
-        Unlocking high-growth career opportunities irrespective of past experience or needs
-      </h6>
-    </h4>
-  </aside>
+  <div id="logo-mission">
+    <h1 id="logo">
+    <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" id="img"></h1>
+    <h2 id="mission">
+      Unlocking high-growth career opportunities irrespective of past experience or needs
+    </h2>
+  </div>
+</aside>
 
   <main>
     <!--pasword and email input boxes--> 
-    <div class="Title" id="signupInput">
+    <div class="Title" id="signup-input">
       
       <form method="post">
         {% csrf_token %}
         {{ form.as_p}}
-        <div class="container">
+        <div class="container" id="signup-container">
           <h1>Sign Up</h1>
           <label for="email">Email:</label>
           <br>
@@ -37,7 +36,7 @@
           <div class="logo">
             <!--add logo here, posssibly?-->
           </div>
-        </div>
+        
         
         <!--commented out until we're able to implement it
         <div class="form-check mb-3">
@@ -51,10 +50,68 @@
           <br>
           <p style="color: black;">That information is not valid</p>
         {% endif %}
-        <button type='submit' class="btn btn-primary" name="submit">Submit</button>
-        <button type='submit' class="btn btn-primary" name="login">Log In</button>
-  
+        <button type='submit' class="btn btn-primary" name="submit" id="submit-btn">Submit</button>
+        <button type='submit' class="btn btn-primary" name="login" id="login-btn">Log In</button>
+        </div>
       </form>
     </div>
   </main>
+
+
+  <style>
+  
+    #img{
+      width:150%;
+    }
+    
+    #logo{
+        margin-left: 15%;
+        margin-top: 10%;
+        color: white;
+        width:20%;
+        height:auto;
+    
+      }
+    
+      #mission{
+        width:30%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:x-large;
+        font-weight: 400;
+        left:17%;
+        top:25%;
+      }
+    
+      #submit-btn{
+        background: transparent;
+        border-color: white;
+        border-width: 2px;
+        color:white;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 75px;
+        margin-top: 5%;
+        width: 100%;
+      }
+      #login-btn{
+        background: #8844d6;
+        color:white;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 75px;
+        margin-top: 5%; 
+        width: 100%;
+      }
+    
+      #signup-container{
+        margin-left: -60%;
+        width: 175%;
+        margin-top:-60%;
+      }
+    
+      #signup-input{
+        width:100%;
+        margin-top:-70%;
+      }
+    
+    
+    </style>
 {% endblock %}

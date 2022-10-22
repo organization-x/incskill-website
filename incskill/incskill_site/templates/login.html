@@ -5,43 +5,100 @@
 
 {% block content %}
 <aside>
-  <h4>
-    <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" width="500" height="auto">
-    <br>
-    Our Mission
-    <h6>
+  <div id="logo-mission">
+    <h1 id="logo">
+    <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" id="img"></h1>
+    <h2 id="mission">
       Unlocking high-growth career opportunities irrespective of past experience or needs
-    </h6>
-  </h4>
+    </h2>
+  </div>
 </aside>
 
 
 <!--pasword and email input boxes-->
 <main>
-  <div class="Title" id="loginInput">
+  <div class="Title" id="login-input">
 
     <form method="post">
 
       {% csrf_token %}
       {{ form.as_p}}
-      <div class="container">
-        <h1>Login</h1>
+      <div class="container" id="login-container">
+          <h1>Login</h1>
 
-        <label for="username">Username:</label>
-        <br>
-        <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
-        <br>
-        <label for="password">Password:</label>
-        <br>
-        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          <label for="username">Username:</label>
+          <br>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+          <br>
+          <label for="password">Password:</label>
+          <br>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+        
+                <!--submit button-->
+        <span class="visually-hidden">Check if your information is correct</span>
+        <button type="submit" class="btn btn-primary" name="submit" id="submit-btn">Submit</button>
+        <button type="submit" class="btn btn-primary" name="signup" id="signup-btn">Sign Up</button>
       </div>
-              <!--submit button-->
-      <span class="visually-hidden">Check if your information is correct</span>
-      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-      <button type="submit" class="btn btn-primary" name="signup">Sign Up</button>
-
     </form>
   </div>
 </main>
+
+
+<style>
+  
+#img{
+  width:150%;
+}
+
+#logo{
+    margin-left: 15%;
+    margin-top: 10%;
+    color: white;
+    width:20%;
+    height:auto;
+
+  }
+
+  #mission{
+    width:30%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:x-large;
+    font-weight: 400;
+    left:17%;
+    top:25%;
+  }
+
+  #submit-btn{
+    background: transparent;
+    border-color: white;
+    border-width: 2px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 75px;
+    margin-top: 5%;
+    width: 100%;
+  }
+  #signup-btn{
+    background: #8844d6;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 75px;
+    margin-top: 5%; 
+    width: 100%;
+  }
+
+  #login-container{
+    margin-left: -60%;
+    width: 175%;
+    margin-top:-40%;
+  }
+
+  #login-input{
+    width:100%;
+    margin-top:-70%;
+  }
+
+
+</style>
 
 {% endblock %}
