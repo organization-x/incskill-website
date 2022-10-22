@@ -443,29 +443,37 @@ will be adapted as follows.
   </p>
 </main>
 </div>
-
-{% if user.profile.resource4 %}
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Undone</button>
-  </form>
+<div>
+  {% if user.profile.resource4 %}
+  <div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Undone</button>
+    </form>
+  </div>
 {% else %}
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Done</button>
-  </form>
+  <div>
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Done</button>
+    </form>
 {% endif %}
+  </div>
 <div>
   <a href="{% url 'resourcefive' %}" role="button" id="sec-btn">
       <p>Start Week 5</p>
   </a>
 </div>
-<br>
-</header>
+</div>
+
 
 <style>
+  #btns{
+    position: relative;
+    height:5%;
+  }
   #sec-btn {
       margin:auto;
       width:30%;
@@ -516,6 +524,22 @@ body{
 overflow-y: scroll;
 background: white;
 }
+
+
+#submit{
+  position:relative;
+  margin-left:-215%;
+  width:200%;
+  background:#233854;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 75px;
+  justify-content: center;
+  padding-top: 1em;
+  bottom:1%;
+  
+}
+
 </style>
   
   {% endblock %}
