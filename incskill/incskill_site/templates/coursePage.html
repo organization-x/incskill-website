@@ -15,7 +15,7 @@
     {% csrf_token %}
     {{ form.as_p}}
     
-    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn" style="margin-left: -15.3%;">
+    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
       <p id="courseTxt">Introduction to Software Engineering</p>
       <br>
       <br>
@@ -27,18 +27,15 @@
 <style>
   #page-title{
     margin-left:12.5%;
+    margin-top: 10%;
     color:white;
     top:14%;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight:500;
+    position: relative;
     }
-    .btn {
-      width: 70%;
-      height: 15%;
-      margin-top: 15%;
-      top:5%;
-    }
+
     #progressbar {
       float: right;
       height: 20%;
@@ -46,11 +43,12 @@
 
     #courseBtn {    
       padding-bottom: 2%;
+      width: 70%;
+      height: 15%;
+      margin-top: 1%;
+      margin-left: -5%;
     }
 
-    #text-center{
-      top:5%;
-    }
 
     #courseTxt{
       margin-top:1%;
