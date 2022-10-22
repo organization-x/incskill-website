@@ -8,7 +8,9 @@
 <div class="sec" id="sec">
   <h1 id="sec-h1">Week 12: Flask Extensions</h1>
 </div>
-  
+<br>
+</header>
+<br>
 <div class="sec" id="sec">
     <h3 id="sec-h3">Objectives</h3>
     <p>
@@ -18,7 +20,8 @@
     </p>
 </div>
 <br>
-</header>
+
+
 <div class="sec" id="sec">
     <h3 id="sec-h3">Extension</h3>
     <p>
@@ -578,13 +581,13 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
-      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Undone</button>
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Done</button>
   </form>
 {% else %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
-      <button type="submit" name="submit" id="submit" style="border-radius:50px;"> Mark as Done</button>
+      <button type="submit" name="submit" id="submit" style="border-radius:50px;">Mark as Undone</button>
   </form>
 {% endif %}
 <div>
@@ -593,7 +596,7 @@
     </a>
 </div>
 <br>
-</header>
+
 
 <style>
     #sec-btn {
@@ -612,11 +615,10 @@
         padding-top: 1em;
         margin-bottom:1%;
     }
-
     form{
   position: absolute;
   right: 35%;
-  top: 487%;
+  top: 474%;
   color: #f2f2f2;
   width: 30%;
   box-sizing: border-box;
@@ -628,13 +630,14 @@
   text-align: center;
   justify-content: center;
 }
-
   header{
-    border-radius: 0.5%;
+    padding: 5px;
     color: white;
     background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   }
+  
 #sec{
+    
 font-family: Arial, Helvetica, sans-serif;
 margin-left: 3%;
 margin-right: 3%;
@@ -658,11 +661,12 @@ font-style: normal;
 font-weight:500;
 margin-bottom: 2%; 
 }
-
 body{
 overflow-y: scroll;
 background: white;
 }
+
+
 </style>
   
 {% endblock %}
