@@ -6,17 +6,16 @@
 {% block content %}
 
 <div class="sec" id="sec">
-  <header>
   <h1 id="sec-h1">Week 2: Introduction to Computer <br> Programming Using Python</h1>
-</header>
+  </header>
+</div>
 <main>
+<div class="sec" id="sec">
   <p>
     Welcome back! Hope you breezed through last week's setup. This week, we
     will be covering syntax, and delving deeper into some programming concepts
     such as variables and constants, operators and conditionals.
   </p>
-  <br>
-</header>
   <p>
     Let's start with operators. We are going to start with mathematical
     operators. To understand this effectively, we will use the interactive mode
@@ -760,7 +759,7 @@
     </form>
   </div>
 {% else %}
-  <div>
+  <div id="btns">
     <form method="post" >
       {% csrf_token %}
       {{ form.as_p}}
@@ -817,6 +816,7 @@ font-style: normal;
 font-weight: 500;
 margin-top: 7%;
 max-width: 55%;
+padding-bottom:5%;
 margin-bottom: 5%;
 }
 

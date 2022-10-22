@@ -9,7 +9,9 @@
 <div  class="sec" id="sec">
 
   <h1 id="sec-h1">Week 4: Loops</h1>
+</div>
 </header>
+<div  class="sec" id="sec">
   <p>
     In this resource, you will learn about the following.
   </p>
@@ -453,7 +455,7 @@ will be adapted as follows.
     </form>
   </div>
 {% else %}
-  <div>
+  <div id="btns">
     <form method="post" >
       {% csrf_token %}
       {{ form.as_p}}
@@ -510,6 +512,7 @@ font-style: normal;
 font-weight: 500;
 margin-top: 7%;
 max-width: 55%;
+padding-bottom: 5%;
 margin-bottom: 5%;
 }
 

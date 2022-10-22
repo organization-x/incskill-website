@@ -10,6 +10,7 @@
     <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
     <br>
   </header>
+  <div class="sec" id="sec">
     <p>
       Welcome to your first programming course. In this resource, we will help 
       you get started with your first program. This involves setting up the
@@ -190,7 +191,7 @@
       </form>
     </div>
   {% else %}
-    <div>
+    <div id="btns">
       <form method="post" >
         {% csrf_token %}
         {{ form.as_p}}
