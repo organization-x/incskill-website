@@ -19,20 +19,20 @@
 
 <!--pasword and email input boxes-->
 <main>
-  <div class="Title" id="login-input">
+  <div id="login-details">
 
     <form method="post">
 
       {% csrf_token %}
       {{ form.as_p}}
-      <div class="container" id="login-container">
-          <h1>Login</h1>
+      <div>
+          <h1 id="title">Login</h1>
 
-          <label for="username">Username:</label>
+          <label for="username" id="label">Username:</label>
           <br>
           <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
           <br>
-          <label for="password">Password:</label>
+          <label for="password" id="label">Password:</label>
           <br>
           <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
         
@@ -71,37 +71,53 @@
     position: static;
   }
 
-
   #submit-btn{
     background: transparent;
     border-color: white;
     border-width: 2px;
     color:white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
     border-radius: 75px;
-    margin-top: 5%;
+    margin-top: 7%;
     width: 100%;
   }
   #signup-btn{
     background: #8844d6;
     color:white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
     border-radius: 75px;
-    margin-top: 5%; 
+    margin-top: 7%; 
     width: 100%;
   }
 
-  #login-container{
+  #login-details{
     margin-left: -60%;
     width: 175%;
-    margin-top:-40%;
+    height:50%;
+    margin-top:-20%;
+    position: relative;
   }
 
-  #login-input{
-    width:100%;
-    margin-top:-70%;
+  #title{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:2.5vw;
   }
 
+  #label{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+
+  }
+
+  .form-control{
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+  }
 
 </style>
 
