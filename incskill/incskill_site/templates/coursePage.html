@@ -48,11 +48,11 @@
       My Courses
     </h2>
   </div>
-  <div class="text-center">
+  <div class="text-center" id="text-center">
     {% csrf_token %}
     {{ form.as_p}}
     
-    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn" style="margin-left: -15.3%;">
+    <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
       <p id="courseTxt">Introduction to Software Engineering</p>
       <br>
       <br>
@@ -61,35 +61,35 @@
   </div>
 </main>
 
-  <style>
+<style>
   #page-title{
     margin-left:12.5%;
+    margin-top: 10%;
     color:white;
     top:14%;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight:500;
+    position: relative;
     }
-    .btn {
-      width: 70%;
-      height: 15%;
-      margin-top: 15%;
-    }
-    #courseTxt {
-      font-size: 24px;
-      text-align: start;
-      padding-left: 1%;
-      padding-top: 1%;
-    }
+
     #progressbar {
       float: right;
       height: 20%;
     }
+
     #courseBtn {    
       padding-bottom: 2%;
+      width: 70%;
+      height: 15%;
+      margin-top: 1%;
+      margin-left: -5%;
     }
-    .text-center{
-      top:5%;
+
+
+    #courseTxt{
+      margin-top:1%;
+      text-align: left;
     }
-  </style>
+</style>
 {% endblock %}
