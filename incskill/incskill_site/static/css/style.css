@@ -111,10 +111,12 @@ form {
   
   
 }
-h3{
+h2{
+  color: #f2f2f2;
   position: absolute;
   top: 50%;
   color: white;
+  
 }
 
 /* Full-width inputs */
