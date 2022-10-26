@@ -55,7 +55,7 @@ color: white;
 
 
 }
-/* #mission{
+#mission{
   
   position:absolute;
     left: 29%;
@@ -66,8 +66,9 @@ color: white;
   
   
   color: white;
+  image-rendering: auto;
   
-  } */
+  }
 h5{
   position:absolute;
   display: flex;
@@ -156,17 +157,17 @@ button:hover {
 
 
 /* Center the avatar image inside this container */
-/* .imgcontainer {
+.imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
   font-family: Arial, Helvetica, sans-serif;
-} */
+}
 
 /* Avatar image */
 
 
 /* Add padding to containers */
-/* .container {
+.container {
   
   margin-top: 65%;
   width: 15%;
@@ -174,7 +175,7 @@ button:hover {
   color: white;
   margin-left: 0%;
   
-} */
+}
 
 /* The "Forgot password" text */
 span.psw {
@@ -193,12 +194,12 @@ span.psw {
     width: 100%;
   }
 }
-/*@media screen and (max-width: 1024px) { /* Specific to this particular image */
-/*img.bg {
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+img.bg {
   left: 50%;
   margin-left: -512px;   /* 50% */
-/*}
-}*/
+}
+}
 
    
 
@@ -252,6 +253,13 @@ span.psw {
   padding-top: 0%;
   padding-left: 1%;
   font-family: Arial, Helvetica, sans-serif;
+}
+#submitbutton{
+  background: transparent;
+  border-color: white;
+}
+#signupbutton{
+  background: #8844d6;
 }
 
 

@@ -8,9 +8,7 @@
   <div class="sec" id="sec">    
     
     <h1 id="sec-h1">Week 1: Introduction to Computer <br> Programming Using Python </h1>
-    <br>
-  </header>
-  <div class="sec" id="sec">
+
     <p>
       Welcome to your first programming course. In this resource, we will help 
       you get started with your first program. This involves setting up the
@@ -18,8 +16,8 @@
       interface (often referred to as CLI), and basic Python syntax.
     </p>
   </div>
- 
-
+  <br>
+</header>
 <br>
   <div class="sec" id="sec">
     <h2 id="sec-h2">Setting Up Development Environment</h2>
@@ -181,37 +179,31 @@
   </main>
   </div>
 
-  <div>
-    {% if user.profile.resource1 %}
-    <div id="btns">
-      <form method="post" >
-        {% csrf_token %}
-        {{ form.as_p}}
-          <button type="submit" name="submit" id="submit">Mark as Undone</button>
-      </form>
-    </div>
-  {% else %}
-    <div id="btns">
-      <form method="post" >
-        {% csrf_token %}
-        {{ form.as_p}}
-          <button type="submit" name="submit" id="submit">Mark as Done</button>
-      </form>
-  {% endif %}
-    </div>
-  <div>
+<div>
+{% if user.profile.resource1 %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Undone</button>
+  </form>
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Done</button>
+  </form>
+{% endif %}
+
+<div>
     <a href="{% url 'resourcetwo' %}" role="button" id="sec-btn">
         <p>Start Week 2</p>
     </a>
+    <br>
   </div>
-  </div>
+</div>
   
   
   <style>
-    #btns{
-      position: relative;
-      height:5%;
-    }
     #sec-btn {
         margin:auto;
         width:30%;
@@ -233,51 +225,36 @@
     color: white;
     background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   }
-  #sec{
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-bottom: 3%;    
-  font-size: medium;
-  font-weight: 500;
-  }
-  
-  #sec-h1{
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  margin-top: 7%;
-  max-width: 55%;
-  margin-bottom: 5%;
-  }
-  
-  #sec-h3{
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight:500;
-  margin-bottom: 2%; 
-  }
-  
-  body{
-  overflow-y: scroll;
-  background: white;
-  }
-  
-  
-  #submit{
-    position:relative;
-    margin-left:-215%;
-    width:200%;
-    background:#233854;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 75px;
-    justify-content: center;
-    padding-top: 1em;
-    bottom:1%;
-    
-  }
-  
-  </style>
-    
-    {% endblock %}
+#sec{
+font-family: Arial, Helvetica, sans-serif;
+margin-left: 3%;
+margin-right: 3%;
+margin-bottom: 3%;    
+font-size: medium;
+font-weight: 500;
+}
+
+#sec-h1{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: 500;
+margin-top: 7%;
+max-width: 55%;
+margin-bottom: 5%;
+}
+
+#sec-h2{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight:500;
+margin-bottom: 2%; 
+}
+
+body{
+overflow-y: scroll;
+background: white;
+}
+
+</style>
+
+{% endblock %}
