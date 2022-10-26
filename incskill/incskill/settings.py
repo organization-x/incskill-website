@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'incskill_site',
+    'django.contrib.postgres',
+    'django_postgres_extensions',
 ]
 
 MIDDLEWARE = [
