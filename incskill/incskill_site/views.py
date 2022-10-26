@@ -51,53 +51,60 @@ class CoursePageView(View):
 
 class SignUpView(View):
     template_name = 'signup.html'
+    error_message = "Information is Incorrect!"
+    notvalid = False
     def get(self, request):
         if not request.user.is_authenticated:
             context = {
-                "input_notvalid" : var.notvalid,
+                "input_notvalid" : SignUpView.notvalid,
+                "error_message" : SignUpView.error_message, 
             }
             return render(request, self.template_name, context)
         else:
             return redirect('courses')
 
     def post(self, request):
-        var.notvalid=False
         if 'submit' in request.POST:
-            try:
-                get_mail = request.POST['email']
-                get_name = request.POST['username']
-                get_pass = request.POST['password']
-                if get_mail != None and get_mail != '':
-                    if get_name != None and get_name != '':
-                        print("Username: " + get_name)
-                        if get_pass != None and get_pass != '':
-                            var.notvalid=False
-                            print('forms filled')
-                            user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
-                            print('user created')
-                            return redirect('login')
-                        else:
-                            print('empty pass')
-                    else:
-                        print('empty name')
-                else:
-                    print('empty mail')
-
-                var.notvalid=True
-                print('forms blank')
-                return redirect('signup')
-            except IntegrityError:
-                var.notvalid=True
-                print('integrity error')
-                return redirect('signup')
-            except ValueError:
-                var.notvalid=True
-                print('value error')
-                return redirect('signup')
+            SignUpView.notvalid=False
+            get_mail = request.POST['email']
+            get_name = request.POST['username']
+            get_pass = request.POST['password']
+            if get_mail == None or get_mail == '':
+                print("No email entered!")
+                SignUpView.notvalid=True
+                SignUpView.error_message = "No email entered!"
+                return render(request, self.template_name)
+            if get_name == None or get_name == '':
+                print("No username entered!")
+                SignUpView.notvalid=True
+                SignUpView.error_message = "No username entered!"
+                return render(request, self.template_name)
+            else:
+                print("Username: " + get_name)
+            if get_pass == None and get_pass == '':
+                print("No password entered!")
+                SignUpView.notvalid=True
+                SignUpView.error_message = "No password entered!"
+                return render(request, self.template_name)
+            
+            print('forms filled')
+            if User.objects.filter(email=get_mail).exists():
+                print("Email is not unique")
+                SignUpView.notvalid=True
+                SignUpView.error_message = "Email is not unique!"
+                return render(request, self.template_name)
+            if User.objects.filter(username=get_name).exists():
+                print("Username is not unique")
+                SignUpView.notvalid=True
+                SignUpView.error_message = "Username is not unique!"
+                return render(request, self.template_name)
+            user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
+            print('user created')
+            return redirect("login")
 
 
         if 'login' in request.POST:
-            var.notvalid=False
+            SignUpView.notvalid=False
             return redirect('login')
 
 
@@ -174,7 +181,7 @@ class ResourceOneView(View):
                 request.user.profile.resource1 = False
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, 'resource1.html')
 
 
 class ResourceTwoView(View):

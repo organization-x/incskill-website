@@ -48,10 +48,10 @@
         </div>-->
 
         <!--submit button--> 
-        <span class="visually-hidden">Check if your information is correct</span>	     
-        {% if input_notvalid %}
+        <span class="visually-hidden">Error Occurred</span>	     
+        {% if SignUpView.notvalid %}
           <br>
-          <p id="invalid">That information is not valid</p>
+          <p id="invalid">Error Occurred</p>
         {% endif %}
         <button type='submit' class="btn btn-primary" name="submit" id="submit-btn">Submit</button>
         <button type='submit' class="btn btn-primary" name="login" id="login-btn">Log In</button>
