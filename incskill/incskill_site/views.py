@@ -1,3 +1,4 @@
+from django.shortcuts import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views import View
@@ -81,7 +82,7 @@ class SignUpView(View):
                 return render(request, self.template_name)
             else:
                 print("Username: " + get_name)
-            if get_pass == None and get_pass == '':
+            if get_pass == None or get_pass == '':
                 print("No password entered!")
                 SignUpView.notvalid=True
                 SignUpView.error_message = "No password entered!"
@@ -384,8 +385,18 @@ class ResourceTwelveView(View):
             return render(request, self.template_name)
 
 
+def score_updater(request):
+    print("score_update requested")
+    print(request.POST)
+    if request.method == 'POST':
+        if 'playerScore' in request.POST:
+            QuizOneView.playerScore = request.POST['playerScore']
+            return HttpResponse('success')
+    return HttpResponse('fail')
+
 class QuizOneView(View):
     template_name = 'quiz1.html'
+    playerScore = 0
     def get(self, request):
         if request.user.is_authenticated:
             return render(request, self.template_name)
@@ -393,12 +404,17 @@ class QuizOneView(View):
             return redirect('login')
 
     def post(self, request):
-        if 'submit' in request.POST:
-            if (request.user.profile.quiz1 == False):
-                request.user.profile.quiz1 = True
-            else: 
-                request.user.profile.quiz1 = False
+ #       if 'submit' in request.POST:
+ #           if (request.user.profile.quiz1 == False):
+ #               request.user.profile.quiz1 = True
+ #           else: 
+ #               request.user.profile.quiz1 = False
             print("submitted")
+            print("Score: " + str(QuizOneView.playerScore))
+            if int(QuizOneView.playerScore) >= 7: 
+                request.user.profile.quiz = True
+            else:
+                request.user.profile.quiz = False
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
 
@@ -411,6 +427,7 @@ class CodingExcerciseView(View):
             return redirect('login')
 
     def post(self, request):
+        print ("Post: " + request.POST)
         if 'submit' in request.POST:
             if (request.user.profile.quiz1 == False):
                 request.user.profile.quiz1 = True
