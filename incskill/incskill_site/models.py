@@ -18,6 +18,7 @@ class Profile(models.Model):
     resource10 = models.BooleanField(default=False)
     resource11 = models.BooleanField(default=False)
     resource12 = models.BooleanField(default=False)
+    quiz = models.BooleanField(default = False)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -55,6 +56,8 @@ def calculate_progress(sender, instance, **kwargs):
         progress += (100/14)
     if instance.profile.resource12:
         progress += (100/14)
+    if instance.profile.quiz:
+        progress += (200/14)
 
     
     instance.profile.progress = round(progress, 2)

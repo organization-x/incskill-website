@@ -34,8 +34,9 @@ from incskill_site.views import (
     ResourceElevenView,
     ResourceTwelveView,
     QuizOneView,
-    CodingExcerciseView
+    CodingExcerciseView, 
     )
+import incskill_site.views as views
 
 
 urlpatterns = [
@@ -58,5 +59,6 @@ urlpatterns = [
     path('courses/course-one/resource-eleven', ResourceElevenView.as_view(), name = 'resourceeleven'),
     path('courses/course-one/resource-twelve', ResourceTwelveView.as_view(), name = 'resourcetwelve'),
     path('courses/course-one/quiz-one', QuizOneView.as_view(), name = 'quizone'),
+    path('courses/course-one/quiz-one/update-score/', views.score_updater , name="score_updater"),
     path('courses/course-one/coding-excercise', CodingExcerciseView.as_view(), name = 'codingexcercise')
 ]

@@ -22,9 +22,11 @@
                   <p ><span id="remarks"></span></p>
               </div>
 
-              <div class="modal-button-container">
-                  <button onclick="closeScoreModal()">Continue</button>
-              </div>
+              <form method="post" class="modal-button-container">
+                {% csrf_token %}
+                {{ form.as_p}}
+                  <button name="submit" id="submit" onclick="closeScoreModal()">Continue</button>
+              </form>
 
           </div>
       </div>
@@ -477,6 +479,44 @@ let questionNumber = 1 //holds the current question number
 let playerScore = 0  //holds the player score
 let wrongAttempt = 0 //amount of wrong answers picked by player
 let indexNumber = 0 //will be used in displaying next question
+//{% csrf_token %}
+var URL = "{% url 'score_updater' %}"
+
+function getCookie(c_name)
+{
+    if (document.cookie.length > 0)
+    {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1)
+        {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) c_end = document.cookie.length;
+            return unescape(document.cookie.substring(c_start,c_end));
+        }
+    }
+    return "";
+ }
+
+ // set cookie
+$.cookie('cookiename', 'cookievalue');
+// read cookie
+var myCookie = $.cookie('cookiename');
+// delete cookie
+$.cookie('cookiename', null);
+
+function updatePlayerScore() {
+    var data = {"playerScore": playerScore}
+    $(function () {
+    $.ajaxSetup({
+            headers: { "X-CSRFToken": getCookie("csrftoken") }
+        });
+    });
+    $.post(URL, data, function(response){
+        if(response === 'success'){ console.log('Yay!'); }
+        else{ console.log('Error! :('); }
+    });
+}
 
 // function for displaying next question in the array to dom
 //also handles displaying players and quiz information to dom
@@ -577,6 +617,7 @@ function unCheckRadioButtons() {
 function handleEndGame() {
     let remark = null
     let remarkColor = null
+    updatePlayerScore()
 
     // condition check for player remark and remark color
     if (playerScore <= 3) {
