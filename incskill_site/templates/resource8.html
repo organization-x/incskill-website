@@ -1,0 +1,431 @@
+<header>
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}
+
+<div class="sec" id="sec">
+  <h1 id="sec-h1">Week 8: Flask 2</h1>
+</div>
+
+</header>
+<div class="sec" id="sec">
+  <h2 id="sec-h2">URL building and redirects</h2>
+  <p>
+    The url_for() function is very useful for dynamically building a URL for a
+    specific function. The function accepts the name of a function as first
+    argument, and one or more keyword arguments, each corresponding to the
+    variable part of URL.
+  </p>
+  <p>
+    The following script demonstrates use of url_for() function.
+  </p>
+  <p>
+    from flask import Flask, redirect, url_for
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/admin')
+  </p>
+  <p>
+    def hello_admin():
+  </p>
+  <p>
+       return "Hello Admin"
+  </p>
+  <p>
+    @app.route('/guest/&lt;guest&gt;')
+  </p>
+  <p>
+    def hello_guest(guest):
+  </p>
+  <p>
+       return "Hello " + guest + " as Guest"
+  </p>
+  <p>
+    @app.route('/user/&lt;name&gt;')
+  </p>
+  <p>
+    def hello_user(name):
+  </p>
+  <p>
+       if name =='admin':
+  </p>
+  <p>
+          return redirect(url_for('hello_admin'))
+  </p>
+  <p>
+       else:
+  </p>
+  <p>
+          return redirect(url_for('hello_guest',guest = name))
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+       app.run()
+  </p>
+  <p>
+    Run the code. Open the browser and enter URL as
+    http://localhost:5000/user/admin
+  </p>
+  <p>
+    The application response in browser is
+  </p>
+  <p>
+    Hello Admin
+  </p>
+  <p>
+    Enter the following URL in the browser
+  </p>
+  <p>
+    http://localhost:5000/user/kartik
+  </p>
+  <p>
+    The application response now changes to
+  </p>
+  <p>
+    Hello kartik as Guest
+  </p>
+</div>
+
+<div class="sec" id="sec">
+  <h2 id="sec-h2">Explanation</h2>
+  <ul>
+    <li>
+      The above script has a function user(name) which accepts a value to its
+      argument from the URL.
+    </li>
+    <li>
+      The User() function checks if an argument received matches "admin" or
+      not. If it matches, the application is redirected to the hello_admin()
+      function using url_for(), otherwise to the hello_guest() function
+      passing the received argument as guest parameter to it.
+    </li>
+  </ul>
+</div>
+
+<div class="sec" id="sec">
+  <h2 id="sec-h2">HTTP methods</h2>
+  <p>
+    Http protocol is the foundation of data communication in world wide web.
+    Different methods of data retrieval from specified URL are defined in this
+    protocol.
+  </p>
+  <p>
+    The following table summarizes generally used http methods.
+  </p>
+  <table cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                    Sr.No
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Method
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Description
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    1
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    GET
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Sends data in unencrypted form to the server. Most common
+                    method.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    2
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    HEAD
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Same as GET, but without response body. this is not common.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                     3
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    POST
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Used to send HTML form data to server. Data received by
+                    POST method is not cached by server.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    4
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    PUT
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Replaces all current representations of the target resource
+                    with the uploaded content. Think of it as update.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    5
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    DELETE
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Removes all current representations of the target resource
+                    given by a URL
+                </p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <p>
+    By default, the Flask route responds to the GET requests. However, this
+    preference can be altered by providing methods argument to route()
+    decorator.
+  </p>
+  <p>
+    In order to demonstrate the use of POST method in URL routing, first let us
+    create an HTML form and use the POST method to send form data to a URL.
+  </p>
+  <p>
+    Save the following script as login.html.
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;form action = "http://localhost:5000/login" method = "post"&gt;
+  </p>
+  <p>
+    &lt;p&gt;Enter Name:&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = "text" name = "nm" /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = "submit" value = "submit" /&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;/form&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    Now save the following code in a Python file.
+  </p>
+  <p>
+    from flask import Flask, redirect, url_for, request
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    @app.route('/success/&lt;name&gt;')
+  </p>
+  <p>
+    def success(name):
+  </p>
+  <p>
+        return 'welcome %s' % name
+  </p>
+  <p>
+    @app.route('/login', methods = ['POST'])
+  </p>
+  <p>
+    def login():
+  </p>
+  <p>
+        user = request.form['nm']
+  </p>
+  <p>
+        return redirect(url_for('success',name = user))
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
+        app.run()
+  </p>
+  <p>
+    After the development server starts running, open login.html in the
+    browser, enter name in the text field and click Submit.
+  </p>
+</div>
+
+<div class="sec" id="sec">
+  <h2 id="sec-h2">Explanation</h2>
+  <p>
+    http://localhost:5000/login is mapped to the login() function. Since the
+    server has received data by POST method, value of 'nm' parameter obtained
+    from the form data is obtained by
+  </p>
+  <p>
+    user = request.form['nm']
+  </p>
+  <p>
+    This 'mm' comes from the name attribute of the textbox in the form.
+  </p>
+  <p>
+    It is passed to '/success' URL as variable part. The browser displays a
+    welcome message in the window.
+  </p>
+</div>
+
+{% if user.profile.resource8 %}
+<div id="btns">
+  <form method="post" >
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Undone</button>
+  </form>
+</div>
+{% else %}
+<div id="btns">
+  <form method="post" >
+    {% csrf_token %}
+    {{ form.as_p}}
+      <button type="submit" name="submit" id="submit">Mark as Done</button>
+  </form>
+{% endif %}
+</div>
+<div>
+<a href="{% url 'resourcenine' %}" role="button" id="sec-btn">
+    <p>Start Week 9</p>
+</a>
+</div>
+</div>
+
+
+<style>
+#btns{
+  position: relative;
+  height:5%;
+}
+#sec-btn {
+    margin:auto;
+    width:30%;
+    border-radius:50px;
+    background:#233854;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 75px;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    margin-bottom:1%;
+}
+header{
+border-radius: 0.5%;
+color: white;
+background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+#sec{
+font-family: Arial, Helvetica, sans-serif;
+margin-left: 3%;
+margin-right: 3%;
+margin-bottom: 3%;    
+font-size: medium;
+font-weight: 500;
+}
+
+#sec-h1{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: 500;
+margin-top: 7%;
+max-width: 55%;
+padding-bottom: 5%;
+margin-bottom: 5%;
+}
+
+#sec-h2{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight:500;
+margin-bottom: 2%; 
+}
+
+body{
+overflow-y: scroll;
+background: white;
+}
+
+
+#submit{
+position:relative;
+margin-left:-215%;
+width:200%;
+background:#233854;
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+border-radius: 75px;
+justify-content: center;
+padding-top: 1em;
+bottom:1%;
+
+}
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}  
+<aside>
+  <div id="logo-mission">
+    <h1 id="logo">
+    <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" id="img"></h1>
+    <div>
+      <h2 id="mission">
+        Unlocking high-growth career opportunities irrespective of past experience or needs
+      </h2>
+    </div>
+  </div>
+  </div>
+</aside>
+
+  <main>
+    <!--pasword and email input boxes--> 
+    <div  id="signup-details">
+      
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <div>
+          <h1 id="title">Sign Up</h1>
+          <label for="email" id="label">Email:</label>
+          <br>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          <br>
+          <label for="username" id="label">Username:</label>
+          <br>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+          <br>
+          <label for="password" id="label">Password:</label>
+          <br>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          <div class="logo">
+            <!--add logo here, posssibly?-->
+        </div>
+        
+        
+        <!--commented out until we're able to implement it
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
+        </div>-->
+
+        <!--submit button--> 
+        <span class="visually-hidden">Error Occurred</span>	     
+        {% if SignUpView.notvalid %}
+          <br>
+          <p id="invalid">Error Occurred</p>
+        {% endif %}
+        <button type='submit' class="btn btn-primary" name="submit" id="submit-btn">Submit</button>
+        <button type='submit' class="btn btn-primary" name="login" id="login-btn">Log In</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+  <style>
+  
+  #img{
+    width:150%;
+  }
+    
+  #logo{
+    margin-left: 15%;
+    margin-top: 10%;
+    color: white;
+    width:20%;
+    height:20%;
+  }
+
+  #mission{
+    width:30%;
+    margin-top:-3%;
+    margin-left:17%; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:2vw;
+    font-weight: 400;
+    position: static;
+  }
+
+  #submit-btn{
+    background: transparent;
+    border-color: white;
+    border-width: 2px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+    border-radius: 75px;
+    margin-top: 5%;
+    width: 100%;
+  }
+  
+  #signup-btn{
+    background: #8844d6;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+    border-radius: 75px;
+    margin-top: 7%; 
+    width: 100%;
+  }
+
+  #login-btn{
+    background: #8844d6;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+    border-radius: 75px;
+    margin-top: 7%; 
+    width: 100%;
+  }
+
+  #signup-details{
+    margin-left: -60%;
+    width: 175%;
+    margin-top:-20%;
+    position: relative;
+  }
+
+  #title{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:2.5vw;
+  }
+
+  #label{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+  }
+
+  .form-control{
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+  }
+
+  #invalid{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15vw;
+  }
+  
+</style>
+
+{% endblock %}

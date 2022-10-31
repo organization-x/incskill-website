@@ -1,0 +1,381 @@
+<header>
+{% extends 'base.html' %}
+
+{% block title %}Introduction to Software Engineering{% endblock %}
+
+{% block content %}
+
+<div class="sec" id="sec">
+  <h1 id="sec-h1">Week 7: Flask 1</h1>
+</div>
+</header>
+<div class="sec" id="sec">
+    <h2 id="sec-h2">Objectives</h2>
+    <p>
+        In this resource, you will learn the following.
+    </p>
+    <ul>
+        <li>
+            Introduction to Flask, a Python web framework
+        </li>
+        <li>
+            First Flask program
+        </li>
+        <li>
+            Flask variables
+        </li>
+    </ul>
+</div>
+
+<div class="sec" id="sec">
+        <h2 id="sec-h2">What is Flask?</h2>
+    <p>
+        Web framework represents a collection of libraries and modules that enables
+        a web application developer to write applications without having to bother
+        about low-level details such as protocols, thread management etc. Don't
+        worry about protocol or thread management-it's outside the scope of this
+        resource and course. Flask is a web application framework written in
+        Python.
+    </p>
+    </div>
+
+    <div class="sec" id="sec">
+        <h2 id="sec-h2">Flask Setup</h2>
+    <p>
+        Let's start working on our first Flask project (a web app). To get started,
+        open up your terminal (command prompt, Anaconda prompt etc.) and type in
+        the following commands.
+    </p>
+    <p>
+        mkdir flaskproj
+    </p>
+    <p>
+        cd flaskproj
+    </p>
+    <p>
+        You may remember the "cd" command from the first resource. This command is
+        used to change directory to the directory you specify as part of this
+        command. The "mkdir" command is used to create a new directory. So, in this
+        case, we are creating a new directory called flaskproj and then browsing
+        into this directory.
+    </p>
+    <p>
+        We are now ready to install Flask. Type in the following to install Flask.
+    </p>
+    <p>
+        pip install Flask
+    </p>
+    </div>
+
+    <div class="sec" id="sec">
+        <h2 id="sec-h2">Flask Application</h2>
+    <p>
+        In order to test Flask installation, type the following code in a file
+        hello.py.
+    </p>
+    <p>
+        from flask import Flask
+    </p>
+    <p>
+        app = Flask(__name__)
+    </p>
+    <p>
+        @app.route('/')
+    </p>
+    <p>
+        def hello_world():
+    </p>
+    <p>
+        return "Hello World"
+    </p>
+    <p>
+        if __name__ == '__main__':
+    </p>
+    <p>
+        app.run()
+    </p>
+    <p>
+        Now run this file. You will see the following at the end of the output.
+    </p>
+    <p>
+        * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+    </p>
+    <p>
+        Open the above URL (localhost:5000) in the browser. You will observe the
+        following output.
+    </p>
+    <p>
+        "Hello world"
+    </p>
+    </div>
+
+    <div class="sec" id="sec">
+        <h2 id="sec-h2">Explanation of the Above Code</h2>
+    <ul>
+        <li>
+            Line 1: importing flask module in the project is mandatory.
+        </li>
+        <li>
+            Line 2: Flask constructor takes the name of current module (__name__)
+            as argument.
+        </li>
+        <li>
+            Line 3: The route() function of the Flask class is a decorator, which
+            tells the application which URL should call the associated function. We
+            will discuss this soon.
+        </li>
+        <li>
+            Lines 4-5: '/' URL is bound with hello_world() function which is
+            defined. Hence, when the homepage of web server is opened in browser,
+            the output of this function will be rendered. Note the "/" URL is the
+            default URL.
+        </li>
+        <li>
+            Lines6-7: The run() method of Flask class runs the application on the
+            local development server. this method actually takes in host and port
+            as optional parameters. Here, host represents the hostname to listen
+            on. It defaults to 127.0.0.1 (localhost). Port defaults to 5000.
+        </li>
+    </ul>
+    </div>
+
+    <div class="sec" id="sec">
+        <h2 id="sec-h2">Routing</h2>
+    <p>
+        Modern web frameworks use routing to help a user remember application URLs.
+        The route() decorator in Flask is used to bind URL to a function. For
+        example
+    </p>
+    <p>
+        @app.route('/hello')
+    </p>
+    <p>
+        def hello_world():
+    </p>
+    <p>
+        return 'hello world'
+    </p>
+    <p>
+        Here, URL '/hello' rule is bound to the hello_world() function. As a
+        result, if a user visits http://localhost:5000/hello where
+        http://localhost:5000 is the default URL for local development, the output
+        of the hello_world() function will be rendered in the browser.
+    </p>
+</div>
+
+<div class="sec" id="sec">
+        <h2 id="sec-h2">Flask Variables</h2>
+    <p>
+        It is possible to build a URL dynamically by adding variable parts to the
+        rule parameter. This variable part is marked as &lt;variable-name&gt;. It
+        is passed as a keyword argument to the function with which the rule is
+        associated.
+    </p>
+    <p>
+        In the following example, the rule parameter of route() decorator contains
+        &lt;name&gt; variable part attached to URL '/hello'. Hence, if
+        http://localhost:5000/hello/IStem is entered as a URL in the browser,
+        'IStem' will be supplied to hello() function as argument.
+    </p>
+    <p>
+        from flask import Flask
+    </p>
+    <p>
+        app = Flask(__name__)
+    </p>
+    <p>
+        @app.route('/hello/&lt;name&gt;')
+    </p>
+    <p>
+        def hello_name(name):
+    </p>
+    <p>
+        return "Hello " + name + "!"
+    </p>
+    <p>
+        if __name__ == '__main__':
+    </p>
+    <p>
+        app.run()
+    </p>
+    <p>
+        Save the above script as hello.py and run it from the Anaconda prompt.
+        Next, open the browser and enter URL http://localhost:5000/hello/IStem.
+    </p>
+    <p>
+        The following output will be displayed in the browser.
+    </p>
+    <p>
+        Hello IStem!
+    </p>
+    <p>
+        In addition to the default string variable part, rules can be constructed
+        using the following converters
+    </p>
+    <ul>
+        <li>
+            int: accepts integer
+        </li>
+        <li>
+            float: Accepts floating point value
+        </li>
+    </ul>
+    <p>
+        In the following code, these constructors are used.
+    </p>
+    <p>
+        from flask import Flask
+    </p>
+    <p>
+        app = Flask(__name__)
+    </p>
+    <p>
+        @app.route('/blog/&lt;int:postID&gt;')
+    </p>
+    <p>
+        def show_blog(postID):
+    </p>
+    <p>
+        return "Blog Number " + str(postID)
+    </p>
+    <p>
+        @app.route('/rev/&lt;float:revNo&gt;')
+    </p>
+    <p>
+        def revision(revNo):
+    </p>
+    <p>
+        return "Revision Number " + str(revNo)
+    </p>
+    <p>
+        if __name__ == '__main__':
+    </p>
+    <p>
+        app.run()
+    </p>
+    <p>
+        Run the above code and then visit the URL http://localhost:5000/blog/10 in
+        the browser.
+    </p>
+    <p>
+        The given number is used as argument to the show_blog() function. The
+        browser displays the following output
+    </p>
+    <p>
+        Blog Number 10
+    </p>
+    <p>
+        Enter this URL in the browser
+    </p>
+    <p>
+        http://localhost:5000/rev/1.1
+    </p>
+    <p>
+        The revision() function takes up the floating point number as argument. The
+        following result appears in the browser window
+    </p>
+    <p>
+        Revision Number 1.100000
+    </p>
+</div>
+
+{% if user.profile.resource7 %}
+<div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Undone</button>
+    </form>
+  </div>
+{% else %}
+  <div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Done</button>
+    </form>
+{% endif %}
+  </div>
+<div>
+  <a href="{% url 'resourceeight' %}" role="button" id="sec-btn">
+      <p>Start Week 8</p>
+  </a>
+</div>
+</div>
+
+
+<style>
+  #btns{
+    position: relative;
+    height:5%;
+  }
+  #sec-btn {
+      margin:auto;
+      width:30%;
+      border-radius:50px;
+      background:#233854;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 75px;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1em;
+      margin-bottom:1%;
+  }
+header{
+  border-radius: 0.5%;
+  color: white;
+  background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+#sec{
+font-family: Arial, Helvetica, sans-serif;
+margin-left: 3%;
+margin-right: 3%;
+margin-bottom: 3%;    
+font-size: medium;
+font-weight: 500;
+}
+
+#sec-h1{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: 500;
+margin-top: 7%;
+max-width: 55%;
+padding-bottom: 5%;
+margin-bottom: 5%;
+}
+
+#sec-h2{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight:500;
+margin-bottom: 2%; 
+}
+
+body{
+overflow-y: scroll;
+background: white;
+}
+
+
+#submit{
+  position:relative;
+  margin-left:-215%;
+  width:200%;
+  background:#233854;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 75px;
+  justify-content: center;
+  padding-top: 1em;
+  bottom:1%;
+  
+}
+
+</style>
+  
+  {% endblock %}
