@@ -59,7 +59,7 @@ class SignUpView(View):
             context = {
                 "input_notvalid" : SignUpView.notvalid,
                 "error_message" : SignUpView.error_message, 
-            }
+            }            
             return render(request, self.template_name, context)
         else:
             return redirect('courses')
@@ -74,31 +74,31 @@ class SignUpView(View):
                 print("No email entered!")
                 SignUpView.notvalid=True
                 SignUpView.error_message = "No email entered!"
-                return render(request, self.template_name)
+                return render(request, self.template_name, {"input_notvalid" : SignUpView.notvalid, "error_message" : SignUpView.error_message})
             if get_name == None or get_name == '':
                 print("No username entered!")
                 SignUpView.notvalid=True
                 SignUpView.error_message = "No username entered!"
-                return render(request, self.template_name)
+                return render(request, self.template_name, {"input_notvalid" : SignUpView.notvalid, "error_message" : SignUpView.error_message})
             else:
                 print("Username: " + get_name)
             if get_pass == None or get_pass == '':
                 print("No password entered!")
                 SignUpView.notvalid=True
                 SignUpView.error_message = "No password entered!"
-                return render(request, self.template_name)
+                return render(request, self.template_name, {"input_notvalid" : SignUpView.notvalid, "error_message" : SignUpView.error_message})
             
             print('forms filled')
             if User.objects.filter(email=get_mail).exists():
                 print("Email is not unique")
                 SignUpView.notvalid=True
                 SignUpView.error_message = "Email is not unique!"
-                return render(request, self.template_name)
+                return render(request, self.template_name, {"input_notvalid" : SignUpView.notvalid, "error_message" : SignUpView.error_message})
             if User.objects.filter(username=get_name).exists():
                 print("Username is not unique")
                 SignUpView.notvalid=True
                 SignUpView.error_message = "Username is not unique!"
-                return render(request, self.template_name)
+                return render(request, self.template_name, {"input_notvalid" : SignUpView.notvalid, "error_message" : SignUpView.error_message})
             user = User.objects.create_user(email = get_mail, username = get_name, password = get_pass)
             print('user created')
             return redirect("login")
