@@ -1,17 +1,15 @@
 *pyc
 *~
 
-#ignore virtual environment and environment variables
+
+#ignore venv
 .venv
-venv
-*.venv
-incvenv
-*.env
-.env
 
 #ignore django
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-incskill.db.sqlite3
+
+#ignore generated files
+sent**/sent_emails
