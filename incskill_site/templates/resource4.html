@@ -5,7 +5,17 @@
 
 {% block content %}
 
+<script type='text/javascript'>
+  window.onload = function() {
+       window.location.hash = '#{{div}}';
 
+      if(!window.location.hash) {
+          window.location.hash = '#{{div}}';
+          window.location.reload();
+      }
+}
+
+</script>
 <div  class="sec" id="sec">
 
   <h1 id="sec-h1">Week 4: Loops</h1>
@@ -445,7 +455,7 @@ will be adapted as follows.
   </p>
 </main>
 </div>
-<div>
+<div id="btnset">
   {% if user.profile.resource4 %}
   <div id="btns">
     <form method="post" >
@@ -467,6 +477,7 @@ will be adapted as follows.
   <a href="{% url 'resourcefive' %}" role="button" id="sec-btn">
       <p>Start Week 5</p>
   </a>
+</div>
 </div>
 </div>
 

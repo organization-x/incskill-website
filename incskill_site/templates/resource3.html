@@ -5,7 +5,17 @@
 
 {% block content %}
 
+<script type='text/javascript'>
+  window.onload = function() {
+       window.location.hash = '#{{div}}';
 
+      if(!window.location.hash) {
+          window.location.hash = '#{{div}}';
+          window.location.reload();
+      }
+}
+
+</script>
 <div class="sec" id="sec">
 
   <h1 id="sec-h1">Week 3: Input and Output, <br> Data Types and Loops</h1>
@@ -207,7 +217,7 @@
   </p>
 </main>
 </div>
-<div>
+<div id="btnset">
   {% if user.profile.resource3 %}
   <div id="btns">
     <form method="post" >

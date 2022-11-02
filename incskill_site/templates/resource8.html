@@ -5,6 +5,17 @@
 
 {% block content %}
 
+<script type='text/javascript'>
+  window.onload = function() {
+       window.location.hash = '#{{div}}';
+
+      if(!window.location.hash) {
+          window.location.hash = '#{{div}}';
+          window.location.reload();
+      }
+}
+
+</script>
 <div class="sec" id="sec">
   <h1 id="sec-h1">Week 8: Flask 2</h1>
 </div>
@@ -328,7 +339,7 @@
     welcome message in the window.
   </p>
 </div>
-
+<div id="btnset">
 {% if user.profile.resource8 %}
 <div id="btns">
   <form method="post" >
@@ -344,6 +355,8 @@
     {{ form.as_p}}
       <button type="submit" name="submit" id="submit">Mark as Done</button>
   </form>
+  </div>
+  
 {% endif %}
 </div>
 <div>
