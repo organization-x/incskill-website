@@ -1,9 +1,22 @@
-<header> 
+<header id="head"> 
 {% extends 'base.html' %}
 
 {% block title %}Introduction to Software Engineering{% endblock %}
 
 {% block content %}  
+
+
+<script type='text/javascript'>
+    window.onload = function() {
+         window.location.hash = '#{{div}}';
+
+        if(!window.location.hash) {
+            window.location = window.location + '{{div}}';
+            window.location.reload();
+        }
+}
+  
+  </script>
    
   <div class="sec" id="sec">    
     
@@ -181,7 +194,7 @@
   </main>
   </div>
 
-  <div>
+  <div id="btnset">
     {% if user.profile.resource1 %}
     <div id="btns">
       <form method="post" >
