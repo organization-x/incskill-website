@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Introduction to Software Engineering{% endblock %}
 
 {% block content %}
@@ -13,227 +13,275 @@
 
 <body>
   <div id="allcontent">
-      <!--Contents-->
-      <div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week1" role="button" aria-expanded="false" aria-controls="week1" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Setup
+    <!--Contents-->
+
+    <!--Week 1 Materials-->
+    <div>
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week1" role="button" aria-expanded="false"
+          aria-controls="week1" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Setup
+        </a>
+      </p>
+      <div class="collapse content" id="week1">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
           </a>
-        </p>
-        <div class="collapse content" id="week1">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourceone' %}" class="card-link" id="courseBtn">
-              <p>Week 1: Introduction to Computer Programming Using Python 1</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
-        </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week2" role="button" aria-expanded="false" aria-controls="week2" id="unitBtn" style=" color: rgb(0, 0, 0); background: white;margin-top: 1%;">
-            Fundamentals
+          <a href="{% url 'resourceone' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 1: Introduction to Computer Programming Using Python 1</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
           </a>
-        </p>
-        <div class="collapse content" id="week2">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcetwo' %}" class="card-link" id="courseBtn">
-              <p>Week 2: Introduction to Computer Programming Using Python 2</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
         </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week3" role="button" aria-expanded="false" aria-controls="week3" id="unitBtn" style=" color: rgb(0, 0, 0); background: white;margin-top: 1%;">
-            Input & Datatypes
+      </div>
+
+      <!--Week 2 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week2" role="button" aria-expanded="false"
+          aria-controls="week2" id="unitBtn" style=" color: rgb(0, 0, 0); background: white;margin-top: 1%;">
+          Fundamentals
+        </a>
+      </p>
+      <div class="collapse content" id="week2">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
           </a>
-        </p>
-        <div class="collapse content" id="week3">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcethree' %}" class="card-link" id="courseBtn">
-              <p>Week 3: Input and Output, Data Types and Loops</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
-        </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week4" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Loops
+          <a href="{% url 'resourcetwo' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 2: Introduction to Computer Programming Using Python 2</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
           </a>
-        </p>
-        <div class="collapse content" id="week4">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcefour' %}" class="card-link" id="courseBtn">
-              <p>Week 4: Loops</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
         </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week5" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Data Structures
+      </div>
+
+
+      <!--Week 3 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week3" role="button" aria-expanded="false"
+          aria-controls="week3" id="unitBtn" style=" color: rgb(0, 0, 0); background: white;margin-top: 1%;">
+          Input & Datatypes
+        </a>
+      </p>
+      <div class="collapse content" id="week3">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
           </a>
-        </p>
-        <div class="collapse content" id="week5">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcefive' %}" class="card-link" id="courseBtn">
-              <p>Week 5: More Data Structures</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
-        </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week6" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Functions
+          <a href="{% url 'resourcethree' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 3: Input and Output, Data Types and Loops</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
           </a>
-        </p>
-        <div class="collapse content" id="week6">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcesix' %}" class="card-link" id="courseBtn">
-              <p>Week 6: Functions</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
         </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week7" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Introduction to Flask
+      </div>
+
+
+      <!--Week 4 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week4" role="button" aria-expanded="false"
+          aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Loops
+        </a>
+      </p>
+      <div class="collapse content" id="week4">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
           </a>
-        </p>
-        <div class="collapse content" id="week7">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourceseven' %}" class="card-link" id="courseBtn">
-              <p>Week 7: Flask 1</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
-        </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week8" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Flask
+          <a href="{% url 'resourcefour' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 4: Loops</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
           </a>
-        </p>
-        <div class="collapse content" id="week8">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourceeight' %}" class="card-link" id="courseBtn">
-              <p>Week 8: Flask 2</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
         </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week9" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Create Templates in Flask
+      </div>
+
+
+      <!--Week 5 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week5" role="button" aria-expanded="false"
+          aria-controls="week5" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Data Structures
+        </a>
+      </p>
+      <div class="collapse content" id="week5">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
           </a>
-        </p>
-        <div class="collapse content" id="week9">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcenine' %}" class="card-link" id="courseBtn">
-              <p>Week 9: Flask Templates</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
-        </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week10" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Cookies & Data
+          <a href="{% url 'resourcefive' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 5: More Data Structures</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
           </a>
-        </p>
-        <div class="collapse content" id="week10">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourceten' %}" class="card-link" id="courseBtn">
-              <p>Week 10: Session Data and Cookies</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
         </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week11" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Flask Errors, Redirects, and Uploading
+      </div>
+
+
+      <!--Week 6 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week6" role="button" aria-expanded="false"
+          aria-controls="week6" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Functions
+        </a>
+      </p>
+      <div class="collapse content" id="week6">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
           </a>
-        </p>
-        <div class="collapse content" id="week11">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourceeleven' %}" class="card-link" id="courseBtn">
-              <p>Week 11: Flask Redirect, Errors, and Uploading</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
-        </div>
-        <p class="text-center">
-          <a class="btn btn-primary" data-bs-toggle="collapse" href="#week12" role="button" aria-expanded="false" aria-controls="week4" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
-            Flask Extensions
+          <a href="{% url 'resourcesix' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 6: Functions</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
           </a>
-        </p>
-        <div class="collapse content" id="week12">
-          <div class="card card-text border-1">
-            <a href="#" class="card-link" id="courseBtn">
-              <p></p>
-            </a>
-            <a href="{% url 'resourcetwelve' %}" class="card-link" id="courseBtn">
-              <p>Week 12: Flask Extensions</p>
-            </a>
-            <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
-              <p>Quiz</p>
-            </a>
-          </div>
         </div>
+      </div>
+
+
+
+      <!--Week 7 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week7" role="button" aria-expanded="false"
+          aria-controls="week7" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Introduction to Flask
+        </a>
+      </p>
+      <div class="collapse content" id="week7">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'resourceseven' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 7: Flask 1</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--Week 8 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week8" role="button" aria-expanded="false"
+          aria-controls="week8" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Flask
+        </a>
+      </p>
+      <div class="collapse content" id="week8">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'resourceeight' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 8: Flask 2</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--Week 9 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week9" role="button" aria-expanded="false"
+          aria-controls="week9" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Create Templates in Flask
+        </a>
+      </p>
+      <div class="collapse content" id="week9">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'resourcenine' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 9: Flask Templates</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--Week 10 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week10" role="button" aria-expanded="false"
+          aria-controls="week10" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Cookies & Data
+        </a>
+      </p>
+      <div class="collapse content" id="week10">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'resourceten' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 10: Session Data and Cookies</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--Week 11 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week11" role="button" aria-expanded="false"
+          aria-controls="week11" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Flask Errors, Redirects, and Uploading
+        </a>
+      </p>
+      <div class="collapse content" id="week11">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'resourceeleven' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 11: Flask Redirect, Errors, and Uploading</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--Week 12 Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#week12" role="button" aria-expanded="false"
+          aria-controls="week12" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Flask Extensions
+        </a>
+      </p>
+      <div class="collapse content" id="week12">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'resourcetwelve' %}" class="card-link" id="courseBtn">
+            <p id="context">Week 12: Flask Extensions</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
+
+
+      <!--Quiz Materials-->
+      <p class="text-center">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#quiz" role="button" aria-expanded="false"
+          aria-controls="quiz" id="unitBtn" style=" color: rgb(0, 0, 0); background: white; margin-top: 1%;">
+          Quizzes
+        </a>
+      </p>
+      <div class="collapse content" id="quiz">
+        <div class="card card-text border-1">
+          <a href="#" class="card-link" id="courseBtn">
+            <p></p>
+          </a>
+          <a href="{% url 'quizone' %}" class="card-link" id="courseBtn">
+            <p id="context">Quiz 1</p>
+            <img src="{% static 'media/checkmark.png' %}" alt="Completed" id="checkmark">
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  
+
   <!--
   <div>
         <a href="{% url 'codingexcercise' %}" class="card-link" id="courseBtn">
@@ -242,63 +290,65 @@
   </div>
   -->
 </body>
-  <style>
+<style>
+  #page-title {
+    margin-left: 11%;
+    margin-top: 5%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+  }
 
-    #page-title{
-      margin-left:11%;
-      margin-top:5%;
-      color:white;
-      font-family: Arial, Helvetica, sans-serif;
-      font-style: normal;
-      font-weight:500;
-      position: relative;
-    }
-        
-    #allcontent{
-      margin-top: 8%;
-    }
+  #allcontent {
+    margin-top: 8%;
+  }
 
-    #unitBtn {
-        width: 70%;
-        
-        text-align: start;
-    }
-    h2{
-  
-  position:absolute;
+  #checkmark{
+    width: 1.3%;
+    margin-top: -2.7%;
+    margin-left: -1.8%;
+  }
+
+  #context{
+    margin-bottom: -0.5%;
+  }
+
+  #unitBtn {
+    width: 70%;
+
+    text-align: start;
+  }
+
+  h2 {
+    position: absolute;
     left: 0%;
     top: 33%;
-  display: flex;
- 
-  
-  
-  
-  color: white;
-  
-  } 
+    display: flex;
+    color: white;
+  }
 
 
 
-    #courseBtn {
-        text-align: start;
-        padding-left: 5%;
-        float: left;
-    }
+  #courseBtn {
+    padding-left: 5%;
+    display: inline-block;
+  }
 
-    .content{
-        margin-left: 11%;
-        width: 78%;
-        text-align: start;
-    }
-    .progress {
-        display: inline;
-        float: right;
-    }
+  .content {
+    margin-left: 11%;
+    width: 78%;
+    text-align: start;
+  }
 
-    body{
+  .progress {
+    display: inline;
+    float: right;
+  }
+
+  body {
     overflow-y: scroll;
-    }
-    
-
+  }
 </style>
 {% endblock %}
