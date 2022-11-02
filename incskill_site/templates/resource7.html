@@ -5,6 +5,17 @@
 
 {% block content %}
 
+<script type='text/javascript'>
+    window.onload = function() {
+         window.location.hash = '#{{div}}';
+
+        if(!window.location.hash) {
+            window.location.hash = '#{{div}}';
+            window.location.reload();
+        }
+}
+  
+  </script>
 <div class="sec" id="sec">
   <h1 id="sec-h1">Week 7: Flask 1</h1>
 </div>
@@ -278,7 +289,7 @@
         Revision Number 1.100000
     </p>
 </div>
-
+<div id="btnset">
 {% if user.profile.resource7 %}
 <div id="btns">
     <form method="post" >

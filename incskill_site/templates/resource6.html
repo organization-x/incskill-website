@@ -5,7 +5,17 @@
 
 {% block content %}
 
+<script type='text/javascript'>
+  window.onload = function() {
+       window.location.hash = '#{{div}}';
 
+      if(!window.location.hash) {
+          window.location.hash = '#{{div}}';
+          window.location.reload();
+      }
+}
+
+</script>
 <div  class="sec" id="sec">
 
   <h1 id="sec-h1">Week 6: Functions</h1>
@@ -249,7 +259,7 @@
 </main>
 </div>
 </body>
-
+<div id="btnset">
 {% if user.profile.resource6 %}
 <div id="btns">
   <form method="post" >

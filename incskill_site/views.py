@@ -167,48 +167,56 @@ class CourseOneView(View):
 
 class ResourceOneView(View):
     template_name = 'resource1.html'
+    gotodiv = ''
     def get(self, request):
         print("Something")
+        ResourceOneView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceOneView.gotodiv})
         else:
             return redirect('login')
     
     def post(self, request):
         if 'submit' in request.POST:
             if (request.user.profile.resource1 == False):
-                request.user.profile.resource1 = True
+                request.user.profile.resource1 = True        
             else: 
                 request.user.profile.resource1 = False
+            ResourceOneView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, 'resource1.html')
-
+            return render(request, self.template_name, {'div': ResourceOneView.gotodiv})
 
 class ResourceTwoView(View):
     template_name = 'resource2.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceTwoView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceTwoView.gotodiv})
         else:
             return redirect('login')
 
     def post(self, request):
+        gotodiv = ''
         if 'submit' in request.POST:
             if (request.user.profile.resource2 == False):
                 request.user.profile.resource2 = True
             else: 
                 request.user.profile.resource2 = False
+            ResourceTwoView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceTwoView.gotodiv})
 
 
 class ResourceThreeView(View):
     template_name = 'resource3.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceThreeView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceThreeView.gotodiv})
         else:
             return redirect('login')
 
@@ -218,15 +226,18 @@ class ResourceThreeView(View):
                 request.user.profile.resource3= True
             else: 
                 request.user.profile.resource3= False
+            ResourceThreeView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceThreeView.gotodiv})
 
 class ResourceFourView(View):
     template_name = 'resource4.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceFourView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceFourView.gotodiv})
         else:
             return redirect('login')
 
@@ -236,15 +247,19 @@ class ResourceFourView(View):
                 request.user.profile.resource4 = True
             else: 
                 request.user.profile.resource4 = False
+            ResourceFourView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceFourView.gotodiv})
+
 
 class ResourceFiveView(View):
     template_name = 'resource5.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceFiveView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceFiveView.gotodiv})
         else:
             return redirect('login')
 
@@ -254,15 +269,18 @@ class ResourceFiveView(View):
                 request.user.profile.resource5 = True
             else: 
                 request.user.profile.resource5 = False
+            ResourceFiveView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceFiveView.gotodiv})
 
 class ResourceSixView(View):
     template_name = 'resource6.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceSixView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceSixView.gotodiv})
         else:
             return redirect('login')
 
@@ -272,15 +290,19 @@ class ResourceSixView(View):
                 request.user.profile.resource6 = True
             else: 
                 request.user.profile.resource6 = False
+            ResourceSixView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceSixView.gotodiv})
+
 
 class ResourceSevenView(View):
     template_name = 'resource7.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceSevenView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceSevenView.gotodiv})
         else:
             return redirect('login')
 
@@ -290,15 +312,18 @@ class ResourceSevenView(View):
                 request.user.profile.resource7 = True
             else: 
                 request.user.profile.resource7 = False
+            ResourceSevenView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceSevenView.gotodiv})
 
 class ResourceEightView(View):
     template_name = 'resource8.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceEightView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceEightView.gotodiv})
         else:
             return redirect('login')
 
@@ -308,15 +333,18 @@ class ResourceEightView(View):
                 request.user.profile.resource8 = True
             else: 
                 request.user.profile.resource8 = False
+            ResourceEightView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceEightView.gotodiv})
 
 class ResourceNineView(View):
     template_name = 'resource9.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceNineView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceNineView.gotodiv})
         else:
             return redirect('login')
 
@@ -326,15 +354,19 @@ class ResourceNineView(View):
                 request.user.profile.resource9 = True
             else: 
                 request.user.profile.resource9 = False
+            ResourceNineView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceNineView.gotodiv})
+
 
 class ResourceTenView(View):
     template_name = 'resource10.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceTenView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceTenView.gotodiv})
         else:
             return redirect('login')
 
@@ -344,15 +376,19 @@ class ResourceTenView(View):
                 request.user.profile.resource10= True
             else: 
                 request.user.profile.resource10 = False
+            ResourceTenView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceTenView.gotodiv})
+
 
 class ResourceElevenView(View):
     template_name = 'resource11.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceElevenView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceElevenView.gotodiv})
         else:
             return redirect('login')
 
@@ -362,15 +398,19 @@ class ResourceElevenView(View):
                 request.user.profile.resource11 = True
             else: 
                 request.user.profile.resource11 = False
+            ResourceElevenView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceElevenView.gotodiv})
+
 
 class ResourceTwelveView(View):
     template_name = 'resource12.html'
+    gotodiv = ''
     def get(self, request):
+        ResourceTwelveView.gotodiv = '#'
         if request.user.is_authenticated:
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceTwelveView.gotodiv})
         else:
             return redirect('login')
 
@@ -380,9 +420,10 @@ class ResourceTwelveView(View):
                 request.user.profile.resource12 = True
             else: 
                 request.user.profile.resource12 = False
+            ResourceTwelveView.gotodiv = 'btnset'
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
-            return render(request, self.template_name)
+            return render(request, self.template_name, {'div': ResourceTwelveView.gotodiv})
 
 
 def score_updater(request):
