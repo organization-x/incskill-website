@@ -28,6 +28,7 @@
     </div>
     </nav>
   {% else %}
+  <!--Website Navigation Bar-->
   <nav aria-label="Navigation Bar">
     <div class="topnav">
       <a class="navbar-brand" href="#"><img src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto"></a>
@@ -42,12 +43,15 @@
     
     {% block content %}
   
+<!--Title of Main Page-->
 <main>
   <div>
     <h2 id="page-title">
       Incskill Dashboard
     </h2>
   </div>
+
+  <!--First Course-->
   <div class="text-center" id="text-center">
     {% csrf_token %}
     {{ form.as_p}}
