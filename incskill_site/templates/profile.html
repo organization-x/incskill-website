@@ -5,7 +5,7 @@
 {% block content %}  
   <h1 id="profile-h1">Hi, {{user.username}}</h1>
   <h1 id="profile-h1">Your progress: {{ user.profile.progress }}%</h1>
-  <br>
+  <br aria-hidden="true">
   <form method="post">
     {% csrf_token %}
     <button type ="submit" class="btn btn-primary" name="logout" id="profile-btn">Log Out</button>

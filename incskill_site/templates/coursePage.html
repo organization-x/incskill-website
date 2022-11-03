@@ -58,8 +58,8 @@
     
     <a class="btn btn-primary" href="{% url 'course_one' %}" id="courseBtn">
       <p id="courseTxt">Introduction to Software Engineering</p>
-      <br>
-      <br>
+      <br aria-hidden="true">
+      <br aria-hidden="true">
       <span class="progress progress-bar bg-success" style="height:24px;width:{{ user.profile.progress }}%" id="progressBar">{{ user.profile.progress }}%</span>
     </a>
   </div>
