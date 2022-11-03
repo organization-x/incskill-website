@@ -112,7 +112,8 @@ class SignUpView(View):
 class ProfileView(View):
     template_name = 'profile.html'
     def get(self, request):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated:            
+            calculate_progress(sender=User, instance=request.user)
             return render(request, self.template_name)
         else:
             return redirect('login')
