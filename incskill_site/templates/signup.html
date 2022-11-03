@@ -26,15 +26,15 @@
         <div>
           <h1 id="title">Sign Up</h1>
           <label for="email" id="label">Email:</label>
-          <br>
+          <br aria-hidden="true">
           <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-          <br>
+          <br aria-hidden="true">
           <label for="username" id="label">Username:</label>
-          <br>
+          <br aria-hidden="true">
           <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
-          <br>
+          <br aria-hidden="true">
           <label for="password" id="label">Password:</label>
-          <br>
+          <br aria-hidden="true">
           <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
           <div class="logo">
             <!--add logo here, posssibly?-->
@@ -49,7 +49,7 @@
 
         <!--submit button-->     
         {% if input_notvalid %}
-          <br>
+          <br aria-hidden="true">
           <span id="invalid">{{ error_message }}</span>
         {% endif %}
         <button type='submit' class="btn btn-primary" name="submit" id="submit-btn">Sign Up</button>
