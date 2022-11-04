@@ -30,6 +30,24 @@
 
           </div>
       </div>
+            <!-- creating a modal for when quiz ends -->
+            <div class="modal-container" id="opening-modal">
+
+                <div class="modal-content-container">
+      
+                    <h1>Welcome to the Quiz!</h1>
+      
+                    <div class="grade-details">
+                        <p>To get a passing score, you must 
+                            score a 7 or higher. Even if you
+                            have already passed the quiz,
+                            your progress will be removed!
+                        </p>
+                    </div>
+                    <button name="submit" id="submit" onclick="closeOpeningModal()">Start Quiz</button>
+      
+                </div>
+            </div>
 <!-- end of modal of quiz details-->
 
       <div class="game-quiz-container">
@@ -522,6 +540,9 @@ function updatePlayerScore() {
 //also handles displaying players and quiz information to dom
 function NextQuestion(index) {
     handleQuestions()
+    if(index === 0) {
+        document.getElementById('opening-modal').style.display = "flex"
+    }
     const currentQuestion = shuffledQuestions[index]
     document.getElementById("question-number").innerHTML = questionNumber
     document.getElementById("player-score").innerHTML = playerScore
@@ -653,6 +674,10 @@ function closeScoreModal() {
     shuffledQuestions = []
     NextQuestion(indexNumber)
     document.getElementById('score-modal').style.display = "none"
+}
+
+function closeOpeningModal() {
+    document.getElementById('opening-modal').style.display = "none"
 }
 
 //function to close warning modal

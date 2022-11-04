@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    progress = models.FloatField(default= 0.0)
+    progress = models.IntegerField(default=0)
     resource1 = models.BooleanField(default=False)
     resource2 = models.BooleanField(default=False)
     resource3 = models.BooleanField(default=False)
@@ -60,5 +60,5 @@ def calculate_progress(sender, instance, **kwargs):
         progress += (200/14)
 
     
-    instance.profile.progress = round(progress, 2)
+    instance.profile.progress = int(round(progress))
     save_user_profile(sender=User, instance=instance)
