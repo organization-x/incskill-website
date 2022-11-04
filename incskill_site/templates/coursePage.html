@@ -61,8 +61,8 @@
       <br aria-hidden="true">
       <br aria-hidden="true">
       <div class="progress" style="height:24px">
-        <div class="progress progress-bar bg-success" id="progressBar" style="width: {{ user.profile.progress }}%" aria-valuenow="{{ user.profile.progress }}" aria-valuemin="0" aria-valuemax="100" alt="{{ user.profile.progress }}% Completed">{{ user.profile.progress }}%</div>
-        <div class="progress progress-bar bg-warning" id="progressBar" style="width: {{ user.profile.remainingProgress }}%" aria-valuenow="{{ user.profile.remainingProgress }}" aria-valuemin="0" aria-valuemax="100" alt="{{ user.profile.remainingProgress }}% Remaining">{{ user.profile.remainingProgress }}%</div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: {{ user.profile.progress }}%" aria-valuenow="{{ user.profile.progress }}" aria-valuemin="0" aria-valuemax="100">{{ user.profile.progress }}%</div>
+        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ user.profile.remainingProgress }}%" aria-valuenow="{{ user.profile.remainingProgress }}" aria-valuemin="0" aria-valuemax="100">{{ user.profile.remainingProgress }}%</div>
       </div>
     </a>
   </div>
