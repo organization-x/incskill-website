@@ -540,7 +540,7 @@ function updatePlayerScore() {
 //also handles displaying players and quiz information to dom
 function NextQuestion(index) {
     handleQuestions()
-    if(index == 0) {
+    if(index === 0) {
         document.getElementById('opening-modal').style.display = "flex"
     }
     const currentQuestion = shuffledQuestions[index]
