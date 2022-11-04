@@ -15,7 +15,7 @@
   <body>
     <!--request.user.is_authenticated apparently not compatible, despite being reccomended-->
     {% if user.is_authenticated %}
-    <nav aria-label="Navigation Bar" aria-hidden="true">
+    <nav aria-label="Navigation Bar">
     <div class="topnav">
       <a class="navbar-brand" href="#"><img src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto" style="margin-top: -9px;" ></a>
       <a class="navbar-brand" href="{% url 'courses' %}">My Courses</a>
@@ -60,7 +60,10 @@
       <p id="courseTxt">Introduction to Software Engineering</p>
       <br aria-hidden="true">
       <br aria-hidden="true">
-      <span class="progress progress-bar bg-success" style="height:24px;width:{{ user.profile.progress }}%" id="progressBar">{{ user.profile.progress }}%</span>
+      <div class="progress" style="height:24px">
+        <div class="progress-bar bg-success" role="progressbar" style="width: {{ user.profile.progress }}%" aria-valuenow="{{ user.profile.progress }}" aria-valuemin="0" aria-valuemax="100">{{ user.profile.progress }}%</div>
+        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ user.profile.remainingProgress }}%" aria-valuenow="{{ user.profile.remainingProgress }}" aria-valuemin="0" aria-valuemax="100">{{ user.profile.remainingProgress }}%</div>
+      </div>
     </a>
   </div>
 </main>
