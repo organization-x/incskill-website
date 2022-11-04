@@ -60,5 +60,5 @@ def calculate_progress(sender, instance, **kwargs):
         progress += (200/14)
 
     
-    instance.profile.progress = (int)(round(progress))
+    instance.profile.progress = int(round(progress))
     save_user_profile(sender=User, instance=instance)
