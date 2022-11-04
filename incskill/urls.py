@@ -62,3 +62,5 @@ urlpatterns = [
     path('courses/course-one/quiz-one/update-score/', views.score_updater , name="score_updater"),
     path('courses/course-one/coding-excercise', CodingExcerciseView.as_view(), name = 'codingexcercise')
 ]
+
+handler404 = 'incskill_site.views.error_404_view'
