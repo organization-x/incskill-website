@@ -478,3 +478,6 @@ class CodingExcerciseView(View):
             print("submitted")
             save_user_profile(sender=User, instance=request.user)
             return render(request, self.template_name)
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
