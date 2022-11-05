@@ -15,9 +15,4 @@ class Migration(migrations.Migration):
             name='progress',
             field=models.IntegerField(default=0),
         ),
-        migrations.AlterField(
-            model_name='profile',
-            name='remainingProgress',
-            field=models.IntegerField(default=100),
-        ),
     ]
