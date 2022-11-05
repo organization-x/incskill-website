@@ -70,9 +70,4 @@ class Migration(migrations.Migration):
             name='progress',
             field=models.FloatField(default=0.0),
         ),
-        migrations.AlterField(
-            model_name='profile',
-            name='remainingProgress',
-            field=models.FloatField(default=100.0),
-        ),
     ]
