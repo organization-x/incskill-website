@@ -61,4 +61,5 @@ def calculate_progress(sender, instance, **kwargs):
 
     
     instance.profile.progress = int(round(progress))
+    instance.profile.remainingProgress = 100 - instance.profile.progress
     save_user_profile(sender=User, instance=instance)
