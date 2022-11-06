@@ -182,42 +182,42 @@
 <script>
   // List of sentences
 var _CONTENT = [ 
-	"Unlocking high-growth career", 
+	"Unlocking high-growth careers", 
 	"Achieving opportunities", 
 	"Irrespective of past experience or needs", 
 	
 ];
 
 // Current sentence being processed
-var _PART = 0;
+let _Part = 0;
 
 // Character number of the current sentence being processed 
-var _PART_INDEX = 0;
+let _Part_Index = 0;
 
 // Holds the handle returned from setInterval
-var _INTERVAL_VAL;
+let _Interval_Val;
 
 // Element that holds the text
-var _ELEMENT = document.querySelector("#text");
+let _Element = document.querySelector("#text");
 
 // Cursor element 
-var _CURSOR = document.querySelector("#cursor");
+let _Cursor = document.querySelector("#cursor");
 
 // Implements typing effect
 function Type() { 
 	// Get substring with 1 characater added
-	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
-	_ELEMENT.innerHTML = text;
-	_PART_INDEX++;
+	let text =  _CONTENT[_Part].substring(0, _Part_Index + 1);
+	_Element.innerHTML = text;
+	_Part_Index++;
 
 	// If full sentence has been displayed then start to delete the sentence after some time
-	if(text === _CONTENT[_PART]) {
+	if(text === _CONTENT[_Part]) {
 		// Hide the cursor
-		_CURSOR.style.display = 'none';
+		_Cursor.style.display = 'none';
 
-		clearInterval(_INTERVAL_VAL);
+		clearInterval(_Interval_Val);
 		setTimeout(function() {
-			_INTERVAL_VAL = setInterval(Delete, 50);
+			_Interval_Val = setInterval(Delete, 50);
 		}, 1000);
 	}
 }
@@ -225,32 +225,32 @@ function Type() {
 // Implements deleting effect
 function Delete() {
 	// Get substring with 1 characater deleted
-	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
-	_ELEMENT.innerHTML = text;
-	_PART_INDEX--;
+	let text =  _CONTENT[_Part].substring(0, _Part_Index - 1);
+	_Element.innerHTML = text;
+	_Part_Index--;
 
 	// If sentence has been deleted then start to display the next sentence
 	if(text === '') {
-		clearInterval(_INTERVAL_VAL);
+		clearInterval(_Interval_Val);
 
 		// If current sentence was last then display the first one, else move to the next
-		if(_PART == (_CONTENT.length - 1))
-			_PART = 0;
+		if(_Part == (_CONTENT.length - 1))
+    _Part = 0;
 		else
-			_PART++;
+    _Part++;
 		
-		_PART_INDEX = 0;
+		_Part_Index = 0;
 
 		// Start to display the next sentence after some time
 		setTimeout(function() {
-			_CURSOR.style.display = 'inline-block';
-			_INTERVAL_VAL = setInterval(Type, 50);
+			_Cursor.style.display = 'inline-block';
+			_Interval_Val = setInterval(Type, 50);
 		}, 100);
 	}
 }
 
 // Start the typing effect on load
-_INTERVAL_VAL = setInterval(Type, 100);
+_Interval_Val = setInterval(Type, 100);
 </script>
 
 {% endblock %}
