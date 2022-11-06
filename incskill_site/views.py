@@ -440,10 +440,10 @@ class QuizOneView(View):
 
 #the in-site code complier was temporarily removed due to numerous bugs
 
-# class CodingExcerciseView(View):
-#     template_name = 'exampleCode.html'
-#     def get(self, request):
-#         if request.user.is_authenticated:
-#             return render(request, self.template_name)
-#         else:
-#             return redirect('login')
+#class CodingExcerciseView(View):
+#    template_name = 'exampleCode.html'
+#    def get(self, request):
+#        if request.user.is_authenticated:
+#            return render(request, self.template_name)
+#        else:
+#            return redirect('login')
