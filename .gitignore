@@ -5,6 +5,7 @@
 .venv
 venv
 *.venv
+#incvenv is a custom name commonly used for this project virtual environment
 incvenv
 *.env
 .env
