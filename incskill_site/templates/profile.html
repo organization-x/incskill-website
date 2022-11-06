@@ -3,14 +3,24 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %} 
- 
+
+<!--
+  above, the profile page extends the base template and creates a title
+  below, variables are used to dynamically display the user's name and progress
+-->
+
 <h1 id="profile-h1">Hi, {{user.username}}</h1>
 <h1 id="profile-h1">Your progress: {{ user.profile.progress }}%</h1>
 <br aria-hidden="true">
+<!--this form allows the user to log out. the backend also redirects the user to the login page when this button is clicked-->
 <form method="post">
   {% csrf_token %}
   <button type ="submit" class="btn btn-primary" name="logout" id="profile-btn">Log Out</button>
 </form>
+
+<!--
+  special styling for the profile
+-->
 
 <style>
   #profile-h1{

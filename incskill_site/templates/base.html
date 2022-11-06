@@ -1,3 +1,5 @@
+<!--calls static files from the static folder-->
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -22,6 +24,7 @@
     <nav aria-label="Navigation Bar" aria-hidden="true">
       <div class="topnav">
         <a class="navbar-brand" href="#"><img src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto" style="margin-top: -10.32%;"></a>
+        <!--extraneous buttons are only shown if the user is logged in-->
         {% if user.is_authenticated %}
         <a class="navbar-brand" href="{% url 'courses' %}">My Courses</a>
         <a class="navbar-brand" href="{% url 'profile' %}"> {{user.username}} </a>

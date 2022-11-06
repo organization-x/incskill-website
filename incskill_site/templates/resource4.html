@@ -6,10 +6,10 @@
 
 <script type='text/javascript'>
   window.onload = function() {
-    window.location.hash = '#{{div}}';
+    window.location.hash = '{{div}}';
 
     if(!window.location.hash) {
-      window.location.hash = '#{{div}}';
+      window.location.hash = '{{div}}';
       window.location.reload();
     }
   }
@@ -311,7 +311,11 @@
     handy.
   </p>
   <p>
-    Let's say you want to implement the same exercise as above, i.e. multiplying 1 by 2 and then the resulting number by 2 until it is less than 50. Now, what if you want to stop this process as soon as the value of i×2 is 32. Notice that there are two conditions here. To do so, the above code will be adapted as follows.
+    Let's say you want to implement the same exercise as above, i.e.
+    multiplying 1 by 2 and then the resulting number by 2 until it is less than
+    50. Now, what if you want to stop this process as soon as the value of i×2
+    is 32. Notice that there are two conditions here. To do so, the above code
+    will be adapted as follows.
   </p>
   <p>
     i = 1 #Initializing i to be 1

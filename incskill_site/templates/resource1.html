@@ -1,15 +1,26 @@
+<!--
+  each resource view is highly repetitive
+  future goal would be to have a single resource view 
+  that loads individual content from a set of json files or similar
+-->
+
 {% extends 'baseRes.html' %}
 
 {% block title %}Introduction to Software Engineering{% endblock %}
 
 {% block head %} 
 
+<!--
+  above, the resource extends the custom base template for resources and creates a title
+  below, the script works with variables to redirect the user to the appropriate section of the page
+-->
+
 <script type='text/javascript'>
   window.onload = function() {
-    window.location.hash = '#{{div}}';
+    window.location.hash = '{{div}}';
 
     if(!window.location.hash) {
-      window.location.hash = '#{{div}}';
+      window.location.hash = '{{div}}';
       window.location.reload();
     }
   }
@@ -20,7 +31,11 @@
 </div>
 
 {% endblock %}
-
+<!--
+  the above block is the head of the page
+  it is kept seperate from the content for styling purposes
+  below is the html for the content of the resource
+-->
 
 {% block content%}
 

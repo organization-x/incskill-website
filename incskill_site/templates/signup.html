@@ -2,7 +2,13 @@
 
 {% block title %}Sign Up{% endblock %}
 
-{% block content %}  
+{% block content %}
+
+<!--
+  above, the signup page extends the base template and creates a title
+  below is the side blurb for IncSkill
+-->
+
 <aside>
   <div id="logo-mission">
     <h1 id="logo">
@@ -16,13 +22,17 @@
 </aside>
 
 <main>
-  <!--pasword and email input boxes--> 
+  <!--this section contains the signup form--> 
   <div  id="signup-details">
     <form method="post">
 
       {% csrf_token %}
       {{ form.as_p}}
-
+      <!--
+        the signup form takes the user's email, username, and password
+        the backend checks for validity
+        if the input is not valid, the page is reloaded with a corresponding error message
+      -->
       <div>
         <h1 id="title">Sign Up</h1>
         <label for="email" id="label">Email:</label>
@@ -52,6 +62,9 @@
   </div>
 </main>
 
+<!--
+  special styling for the signup page
+-->
 
 <style>
   
