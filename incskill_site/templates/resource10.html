@@ -1,26 +1,29 @@
-<header>
-{% extends 'base.html' %}
+{% extends 'baseRes.html' %}
 
 {% block title %}Introduction to Software Engineering{% endblock %}
 
-{% block content %}
+{% block head %}
 
 <script type='text/javascript'>
   window.onload = function() {
-       window.location.hash = '#{{div}}';
+    window.location.hash = '#{{div}}';
 
-      if(!window.location.hash) {
-          window.location.hash = '#{{div}}';
-          window.location.reload();
-      }
-}
-
+    if(!window.location.hash) {
+      window.location.hash = '#{{div}}';
+      window.location.reload();
+    }
+  }
 </script>
+
 <div class="sec" id="sec">
-    <h1 id="sec-h1">Week 10: Session Data and Cookies</h1>
+    <h1 id="sec-h1">Week 10: Session Data and Cookies</h1><br aria-hidden="true">
 </div>
 
-</header>
+{% endblock %}
+
+
+{% block content %}
+
 <div class="sec" id="sec">
   <h2 id="sec-h2">Objectives</h2>
   <p>
@@ -43,7 +46,7 @@
 </div>
 
 <div class="sec" id="sec">
-    <h2 id="sec-h2">Request Objective</h2>
+  <h2 id="sec-h2">Request Objective</h2>
   <p>
     The data from a client's web page is sent to the server as a request
     object. In order to process the request data, it should be imported from
@@ -75,7 +78,7 @@
 </div>
 
 <div class="sec" id="sec">
-    <h2 id="sec-h2">Sending Form Data to Template</h2>
+  <h2 id="sec-h2">Sending Form Data to Template</h2>
   <p>
     We have already seen that the http method can be specified in URL rule. The
     Form data received by the triggered function can collect it in the form of
@@ -118,10 +121,10 @@
     if request.method == 'POST':
   </p>
   <p>
-        result = request.form
+    result = request.form
   </p>
   <p>
-        return render_template("result.html", result = result)
+    return render_template("result.html", result = result)
   </p>
   <p>
     if __name__ == '__main__':
@@ -219,7 +222,7 @@
 </div>
 
 <div class="sec" id="sec">
-    <h2 id="sec-h2">Cookies</h2>
+  <h2 id="sec-h2">Cookies</h2>
   <p>
     A cookie is stored on a client's computer in the form of a text file. Its
     purpose is to remember and track data pertaining to a client's usage for
@@ -298,16 +301,16 @@
     if request.method == 'POST':
   </p>
   <p>
-        user = request.form['nm']
+    user = request.form['nm']
   </p>
   <p>
-        resp = make_response(render_template('readcookie.html'))
+    resp = make_response(render_template('readcookie.html'))
   </p>
   <p>
-        resp.set_cookie('userID', user)
+    resp.set_cookie('userID', user)
   </p>
   <p>
-        return resp
+    return resp
   </p>
   <p>
     'readcookie.html' contains a hyperlink to another view function
@@ -358,16 +361,16 @@
     if request.method == 'POST':
   </p>
   <p>
-        user = request.form['nm']
+    user = request.form['nm']
   </p>
   <p>
-        resp = make_response(render_template('readcookie.html'))
+    resp = make_response(render_template('readcookie.html'))
   </p>
   <p>
-        resp.set_cookie('userID', user)
+    resp.set_cookie('userID', user)
   </p>
   <p>
-        return resp
+    return resp
   </p>
   <p>
     @app.route('/getcookie')
@@ -438,314 +441,236 @@
 </div>
 
 <div class="sec" id="sec">
-    <h2 id="sec-h2">Flask Sessions</h2>
-<p>
-Unlike a Cookie, Session data is stored on the server. Session is the time
-interval when a client logs into a server and logs out of it. The data,
-which is needed to be held across this session, is stored in a temporary
-directory on the server.
-</p>
-<p>
-A session with each client is assigned a Session ID. The Session data is
-stored on top of cookies and the server signs them cryptographically. For
-this encryption, a Flask application needs a defined SECRET_KEY.
-</p>
-<p>
-Session object is also a dictionary object containing key-value pairs of
-session variables and associated values.
-</p>
-<p>
-For example, to set a 'username' session variable use the statement
-</p>
-<p>
-Session['username'] = 'admin'
-</p>
-<p>
-To release a session variable use pop() method.
-</p>
-<p>
-session.pop('username', None)
-</p>
-<p>
-The following code is a simple demonstration of session works in Flask. URL
-'/'' simply prompts user to log in, as session variable 'username' is not
-set.
-</p>
-<p>
-@app.route('/')
-</p>
-<p>
-def index():
-</p>
-<p>
+  <h2 id="sec-h2">Flask Sessions</h2>
+  <p>
+    Unlike a Cookie, Session data is stored on the server. Session is the time
+    interval when a client logs into a server and logs out of it. The data,
+    which is needed to be held across this session, is stored in a temporary
+    directory on the server.
+  </p>
+  <p>
+    A session with each client is assigned a Session ID. The Session data is
+    stored on top of cookies and the server signs them cryptographically. For
+    this encryption, a Flask application needs a defined SECRET_KEY.
+  </p>
+  <p>
+    Session object is also a dictionary object containing key-value pairs of
+    session variables and associated values.
+  </p>
+  <p>
+    For example, to set a 'username' session variable use the statement
+  </p>
+  <p>
+    Session['username'] = 'admin'
+  </p>
+  <p>
+    To release a session variable use pop() method.
+  </p>
+  <p>
+    session.pop('username', None)
+  </p>
+  <p>
+    The following code is a simple demonstration of session works in Flask. URL
+    '/'' simply prompts user to log in, as session variable 'username' is not
+    set.
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def index():
+  </p>
+  <p>
     if 'username' in session:
-</p>
-<p>
-        username = session['username']
-</p>
-<p>
-        return "Logged in as " + username + "&lt;br&gt; &lt;b&gt;&lt;a href
-= '/logout'&gt;click here to log out&lt;/a&gt;&lt;/b&gt;"
-</p>
-<p>
-    return "You are not logged in &lt;br&gt;&lt;a href =
-'/login'&gt;&lt;/b&gt;click here to log in&lt;/b&gt;&lt;/a&gt;"
-</p>
-<p>
-As user browses to '/login' the login() view function opens up a login
-form. Note that this is the case because we are using the 'GET' method. A
-Form is posted back to '/login' and now session variable is set.
-Application is redirected to '/'. This time session variable 'username' is
-found.
-</p>
-<p>
-@app.route('/login', methods = ['GET', 'POST'])
-</p>
-<p>
-def login():
-</p>
-<p>
+  </p>
+  <p>
+    username = session['username']
+  </p>
+  <p>
+    return "Logged in as " + username + "&lt;br&gt; &lt;b&gt;&lt;a href = '/logout'&gt;click here to log out&lt;/a&gt;&lt;/b&gt;"
+  </p>
+  <p>
+      return "You are not logged in &lt;br&gt;&lt;a href = '/login'&gt;&lt;/b&gt;click here to log in&lt;/b&gt;&lt;/a&gt;"
+  </p>
+  <p>
+    As user browses to '/login' the login() view function opens up a login
+    form. Note that this is the case because we are using the 'GET' method. A
+    Form is posted back to '/login' and now session variable is set.
+    Application is redirected to '/'. This time session variable 'username' is
+    found.
+  </p>
+  <p>
+    @app.route('/login', methods = ['GET', 'POST'])
+  </p>
+  <p>
+    def login():
+  </p>
+  <p>
     if request.method == 'POST':
-</p>
-<p>
-        session['username'] = request.form['username']
-</p>
-<p>
-        return redirect(url_for('index'))
-</p>
-<p>
+  </p>
+  <p>
+    session['username'] = request.form['username']
+  </p>
+  <p>
+    return redirect(url_for('index'))
+  </p>
+  <p>
     return render_template('index.html')
-</p>
-<p>
-code corresponding to index.html.
-</p>
-<p>
-&lt;html&gt;
-</p>
-<p>
-&lt;body&gt;
-</p>
-<p>
-&lt;form action = "/login" method = "post"&gt;
-</p>
-<p>
-&lt;p&gt;&lt;input type = "text" name = "username"&gt;&lt;/p&gt;
-</p>
-<p>
-&lt;p&gt;&lt;input type = "submit" value = "Login"&gt;&lt;/p&gt;
-</p>
-<p>
-&lt;/form&gt;
-</p>
-<p>
-&lt;/body&gt;
-</p>
-<p>
-&lt;/html&gt;
-</p>
-<p>
-The application also contains a logout() view function, which pops out
-'username' session variable. Hence, '/' URL again shows the opening page.
-</p>
-<p>
-@app.route('/logout')
-</p>
-<p>
-def logout():
-</p>
-<p>
+  </p>
+  <p>
+    code corresponding to index.html.
+  </p>
+  <p>
+    &lt;html&gt;
+  </p>
+  <p>
+    &lt;body&gt;
+  </p>
+  <p>
+    &lt;form action = "/login" method = "post"&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = "text" name = "username"&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;p&gt;&lt;input type = "submit" value = "Login"&gt;&lt;/p&gt;
+  </p>
+  <p>
+    &lt;/form&gt;
+  </p>
+  <p>
+    &lt;/body&gt;
+  </p>
+  <p>
+    &lt;/html&gt;
+  </p>
+  <p>
+    The application also contains a logout() view function, which pops out 'username' session variable. Hence, '/' URL again shows the opening page.
+  </p>
+  <p>
+    @app.route('/logout')
+  </p>
+  <p>
+    def logout():
+  </p>
+  <p>
     # remove the username from the session if it is there
-</p>
-<p>
+  </p>
+  <p>
     session.pop('username', None)
-</p>
-<p>
+  </p>
+  <p>
     return redirect(url_for('index'))
-</p>
-<p>
-Run the application and visit the homepage. (Ensure to set secret_key of
-the application)
-</p>
-<p>
-from flask import Flask, session, redirect, url_for, escape, request
-</p>
-<p>
-app = Flask(__name__)
-</p>
-<p>
-app.secret_key = "any random string"
-</p>
-<p>
-The final Python code can then be given as:
-</p>
-<p>
-from flask import Flask, session, redirect, url_for, escape, request,
-render_template
-</p>
-<p>
-app = Flask(__name__)
-</p>
-<p>
-app.secret_key = "any random string"
-</p>
-<p>
-@app.route('/')
-</p>
-<p>
-def index():
-</p>
-<p>
+  </p>
+  <p>
+    Run the application and visit the homepage. (Ensure to set secret_key of the application)
+  </p>
+  <p>
+    from flask import Flask, session, redirect, url_for, escape, request
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    app.secret_key = "any random string"
+  </p>
+  <p>
+    The final Python code can then be given as:
+  </p>
+  <p>
+    from flask import Flask, session, redirect, url_for, escape, request, render_template
+  </p>
+  <p>
+    app = Flask(__name__)
+  </p>
+  <p>
+    app.secret_key = "any random string"
+  </p>
+  <p>
+    @app.route('/')
+  </p>
+  <p>
+    def index():
+  </p>
+  <p>
     if 'username' in session:
-</p>
-<p>
-        username = session['username']
-</p>
-<p>
-        return "Logged in as " + username + "&lt;br&gt; &lt;b&gt;&lt;a href
-= '/logout'&gt;click here to log out&lt;/a&gt;&lt;/b&gt;"
-</p>
-<p>
-    return "You are not logged in &lt;br&gt;&lt;a href =
-'/login'&gt;&lt;/b&gt;click here to log in&lt;/b&gt;&lt;/a&gt;"
-</p>
-<p>
-@app.route('/login', methods = ['GET', 'POST'])
-</p>
-<p>
-def login():
-</p>
-<p>
+  </p>
+  <p>
+    username = session['username']
+  </p>
+  <p>
+    return "Logged in as " + username + "&lt;br&gt; &lt;b&gt;&lt;a href = '/logout'&gt;click here to log out&lt;/a&gt;&lt;/b&gt;"
+  </p>
+  <p>
+      return "You are not logged in &lt;br&gt;&lt;a href = '/login'&gt;&lt;/b&gt;click here to log in&lt;/b&gt;&lt;/a&gt;"
+  </p>
+  <p>
+    @app.route('/login', methods = ['GET', 'POST'])
+  </p>
+  <p>
+    def login():
+  </p>
+  <p>
     if request.method == 'POST':
-</p>
-<p>
-        session['username'] = request.form['username']
-</p>
-<p>
-        return redirect(url_for('index'))
-</p>
-<p>
-    return     render_template('index.html')
-</p>
-<p>
-@app.route('/logout')
-</p>
-<p>
-def logout():
-</p>
-<p>
-    # remove the username from the session if it is there
-</p>
-<p>
-    session.pop('username', None)
-</p>
-<p>
+  </p>
+  <p>
+    session['username'] = request.form['username']
+  </p>
+  <p>
     return redirect(url_for('index'))
-</p>
-<p>
-if __name__ == '__main__':
-</p>
-<p>
+  </p>
+  <p>
+    return     render_template('index.html')
+  </p>
+  <p>
+    @app.route('/logout')
+  </p>
+  <p>
+    def logout():
+  </p>
+  <p>
+    # remove the username from the session if it is there
+  </p>
+  <p>
+    session.pop('username', None)
+  </p>
+  <p>
+    return redirect(url_for('index'))
+  </p>
+  <p>
+    if __name__ == '__main__':
+  </p>
+  <p>
     app.run()
-</p>
+  </p>
 </div>
+
 <div id="btnset">
-{% if user.profile.resource10 %}
-<div id="btns">
-  <form method="post" >
-    {% csrf_token %}
-    {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Undone</button>
-  </form>
-</div>
-{% else %}
-<div id="btns">
-  <form method="post" >
-    {% csrf_token %}
-    {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Done</button>
-  </form>
-{% endif %}
-</div>
-<div>
-<a href="{% url 'resourceeleven' %}" role="button" id="sec-btn">
+  {% if user.profile.resource10 %}
+  <div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Undone</button>
+    </form>
+  </div>
+  {% else %}
+  <div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Done</button>
+    </form>
+  </div>
+  {% endif %}
+  <br aria-hidden="true">
+  <br aria-hidden="true">
+  <br aria-hidden="true">
+  <div>
+    <a href="{% url 'resourceeleven' %}" role="button" id="sec-btn">
     <p>Start Week 11</p>
-</a>
+    </a>
+  </div>
 </div>
-</div>
-
-
-<style>
-#btns{
-  position: relative;
-  height:5%;
-}
-#sec-btn {
-    margin:auto;
-    width:30%;
-    border-radius:50px;
-    background:#233854;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 75px;
-    text-decoration: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1em;
-    margin-bottom:1%;
-}
-header{
-border-radius: 0.5%;
-color: white;
-background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-}
-#sec{
-font-family: Arial, Helvetica, sans-serif;
-margin-left: 3%;
-margin-right: 3%;
-margin-bottom: 3%;    
-font-size: medium;
-font-weight: 500;
-}
-
-#sec-h1{
-font-family: Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight: 500;
-margin-top: 7%;
-max-width: 55%;
-padding-bottom: 5%;
-margin-bottom: 5%;
-}
-
-#sec-h2{
-font-family: Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight:500;
-margin-bottom: 2%; 
-}
-
-body{
-overflow-y: scroll;
-background: white;
-}
-
-
-#submit{
-position:relative;
-margin-left:-215%;
-width:200%;
-background:#233854;
-color: white;
-font-family: Arial, Helvetica, sans-serif;
-border-radius: 75px;
-justify-content: center;
-padding-top: 1em;
-bottom:1%;
-
-}
-
-</style>
-
+  
 {% endblock %}
