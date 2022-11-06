@@ -10,12 +10,20 @@
   <div id="logo-mission">
     <h1 id="logo">
     <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" id="img"></h1>
-    <div>
-      <h2 id="mission">
-        Unlocking high-growth career opportunities irrespective of past experience or needs
+    
+      
+        
+        
+         
+      
+      <div id="container">
+        <h3 id="mission" >
+        <div id="text"></div><div id="cursor"> </div>
       </h3>
-    </div>
-  </div>
+      </div>
+    
+    
+  
 </aside>
 
 
@@ -27,7 +35,7 @@
 
       {% csrf_token %}
       {{ form.as_p}}
-      <div>
+      <div style="margin-top: -19%; position:relative; left: -47%;">
           <h1 id="title">Login</h1>
 
           <label for="username" id="label">Username:</label>
@@ -50,7 +58,35 @@
 <style>
   
 #img{
-  width:150%;
+  width:130%;
+}
+#container {
+	text-align: center;
+}
+
+#text {
+	display: inline-block;
+	
+	color: rgb(255, 255, 255);
+	letter-spacing: 2px;
+}
+
+#cursor {
+	display: inline-block;
+	
+	width: 3px;
+	height: 40px;
+	background-color: rgb(255, 255, 255);
+	animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	35% { 
+		background-color: #8844d6; 
+	}
 }
 
 #logo{
@@ -63,11 +99,11 @@
   }
 
   #mission{
-    width:30%;
-    margin-top:-3%;
-    margin-left:17%; 
+    width: 30%;
+    margin-top: 1%;
+    margin-left:15%; 
     font-family: Arial, Helvetica, sans-serif;
-    font-size:2vw;
+    
     font-weight: 400;
     position: static;
   }
@@ -82,6 +118,7 @@
     border-radius: 75px;
     margin-top: 7%;
     width: 100%;
+    width: 175%;
   }
   #signup-btn{
     background: #8844d6;
@@ -90,15 +127,16 @@
     font-size:1.15vw;
     border-radius: 75px;
     margin-top: 7%; 
-    width: 100%;
+    
+    width: 175%;
   }
 
   #login-details{
-    margin-left: -60%;
+   margin-left: 60%;
     width: 175%;
     height:50%;
-    margin-top:-20%;
-    position: relative;
+    margin-top: -60%;
+    position: static;
   }
 
   #title{
@@ -118,9 +156,83 @@
     color:black;
     font-family: Arial, Helvetica, sans-serif;
     font-size:1.15vw;
+    width: 175%;
   }
   
 
 </style>
+<script>
+  // List of sentences
+var _CONTENT = [ 
+	"Unlocking high-growth career", 
+	"Achieving opportunities", 
+	"Irrespective of past experience or needs", 
+	
+];
+
+// Current sentence being processed
+var _PART = 0;
+
+// Character number of the current sentence being processed 
+var _PART_INDEX = 0;
+
+// Holds the handle returned from setInterval
+var _INTERVAL_VAL;
+
+// Element that holds the text
+var _ELEMENT = document.querySelector("#text");
+
+// Cursor element 
+var _CURSOR = document.querySelector("#cursor");
+
+// Implements typing effect
+function Type() { 
+	// Get substring with 1 characater added
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX++;
+
+	// If full sentence has been displayed then start to delete the sentence after some time
+	if(text === _CONTENT[_PART]) {
+		// Hide the cursor
+		_CURSOR.style.display = 'none';
+
+		clearInterval(_INTERVAL_VAL);
+		setTimeout(function() {
+			_INTERVAL_VAL = setInterval(Delete, 50);
+		}, 1000);
+	}
+}
+
+// Implements deleting effect
+function Delete() {
+	// Get substring with 1 characater deleted
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX--;
+
+	// If sentence has been deleted then start to display the next sentence
+	if(text === '') {
+		clearInterval(_INTERVAL_VAL);
+
+		// If current sentence was last then display the first one, else move to the next
+		if(_PART == (_CONTENT.length - 1))
+			_PART = 0;
+		else
+			_PART++;
+		
+		_PART_INDEX = 0;
+
+		// Start to display the next sentence after some time
+		setTimeout(function() {
+			_CURSOR.style.display = 'inline-block';
+			_INTERVAL_VAL = setInterval(Type, 50);
+		}, 100);
+	}
+}
+
+// Start the typing effect on load
+_INTERVAL_VAL = setInterval(Type, 100);
+</script>
 
 {% endblock %}
