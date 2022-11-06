@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+#the profile model is attached to each user's account; it keeps track of their lesson progress
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     progress = models.IntegerField(default=0)
