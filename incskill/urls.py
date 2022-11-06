@@ -52,3 +52,5 @@ urlpatterns = [
     #the in-site code complier was temporarily removed due to numerous bugs
     #path('courses/course-one/coding-excercise', CodingExcerciseView.as_view(), name = 'codingexcercise')
 ]
+
+handler404 = 'incskill_site.views.error_404_view'

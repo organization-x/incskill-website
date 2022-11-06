@@ -447,3 +447,6 @@ class QuizOneView(View):
 #            return render(request, self.template_name)
 #        else:
 #            return redirect('login')
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
