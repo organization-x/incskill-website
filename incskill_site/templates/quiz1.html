@@ -24,7 +24,7 @@
               <form method="post" class="modal-button-container" id="continue">
                 {% csrf_token %}
                 {{ form.as_p}}
-                  <button name="continue" onclick="closeScoreModal()" id="continute-btn" style="background:rgb(43, 42, 42);">Continue</button>
+                  <button name="continue" onclick="closeScoreModal()" id="continue-btn">Continue</button>
               </form>
 
           </div>
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="modal-button-container">
-                        <button onclick="closeOptionModal()" id="btn" style="background:rgb(43, 42, 42);">Continue</button>
+                        <button onclick="closeOptionModal()" id="btn">Continue</button>
                     </div>
                 </div>
 
@@ -133,13 +133,13 @@
 <style>
 
 #continue{
-    background: rgb(43, 42, 42) !important;
+    background: rgb(43, 42, 42);
     position:static;
     margin-top:25%;
     margin-left:3%;
 }
 #continue-btn{
-    background: rgb(43, 42, 42) !important;
+    background: rgb(43, 42, 42);
 }
 
 #btn{
@@ -364,7 +364,7 @@ input[type=radio]:checked ~ .option {
 #last-modal{
     justify-content: center;
     min-height: fit-content;
-    background-color:  rgb(43, 42, 42);
+    background:  rgb(43, 42, 42);
 }
 
 #nxt-btn-container{
