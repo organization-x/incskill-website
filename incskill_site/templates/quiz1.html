@@ -10,34 +10,33 @@
       <!-- creating a modal for when quiz ends -->
       <div class="modal-container" id="score-modal">
 
-          <div class="modal-content-container">
+          <div class="modal-content-container" id="last-modal">
 
-              <h1>Congratulations! Quiz Completed.</h1>
+              <h1 id="modal-title">Congratulations! Quiz Completed.</h1>
 
-              <div class="grade-details">
-                  <p>Attempts : 10</p>
+              <div id="grade-details">
                   <p>Wrong Answers : <span id="wrong-answers"></span></p>
                   <p>Right Answers : <span id="right-answers"></span></p>
                   <p>Grade : <span id="grade-percentage"></span>%</p>
                   <p ><span id="remarks"></span></p>
               </div>
 
-              <form method="post" class="modal-button-container">
+              <form method="post" class="modal-button-container" id="continue">
                 {% csrf_token %}
                 {{ form.as_p}}
-                  <button name="submit" id="submit" onclick="closeScoreModal()">Continue</button>
+                  <button name="continue" onclick="closeScoreModal()" id="continue-btn">Continue</button>
               </form>
 
           </div>
       </div>
-            <!-- creating a modal for when quiz ends -->
+            <!-- creating a modal for when quiz starts -->
             <div class="modal-container" id="opening-modal">
 
                 <div class="modal-content-container">
       
-                    <h1>Welcome to the Quiz!</h1>
+                    <h1 id="modal-title">Welcome to the Quiz!</h1>
       
-                    <div class="grade-details">
+                    <div id="grade-details">
                         <p>To get a passing score, you must 
                             score a 7 or higher. Even if you
                             have already passed the quiz,
@@ -61,51 +60,51 @@
             <h1 id="display-question"></h1>
           </div>
 
-          <div class="game-options-container">
+          <div id="four-options">
+            <div class="game-options-container">
 
-             <div class="modal-container" id="option-modal">
+                <!-- modal if option isn't selected -->
+                <div class="modal-container" id="option-modal">
 
-                  <div class="modal-content-container">
-                       <h1>Please Pick An Option</h1>
+                    <div class="modal-content-container">
+                        <h1>Please Pick An Option</h1>
+                    </div>
 
-                       <div class="modal-button-container">
-                          <button onclick="closeOptionModal()">Continue</button>
-                      </div>
+                    <div class="modal-button-container">
+                        <button onclick="closeOptionModal()" id="btn">Continue</button>
+                    </div>
+                </div>
 
-                  </div>
-
-             </div>
-
-            
-              <span>
-                  <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-                  <label for="option-one" class="option" id="option-one-label"></label>
-              </span>
-
-
-              <span>
-                  <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-                  <label for="option-two" class="option" id="option-two-label"></label>
-              </span>
+                <!-- options -->
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
 
 
-              <span>
-                  <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-                  <label for="option-three" class="option" id="option-three-label"></label>
-              </span>
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
 
 
-              <span>
-                  <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-                  <label for="option-four" class="option" id="option-four-label"></label>
-              </span>
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
 
 
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+            </div>
+            <div id="nxt-btn-contianer">
+                <button onclick="handleNextQuestion()" id="nxt-btn">Next Question</button>
+            </div>
           </div>
 
-          <div class="next-button-container">
-              <button onclick="handleNextQuestion()">Next Question</button>
-          </div>
+
 
       </div>
   </main>
@@ -132,12 +131,34 @@
 
 
 <style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+#continue{
+    background: rgb(43, 42, 42);
+    position:static;
+    margin-top:25%;
+    margin-left:3%;
+}
+#continue-btn{
+    background: rgb(43, 42, 42);
 }
 
+#btn{
+    background-color: transparent;
+}
+*{
+    margin: 0;
+    padding: 0;
+
+}
+#submit{
+    background: transparent;
+    color: rgb(255, 255, 255);
+    border-radius: 70px;
+    border: 1px solid white;
+    width:50%;
+    padding-left:14%;
+    display:flex;
+}
 html, body{
     height: 100%;
 }
@@ -161,25 +182,20 @@ main{
 
     /* whole container */
 .game-quiz-container{
-    margin-top: -3%;
-    margin-bottom:2%;
+    margin-top: -8%;
     width: 90%;
-    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    border-radius: 30px;
 }
 
 /* score_/10 and question_/10 */
 .game-details-container{
     width: 90%;
-    font-size: 1.45rem;
+    font-size: 2vw;
     color: white;
-    margin-bottom: -7%;
     text-align: right;
-    margin-right: 10%;
+    margin-right: 1%;
 }
 
 /* question */
@@ -191,21 +207,25 @@ main{
     /* border: 2px solid darkgray;
     background-color: lightgray; */
     color: rgb(255, 255, 255);
-    border-radius: 25px;
-    margin-bottom:-10%;
+
 }
 
 .game-question-container h1{
-    font-size: 2rem;
-    text-align: center;
-    padding: 3px;
-    margin-bottom: 2%;
+    font-size: 2 vw;
+    text-align: center; 
+}
+
+#four-options{
+    display:static;
+    width:105%;
+    margin-left:25%;
+    
 }
 
 /* options */
 .game-options-container{
     width: 80%;
-    height: 12rem;
+    height: 20vw;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -214,12 +234,14 @@ main{
 
 .game-options-container span{
     width: 100%;
-    height: 3.5rem;
+    height: 3.5vw;
     border: 2px solid darkgray;
     background-color: lightgray;
     border-radius: 20px;
     overflow: hidden;
     margin-top: 2%;
+    font-size: 1.25vw;
+
 }
 .button:hover {
 
@@ -253,33 +275,15 @@ input[type=radio]:checked ~ .option {
     background: rgb(135, 189, 233);
 }
 
-.next-button-container{
-    margin-top: 4%;
-    width: 80%;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    padding:1%;
-}
-.next-button-container button{
-    width: 30%;
-    height: 2.5rem;
-    border-radius: 30px;
-    background: none;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    border: 3px solid white;
-    background-color: transparent;
-    cursor: pointer;
-    justify-content: center;
-    text-align: center;
-    padding-bottom:3%;
-    margin-left:80%;
-    margin-right:0%;
-}
 
+#display-question{
+    font-size: 2vw;
+    margin-top:3%;
+    margin-bottom:2%;
+}
 
 .modal-container{
+    overflow: hidden;
     display: none;
     position: fixed;
     z-index: 1; 
@@ -313,17 +317,19 @@ input[type=radio]:checked ~ .option {
     color: white;
     text-align: center;
 }
-
-.grade-details{
+#modal-title{
+    margin-top:7%;
+}
+#grade-details{
     width: 15rem;
-    height: 10rem;
+    height: 17rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
-.grade-details p{
+#grade-details p{
     color: white;
     text-align: center;
 }
@@ -331,28 +337,55 @@ input[type=radio]:checked ~ .option {
 .modal-button-container{
     height: 2rem;
     width: 100%;
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: center;
 }
 
 .modal-button-container button{
-    width: 10rem;
-    height: 2rem;
-    background: none;
-    outline: none;
-    border: 1px solid rgb(0, 0, 0);
+    margin-top:-125px;
+    position: relative;
+    display:flex;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 70px;
+    border: 2px solid white;
     color: white;
-    font-size: 1.1rem;
     cursor: pointer;
-    border-radius: 20px;
-    padding-top:1%;
-    padding-bottom:1%;
-    padding-left: 12%;
-    padding-right: 12%;
+
+
 }
 .modal-button-container button:hover{
     background-color: rgb(83, 82, 82);
+}
+
+#last-modal{
+    justify-content: center;
+    min-height: fit-content;
+    background:  rgb(43, 42, 42);
+}
+
+#nxt-btn-container{
+    display: flex;
+    width:100%;
+    position: static;
+}
+
+#nxt-btn{
+    height:3.5vw;
+    margin-left:65%;
+    margin-top:2%;
+    width: 15%;
+    font-size: 1vw;
+    color: rgb(255, 255, 255);
+    border-radius: 70px;
+    border: 2px solid white;
+    font-weight: 500;
+    font-size: 1vw;
+    padding-left:4%;
+    background: transparent;
 }
 
 </style>
@@ -470,10 +503,10 @@ input[type=radio]:checked ~ .option {
 
     {
         question: "How do you declare a list?",
-        optionA: "()",
-        optionB: "{}",
-        optionC: "[]",
-        optionD: "<>",
+        optionA: "( )",
+        optionB: "{ }",
+        optionC: "[ ]",
+        optionD: "< >",
         correctOption: "optionC"
     },
 ]
@@ -641,13 +674,9 @@ function handleEndGame() {
     updatePlayerScore()
 
     // condition check for player remark and remark color
-    if (playerScore <= 3) {
-        remark = "Bad Grades, Keep Practicing."
+    if (playerScore <= 6) {
+        remark = "Keep practicing! You need a score greater than 70% to pass"
         remarkColor = "red"
-    }
-    else if (playerScore >= 4 && playerScore < 7) {
-        remark = "Average Grades, You can do better."
-        remarkColor = "orange"
     }
     else if (playerScore >= 7) {
         remark = "Excellent, Keep the good work going."
