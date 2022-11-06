@@ -10,22 +10,21 @@
       <!-- creating a modal for when quiz ends -->
       <div class="modal-container" id="score-modal">
 
-          <div class="modal-content-container">
+          <div class="modal-content-container" id="last-modal">
 
-              <h1>Congratulations! Quiz Completed.</h1>
+              <h1 id="modal-title">Congratulations! Quiz Completed.</h1>
 
-              <div class="grade-details">
-                  <p>Questions : 10</p>
+              <div id="grade-details">
                   <p>Wrong Answers : <span id="wrong-answers"></span></p>
                   <p>Right Answers : <span id="right-answers"></span></p>
                   <p>Grade : <span id="grade-percentage"></span>%</p>
                   <p ><span id="remarks"></span></p>
               </div>
 
-              <form method="post" class="modal-button-container">
+              <form method="post" class="modal-button-container" id="continue">
                 {% csrf_token %}
                 {{ form.as_p}}
-                  <button name="continue" id="continue" onclick="closeScoreModal()">Continue</button>
+                  <button name="continue" onclick="closeScoreModal()" id="continute-btn" style="background:rgb(43, 42, 42);">Continue</button>
               </form>
 
           </div>
@@ -35,9 +34,9 @@
 
                 <div class="modal-content-container">
       
-                    <h1>Welcome to the Quiz!</h1>
+                    <h1 id="modal-title">Welcome to the Quiz!</h1>
       
-                    <div class="grade-details">
+                    <div id="grade-details">
                         <p>To get a passing score, you must 
                             score a 7 or higher. Even if you
                             have already passed the quiz,
@@ -72,7 +71,7 @@
                     </div>
 
                     <div class="modal-button-container">
-                        <button onclick="closeOptionModal()" id="btn">Continue</button>
+                        <button onclick="closeOptionModal()" id="btn" style="background:rgb(43, 42, 42);">Continue</button>
                     </div>
                 </div>
 
@@ -132,16 +131,25 @@
 
 
 <style>
-  *{
+
+#continue{
+    background: rgb(43, 42, 42) !important;
+    position:static;
+    margin-top:25%;
+    margin-left:3%;
+}
+#continue-btn{
+    background: rgb(43, 42, 42) !important;
+}
+
+#btn{
+    background-color: transparent;
+}
+*{
     margin: 0;
     padding: 0;
 
 }
-
-#btn{
-    background: transparent;
-}
-
 #submit{
     background: transparent;
     color: rgb(255, 255, 255);
@@ -275,6 +283,7 @@ input[type=radio]:checked ~ .option {
 }
 
 .modal-container{
+    overflow: hidden;
     display: none;
     position: fixed;
     z-index: 1; 
@@ -308,17 +317,19 @@ input[type=radio]:checked ~ .option {
     color: white;
     text-align: center;
 }
-
-.grade-details{
+#modal-title{
+    margin-top:7%;
+}
+#grade-details{
     width: 15rem;
-    height: 10rem;
+    height: 17rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
-.grade-details p{
+#grade-details p{
     color: white;
     text-align: center;
 }
@@ -329,8 +340,6 @@ input[type=radio]:checked ~ .option {
     display:flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .modal-button-container button{
@@ -352,21 +361,16 @@ input[type=radio]:checked ~ .option {
     background-color: rgb(83, 82, 82);
 }
 
-#score-modal{
+#last-modal{
     justify-content: center;
-
+    min-height: fit-content;
+    background-color:  rgb(43, 42, 42);
 }
-#continue{
-    background: transparent;
-    
-}
-
 
 #nxt-btn-container{
     display: flex;
     width:100%;
     position: static;
-    bottom:-10%;
 }
 
 #nxt-btn{
@@ -383,6 +387,7 @@ input[type=radio]:checked ~ .option {
     padding-left:4%;
     background: transparent;
 }
+
 </style>
 
 
@@ -498,10 +503,10 @@ input[type=radio]:checked ~ .option {
 
     {
         question: "How do you declare a list?",
-        optionA: "()",
-        optionB: "{}",
-        optionC: "[]",
-        optionD: "<>",
+        optionA: "( )",
+        optionB: "{ }",
+        optionC: "[ ]",
+        optionD: "< >",
         correctOption: "optionC"
     },
 ]
