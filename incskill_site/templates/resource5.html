@@ -1,31 +1,32 @@
-<header>
-{% extends 'base.html' %}
+{% extends 'baseRes.html' %}
 
 {% block title %}Introduction to Software Engineering{% endblock %}
 
-{% block content %}
+{% block head %}
 
 <script type='text/javascript'>
   window.onload = function() {
-       window.location.hash = '#{{div}}';
+    window.location.hash = '#{{div}}';
 
-      if(!window.location.hash) {
-          window.location.hash = '#{{div}}';
-          window.location.reload();
-      }
-}
-
+    if(!window.location.hash) {
+      window.location.hash = '#{{div}}';
+      window.location.reload();
+    }
+  }
 </script>
+
+<div class="sec" id="sec">
+  <h1 id="sec-h1">Week 5: More Data Structures</h1><br aria-hidden="true">
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
 <div  class="sec" id="sec">
-  <h1 id="sec-h1">Week 5: More Data Structures</h1>
-  </div>
-</header>
-<div  class="sec" id="sec">
-<main>
   <h2 id="sec-h2">Objectives</h2>
   <br aria-hidden="true">
-</header>
-
   <p>
     In this resource, you will learn the following.
   </p>
@@ -86,8 +87,6 @@
 
 <div  class="sec" id="sec">
   <h2 id="sec-h2">List</h2>
-
-  </p>
   <p>
     The first data structure we will discuss is a list. As the name suggests, a
     list is simply a list of values. For instance, in the last example, instead
@@ -384,108 +383,33 @@
     </li>
   </ol>
 </div>
-</main>
-</body>
+
 <div id="btnset">
-{% if user.profile.resource5 %}
-<div id="btns">
-  <form method="post" >
-    {% csrf_token %}
-    {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Undone</button>
-  </form>
-</div>
-{% else %}
-<div id="btns">
-  <form method="post" >
-    {% csrf_token %}
-    {{ form.as_p}}
-      <button type="submit" name="submit" id="submit">Mark as Done</button>
-  </form>
-{% endif %}
-</div>
-<div>
-<a href="{% url 'resourcesix' %}" role="button" id="sec-btn">
+  {% if user.profile.resource5 %}
+  <div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Undone</button>
+    </form>
+  </div>
+  {% else %}
+  <div id="btns">
+    <form method="post" >
+      {% csrf_token %}
+      {{ form.as_p}}
+        <button type="submit" name="submit" id="submit">Mark as Done</button>
+    </form>
+  </div>
+  {% endif %}
+  <br aria-hidden="true">
+  <br aria-hidden="true">
+  <br aria-hidden="true">
+  <div>
+    <a href="{% url 'resourcesix' %}" role="button" id="sec-btn">
     <p>Start Week 6</p>
-</a>
+    </a>
+  </div>
 </div>
-</div>
-</div>
-
-
-<style>
-#btns{
-  position: relative;
-  height:5%;
-}
-#sec-btn {
-    margin:auto;
-    width:30%;
-    border-radius:50px;
-    background:#233854;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 75px;
-    text-decoration: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1em;
-    margin-bottom:1%;
-}
-header{
-border-radius: 0.5%;
-color: white;
-background: radial-gradient(39.66% 139.43% at 8.13% 94.24%, rgba(0, 135, 193, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(47.57% 69.38% at 63.57% -5.91%, rgba(60, 180, 188, 0.2) 0%, rgba(51, 154, 160, 0) 90.1%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(32.76% 54% at 83.93% 93.12%, rgba(249, 185, 246, 0.2) 0%, rgba(249, 185, 246, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(200.18% 422.3% at 2.4% 4.39%, #090D2A 0%, rgba(12, 15, 42, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(132.32% 231.51% at 92.86% 14.21%, #080D32 0%, rgba(8, 13, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-}
-#sec{
-font-family: Arial, Helvetica, sans-serif;
-margin-left: 3%;
-margin-right: 3%;
-margin-bottom: 3%;    
-font-size: medium;
-font-weight: 500;
-}
-
-#sec-h1{
-font-family: Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight: 500;
-margin-top: 7%;
-max-width: 55%;
-padding-bottom: 5%;
-margin-bottom: 5%;
-}
-
-#sec-h3{
-font-family: Arial, Helvetica, sans-serif;
-font-style: normal;
-font-weight:500;
-margin-bottom: 2%; 
-}
-
-
-body{
-overflow-y: scroll;
-background: white;
-}
-
-
-#submit{
-position:relative;
-margin-left:-215%;
-width:200%;
-background:#233854;
-color: white;
-font-family: Arial, Helvetica, sans-serif;
-border-radius: 75px;
-justify-content: center;
-padding-top: 1em;
-bottom:1%;
-
-}
-
-</style>
-
+  
 {% endblock %}

@@ -2,30 +2,42 @@
 
 {% block title %}Profile{% endblock %}
 
-{% block content %}  
-  <h1 id="profile-h1">Hi, {{user.username}}</h1>
-  <h1 id="profile-h1">Your progress: {{ user.profile.progress }}%</h1>
-  <br aria-hidden="true">
-  <form method="post">
-    {% csrf_token %}
-    <button type ="submit" class="btn btn-primary" name="logout" id="profile-btn">Log Out</button>
-  </form>
+{% block content %} 
 
-  <style>
-    #profile-h1{
-      color:white;
-      margin-left:10%;
-      margin-top:7%;
-    }
-    #profile-btn{
-      background-color: transparent !important;
-      border:solid;
-      border-width: 2px;
-      border-color:white;
-      color:white;
-      border-radius: 50px;
-      margin-left:15%;
-      margin-top:100%;
-    }
-  </style>
+<!--
+  above, the profile page extends the base template and creates a title
+  below, variables are used to dynamically display the user's name and progress
+-->
+
+<h1 id="profile-h1">Hi, {{user.username}}</h1>
+<h1 id="profile-h1">Your progress: {{ user.profile.progress }}%</h1>
+<br aria-hidden="true">
+<!--this form allows the user to log out. the backend also redirects the user to the login page when this button is clicked-->
+<form method="post">
+  {% csrf_token %}
+  <button type ="submit" class="btn btn-primary" name="logout" id="profile-btn">Log Out</button>
+</form>
+
+<!--
+  special styling for the profile
+-->
+
+<style>
+  #profile-h1{
+    color:white;
+    margin-left:10%;
+    margin-top:7%;
+  }
+  #profile-btn{
+    background-color: transparent !important;
+    border:solid;
+    border-width: 2px;
+    border-color:white;
+    color:white;
+    border-radius: 50px;
+    margin-left:15%;
+    margin-top:100%;
+  }
+</style>
+
 {% endblock %}
