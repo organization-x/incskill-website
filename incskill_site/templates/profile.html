@@ -9,14 +9,27 @@
   below, variables are used to dynamically display the user's name and progress
 -->
 
-<h1 id="profile-h1">Hi, {{user.username}}</h1>
-<h1 id="profile-h1">Your progress: {{ user.profile.progress }}%</h1>
+<header>
+<h1 id="profile-h1">Welcome, {{user.username}}</h1>
+</header>
+
+<main>
+<h2 id="profile-h2">All Courses:</h2>
 <br aria-hidden="true">
+<h3 id="courses" >Introduction to Software Engineering</h3>
+<div class="progress" style="height:24px;width: 60%;" >
+  <div class="progress-bar bg-success" role="progressbar" aria-label="Progress Bar" style="width: {{ user.profile.progress }}%" aria-valuenow="{{ user.profile.progress }}" aria-valuemin="0" aria-valuemax="100">{{ user.profile.progress }}%</div>
+</div>
+</main>
+<br aria-hidden="true">
+
+<aside>
 <!--this form allows the user to log out. the backend also redirects the user to the login page when this button is clicked-->
 <form method="post">
   {% csrf_token %}
   <button type ="submit" class="btn btn-primary" name="logout" id="profile-btn">Log Out</button>
 </form>
+</aside>
 
 <!--
   special styling for the profile
@@ -27,6 +40,20 @@
     color:white;
     margin-left:10%;
     margin-top:7%;
+  }
+  #profile-h2{
+    color:white;
+    margin-left:10%;
+    margin-top: 2%;
+  }
+
+  #courses{
+    margin-left: 15%;
+    color: white;
+  }
+
+  .progress{
+    margin-left: 15%;
   }
   #profile-btn{
     background-color: transparent !important;
