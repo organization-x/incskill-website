@@ -12,7 +12,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 #Setup
 
-DEBUG = os.environ.get('DEBUG').lower() == 'true'
+DEBUG = True if os.getenv('DEBUG') else False
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
