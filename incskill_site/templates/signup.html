@@ -2,75 +2,97 @@
 
 {% block title %}Sign Up{% endblock %}
 
-{% block content %}
-
-<!--
-  above, the signup page extends the base template and creates a title
-  below is the side blurb for IncSkill
--->
-
+{% block content %}  
 <aside>
   <div id="logo-mission">
     <h1 id="logo">
     <img src="{% static 'media/incskill.png'%}" alt="Incskill Logo" id="img"></h1>
-    <div>
-      <h2 id="mission">
-        Unlocking high-growth career opportunities irrespective of past experience or needs
-      </h2>
+    <div id="container">
+      <h3 id="mission" >
+      <div id="text"></div><div id="cursor"> </div>
+    </h3>
     </div>
+  </div>
   </div>
 </aside>
 
-<main>
-  <!--this section contains the signup form--> 
-  <div  id="signup-details">
-    <form method="post">
-
-      {% csrf_token %}
-      {{ form.as_p}}
-      <!--
-        the signup form takes the user's email, username, and password
-        the backend checks for validity
-        if the input is not valid, the page is reloaded with a corresponding error message
-      -->
-      <div>
-        <h1 id="title">Sign Up</h1>
-        <label for="email" id="label">Email:</label>
-        <br aria-hidden="true">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-        <br aria-hidden="true">
-        <label for="username" id="label">Username:</label>
-        <br aria-hidden="true">
-        <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
-        <br aria-hidden="true">
-        <label for="password" id="label">Password:</label>
-        <br aria-hidden="true">
-        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-
-      <!--submit button-->
-
-      {% if input_notvalid %}
-        <br aria-hidden="true">
-        <span id="invalid">{{ error_message }}</span>
-      {% endif %}
-
-      <button type='submit' class="btn btn-primary" name="submit" id="submit-btn">Sign Up</button>
-      <button type='submit' class="btn btn-primary" name="login" id="login-btn">Back to Login</button>
+  <main>
+    <!--pasword and email input boxes--> 
+    <div  id="signup-details">
       
-      </div>
-    </form>
-  </div>
-</main>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <div style="margin-top: -19%; position:relative; left: -47%;">
+          <h1 id="title">Sign Up</h1>
+          <label for="email" id="label">Email:</label>
+          <br>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          <br>
+          <label for="username" id="label">Username:</label>
+          <br>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+          <br>
+          <label for="password" id="label">Password:</label>
+          <br>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          <div class="logo">
+            <!--add logo here, posssibly?-->
+        </div>
+        
+        
+        <!--commented out until we're able to implement it
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me</label>
+        </div>-->
 
-<!--
-  special styling for the signup page
--->
+        <!--submit button-->     
+        {% if input_notvalid %}
+          <br>
+          <span id="invalid">{{ error_message }}</span>
+        {% endif %}
+        <button type='submit' class="btn btn-primary" name="submit" id="submit-btn">Sign Up</button>
+        <button type='submit' class="btn btn-primary" name="login" id="login-btn">Back to Login</button>
+        </div>
+      </form>
+    </div>
+  </main>
 
-<style>
+
+  <style>
   
   #img{
-    width:150%;
+    width:130%;
   }
+  #container {
+	text-align: center;
+}
+
+#text {
+	display: inline-block;
+	
+	color: rgb(255, 255, 255);
+	letter-spacing: 2px;
+}
+
+#cursor {
+	display: inline-block;
+	
+	width: 3px;
+	height: 40px;
+	background-color: rgb(255, 255, 255);
+	animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	35% { 
+		background-color: #8844d6; 
+	}
+}
     
   #logo{
     margin-left: 15%;
@@ -81,11 +103,11 @@
   }
 
   #mission{
-    width:30%;
-    margin-top:-3%;
-    margin-left:17%; 
+    width: 30%;
+    margin-top: 1%;
+    margin-left:15%; 
     font-family: Arial, Helvetica, sans-serif;
-    font-size:2vw;
+    
     font-weight: 400;
     position: static;
   }
@@ -99,7 +121,7 @@
     font-size:1.15vw;
     border-radius: 75px;
     margin-top: 5%;
-    width: 100%;
+    width: 175%;
   }
   
   #signup-btn{
@@ -109,7 +131,7 @@
     font-size:1.15vw;
     border-radius: 75px;
     margin-top: 7%; 
-    width: 100%;
+    width: 175%;
   }
 
   #login-btn{
@@ -119,14 +141,15 @@
     font-size:1.15vw;
     border-radius: 75px;
     margin-top: 7%; 
-    width: 100%;
+    width: 175%;
   }
 
   #signup-details{
-    margin-left: -60%;
+   margin-left:50%;
     width: 175%;
-    margin-top:-20%;
-    position: relative;
+    height:50%;
+    margin-top: -60%;
+    position: static;
   }
 
   #title{
@@ -145,7 +168,9 @@
     color:black;
     font-family: Arial, Helvetica, sans-serif;
     font-size:1.15vw;
+    width: 175%;
   }
+
 
   #invalid{
     color:white;
@@ -154,5 +179,78 @@
   }
   
 </style>
+<script>
+  // List of sentences
+var _CONTENT = [ 
+	"Unlocking high-growth careers", 
+	"Achieving opportunities", 
+	"Irrespective of past experience or needs", 
+	
+];
+
+// Current sentence being processed
+let _Part = 0;
+
+// Character number of the current sentence being processed 
+let _Part_Index = 0;
+
+// Holds the handle returned from setInterval
+let _Interval_Val;
+
+// Element that holds the text
+let _Element = document.querySelector("#text");
+
+// Cursor element 
+let _Cursor = document.querySelector("#cursor");
+
+// Implements typing effect
+function Type() { 
+	// Get substring with 1 characater added
+	let text =  _CONTENT[_Part].substring(0, _Part_Index + 1);
+	_Element.innerHTML = text;
+	_Part_Index++;
+
+	// If full sentence has been displayed then start to delete the sentence after some time
+	if(text === _CONTENT[_Part]) {
+		// Hide the cursor
+		_Cursor.style.display = 'none';
+
+		clearInterval(_Interval_Val);
+		setTimeout(function() {
+			_Interval_Val = setInterval(Delete, 50);
+		}, 1000);
+	}
+}
+
+// Implements deleting effect
+function Delete() {
+	// Get substring with 1 characater deleted
+	let text =  _CONTENT[_Part].substring(0, _Part_Index - 1);
+	_Element.innerHTML = text;
+	_Part_Index--;
+
+	// If sentence has been deleted then start to display the next sentence
+	if(text === '') {
+		clearInterval(_Interval_Val);
+
+		// If current sentence was last then display the first one, else move to the next
+		if(_Part == (_CONTENT.length - 1))
+    _Part = 0;
+		else
+    _Part++;
+		
+		_Part_Index = 0;
+
+		// Start to display the next sentence after some time
+		setTimeout(function() {
+			_Cursor.style.display = 'inline-block';
+			_Interval_Val = setInterval(Type, 50);
+		}, 100);
+	}
+}
+
+// Start the typing effect on load
+_Interval_Val = setInterval(Type, 100);
+</script>
 
 {% endblock %}
