@@ -27,7 +27,7 @@
         <div class="topnav">
           <a class="navbar-brand" href="#"><img src="{% static 'media/incskill.png' %}" alt="incskill logo" width="100" height="auto" style="margin-top: -10.32%;"></a>
           <!--there is no need for an auth check becausethe user will have already been redirected if they are logged in-->
-          <a class="navbar-brand" href="{% url 'courses' %}">My Courses</a>
+          <a class="navbar-brand" href="{% url 'courses' %}">IncSkill Dashboard</a>
           <a class="navbar-brand" href="{% url 'profile' %}"> {{user.username}} </a>
         </div>
       </nav>
